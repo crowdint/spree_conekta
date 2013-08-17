@@ -4,11 +4,11 @@ module Spree::Conekta
 
     def initialize(options = {})
       self.auth_token = options[:auth_token]
-      self.source_method = self.payment_processor(options[:source_method])
+      self.source_method = payment_processor(options[:source_method])
     end
 
     def authorize(amount, method_params, gateway_options = {})
-      common = build_common amount, gateway_options
+      common = build_common(amount, gateway_options)
       commit common, method_params
     end
 
@@ -19,22 +19,19 @@ module Spree::Conekta
     end
 
     def build_common(amount, gateway_params)
-      charge = {
-        'amount' => amount,
-        'currency' => gateway_params[:currency],
-        'description' => gateway_params[:order_id]
+      {
+          'amount' => amount,
+          'currency' => gateway_params[:currency],
+          'description' => gateway_params[:order_id],
+          'customer' => customer_info(gateway_params)
       }
-
-      add_customer(charge, gateway_params)
     end
 
-    def add_customer(charge, gateway_options)
+    def customer_info(gateway_options)
       customer = gateway_options[:billing_address]
       customer['street1'] = customer.delete(:address1)
       customer['street2'] = customer.delete(:address2)
-
-      charge['customer'] = customer
-      charge
+      customer
     end
   end
 end

@@ -8,11 +8,5 @@ module Spree
     def provider_class
       Spree::Conekta::Provider
     end
-
-    def authorize(money, credit_card, options = {})
-      debugger
-      provider.authorize(money, credit_card, options)
-    end
-
   end
 end

@@ -7,19 +7,20 @@
     <file path="/conekta_base_client.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376455280206" ignored="false" />
     <file path="/gateway.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376593659725" ignored="false" />
     <file path="/bank.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376453828624" ignored="false" />
-    <file path="/card.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376677594282" ignored="false" />
+    <file path="/card.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376758915694" ignored="false" />
     <file path="/cash.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376453842966" ignored="false" />
     <file path="/spec_helper.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376456047912" ignored="false" />
-    <file path="/conekta.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376678228675" ignored="false" />
+    <file path="/conekta.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376691274466" ignored="false" />
     <file path="/spree_conekta.gemspec" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376591258658" ignored="false" />
     <file path="/conekta_spec.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376457948401" ignored="false" />
     <file path="/engine.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376458076437" ignored="false" />
-    <file path="/client.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376586300185" ignored="false" />
-    <file path="/spree_conekta.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376585769341" ignored="false" />
+    <file path="/client.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376751833631" ignored="false" />
+    <file path="/spree_conekta.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376755356957" ignored="false" />
     <file path="/credit_card.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376601419531" ignored="false" />
-    <file path="/provider.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376674090664" ignored="false" />
+    <file path="/provider.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376750066201" ignored="false" />
     <file path="/data_cash.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376603123902" ignored="false" />
     <file path="/bogus_simple.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376676093698" ignored="false" />
+    <file path="/response.rb" changelist="d19a1079-a914-4d21-bd54-84ed528b6451" time="1376751525386" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,19 +40,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="conekta.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/spree/billing_integration/conekta.rb">
+      <file leaf-file-name="card.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/spree/conekta/payment_source/card.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="351" selection-end="351" vertical-scroll-proportion="0.4112478">
+            <state line="45" column="0" selection-start="1629" selection-end="1629" vertical-scroll-proportion="0.60294116">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="card.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/spree/conekta/payment_source/card.rb">
+      <file leaf-file-name="follow_redirects.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/faraday_middleware-0.9.0/lib/faraday_middleware/response/follow_redirects.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="17" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0">
+            <state line="34" column="8" selection-start="1426" selection-end="1426" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spree_conekta.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/spree_conekta.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="faraday_middleware.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/faraday_middleware-0.9.0/lib/faraday_middleware.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="24" selection-start="26" selection-end="43" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="response.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/spree/conekta/response.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="43" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cash.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/spree/conekta/payment_source/cash.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="engine.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/spree_conekta/engine.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="response.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/activemerchant-1.36.0/lib/active_merchant/billing/response.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="10" selection-start="123" selection-end="123" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -60,61 +115,7 @@
       <file leaf-file-name="client.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/spree/conekta/client.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="8" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/spree_conekta/application_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="credit_card.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/spree/credit_card.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="656" selection-end="656" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="checkout.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/order/checkout.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="10" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="processing.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/payment/processing.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="166" column="9" selection-start="5878" selection-end="5878" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bogus_simple.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/gateway/bogus_simple.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="40" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bogus.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/gateway/bogus.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="17" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
+            <state line="19" column="9" selection-start="367" selection-end="563" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -123,7 +124,7 @@
       <file leaf-file-name="provider.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/spree/conekta/provider.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="34" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0">
+            <state line="19" column="0" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -139,12 +140,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/spec/models/spree/billing_integration/conekta_spec.rb" />
         <option value="$PROJECT_DIR$/lib/spree_conekta/engine.rb" />
         <option value="$PROJECT_DIR$/app/views/spree/checkout/payment/_conekta.html.erb" />
         <option value="$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/billing_integration.rb" />
-        <option value="$PROJECT_DIR$/lib/spree_conekta.rb" />
-        <option value="$PROJECT_DIR$/lib/spree/conekta/client.rb" />
         <option value="$PROJECT_DIR$/spree_conekta.gemspec" />
         <option value="$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/credit_card.rb" />
         <option value="$PROJECT_DIR$/lib/spree/conekta/gateway.rb" />
@@ -152,14 +150,17 @@
         <option value="$PROJECT_DIR$/app/models/spree/credit_card.rb" />
         <option value="$PROJECT_DIR$/lib/active_merchant/billing/gateways/data_cash.rb" />
         <option value="$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/gateway/bogus_simple.rb" />
-        <option value="$PROJECT_DIR$/lib/spree/conekta/provider.rb" />
-        <option value="$PROJECT_DIR$/lib/spree/conekta/payment_source/card.rb" />
         <option value="$PROJECT_DIR$/app/models/spree/billing_integration/conekta.rb" />
+        <option value="$PROJECT_DIR$/lib/spree/conekta/provider.rb" />
+        <option value="$PROJECT_DIR$/lib/spree/conekta/response.rb" />
+        <option value="$PROJECT_DIR$/lib/spree/conekta/client.rb" />
+        <option value="$PROJECT_DIR$/lib/spree_conekta.rb" />
+        <option value="$PROJECT_DIR$/lib/spree/conekta/payment_source/card.rb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="17" />
+    <option name="x" value="49" />
     <option name="y" value="22" />
     <option name="width" value="1596" />
     <option name="height" value="932" />
@@ -490,24 +491,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spree_conekta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spree_conekta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spree_conekta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="spree" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -555,40 +538,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spree_conekta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spree_conekta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spree_conekta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spree" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -630,7 +579,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -649,6 +602,44 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spree_conekta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spree_conekta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spree_conekta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spree_conekta" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -952,7 +943,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="17" y="22" width="1596" height="932" extended-state="0" />
+    <frame x="49" y="22" width="1596" height="932" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1036,6 +1027,53 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/order/checkout.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="10" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/spree/conekta/payment_source/bank.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/payment_method.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1430" selection-end="1473" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/gateway.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="21" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/gateway/bogus.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="58" selection-start="1200" selection-end="1350" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/spree/billing_integration/conekta.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="7" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/activemerchant-1.36.0/lib/active_merchant/billing/response.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="10" selection-start="123" selection-end="123" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/spree_conekta/engine.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1043,107 +1081,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/spree_conekta/application.html.erb">
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/faraday_middleware-0.9.0/lib/faraday_middleware.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="24" selection-start="26" selection-end="43" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/spree/conekta/payment_source/cash.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/order.rb">
+    <entry file="file://$PROJECT_DIR$/lib/spree/conekta/response.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="33" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/spree_conekta.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/payment_method/check.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/gateway.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="8" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
+        <state line="5" column="43" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/spree/conekta/provider.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="34" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0">
+        <state line="19" column="0" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/spree/conekta/payment_source/card.rb">
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/faraday_middleware-0.9.0/lib/faraday_middleware/response/follow_redirects.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="17" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/gateway/bogus.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="17" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/gateway/bogus_simple.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="40" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/payment/processing.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="9" selection-start="5878" selection-end="5878" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p0/gems/spree_core-2.0.4/app/models/spree/order/checkout.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="10" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/spree/credit_card.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="656" selection-end="656" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/spree_conekta/application_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="34" column="8" selection-start="1426" selection-end="1426" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/spree/conekta/client.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="8" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
+        <state line="19" column="9" selection-start="367" selection-end="563" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/spree/billing_integration/conekta.rb">
+    <entry file="file://$PROJECT_DIR$/lib/spree_conekta.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="351" selection-end="351" vertical-scroll-proportion="0.4112478">
+        <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/spree/conekta/payment_source/card.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="1629" selection-end="1629" vertical-scroll-proportion="0.60294116">
           <folding />
         </state>
       </provider>

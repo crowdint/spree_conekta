@@ -1,4 +1,6 @@
 require 'spree_core'
+require 'nokogiri'
 require 'typhoeus/adapters/faraday'
 require 'faraday'
+require 'faraday_middleware'
 require 'spree_conekta/engine'
