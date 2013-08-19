@@ -3,13 +3,23 @@ module Spree::Conekta
     CONEKTA_API = 'https://api.conekta.io/'
     CHARGE_ENDPOINT = 'charges.json'
 
+    attr_accessor :auth_token
+
     PAYMENT_SOURCES = {
         'card' => Spree::Conekta::PaymentSource::Card,
         'bank' => Spree::Conekta::PaymentSource::Bank,
         'cash' => Spree::Conekta::PaymentSource::Cash
     }
 
-    attr_accessor :auth_token
+
+
+    def post(params)
+    Oj.load connection.post(CHARGE_ENDPOINT, Oj.dump(params)).body
+    end
+
+    def payment_processor(source_name)
+      PAYMENT_SOURCES[source_name]
+    end
 
     def connection
       Faraday.new(:url => CONEKTA_API) do |faraday|
@@ -26,14 +36,6 @@ module Spree::Conekta
           'Content-type' => ' application/json',
           'Authorization' => "Token token=\"#{auth_token}\""
       }
-    end
-
-    def post(params)
-    Oj.load connection.post(CHARGE_ENDPOINT, Oj.dump(params)).body
-    end
-
-    def payment_processor(source_name)
-      PAYMENT_SOURCES[source_name]
     end
   end
 end

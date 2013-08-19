@@ -14,7 +14,7 @@ module Spree::Conekta
 
 
     def capture(amount, method_params, gateway_options = {})
-
+      Response.new({}, gateway_options)
     end
 
     private

@@ -34,11 +34,11 @@ module Spree::Conekta::PaymentSource
       connection.headers['COOKIE'] = banorte_registration.headers['Set-Cookie']
       banorte_confirm = Nokogiri::HTML(connection.post(banorte_confirmation, { 'JavascriptEnabled' => 'NO'}).body)
 
-      conekta_requst = {}
+      conekta_request = {}
       conekta_url = banorte_confirm.css('form').first['action']
 
       banorte_confirm.css("input").each do |input|
-        conekta_requst[input['name']] = input['value']
+        conekta_request[input['name']] = input['value']
       end
 
       conekta_connection = Faraday.new do |f|

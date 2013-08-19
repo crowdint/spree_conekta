@@ -6,6 +6,7 @@ module Spree::Conekta
       @success = !(response.eql?('null') || response.include?('type'))
       @message = @success ? 'Ok' : response['message']
       @params = response
+      @authorization = response['id']
       @source_method = source_method
     end
 
