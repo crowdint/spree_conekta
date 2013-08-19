@@ -8,8 +8,6 @@ module Spree::Conekta::PaymentSource
           'exp_year' => method.year.to_s[-2,2],
           'exp_month' => sprintf('%02d', method.month)
       }
-
-      Rails.logger.debug common.inspect
     end
 
     def parse(response)
