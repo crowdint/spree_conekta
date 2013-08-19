@@ -12,6 +12,11 @@ module Spree::Conekta
       commit common, method_params
     end
 
+
+    def capture(amount, method_params, gateway_options = {})
+
+    end
+
     private
     def commit(common, method_params)
       source_method.request(common, method_params)
@@ -21,6 +26,7 @@ module Spree::Conekta
     def build_common(amount, gateway_params)
       {
           'amount' => amount,
+          'reference_id' => gateway_params[:order_id],
           'currency' => gateway_params[:currency],
           'description' => gateway_params[:order_id],
           'customer' => customer_info(gateway_params)
