@@ -11,10 +11,8 @@ module Spree::Conekta
         'cash' => Spree::Conekta::PaymentSource::Cash
     }
 
-
-
     def post(params)
-    Oj.load connection.post(CHARGE_ENDPOINT, Oj.dump(params)).body
+      Oj.load connection.post(CHARGE_ENDPOINT, Oj.dump(params)).body
     end
 
     def payment_processor(source_name)

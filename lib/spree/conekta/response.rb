@@ -3,12 +3,10 @@ module Spree::Conekta
     attr_accessor :response, :source_method
 
     def initialize(response, source_method)
-      @success = !(response.eql?('null') || response.include?('type'))
+      @success = !(response.eql?('null') || response.include?('type')) if response
       @message = @success ? 'Ok' : response['message']
       @params = response
-      @authorization = response['id']
       @source_method = source_method
     end
-
   end
 end
