@@ -5,33 +5,38 @@ describe Spree::Conekta::PaymentsController do
 
   let(:conekta_response){
     {
-      "id"=>"51CEF9FAF23668B1F4000001",
-      "created_at"=>"1376949736",
-      "livemode"=>"false",
-      "type"=>"charge.paid",
       "data"=>{
         "object"=>{
-          "id"=>"51D5EA80DB49596AA9000001",
-          "created_at"=>"1376949731",
-          "amount"=>"10000",
-          "fee"=>"310",
-          "currency"=>"MXN",
-          "status"=>"paid",
+          "id"=>"5213ecbf9328af245f00000a",
           "livemode"=>"false",
-          "description"=>"E-Book: Les Miserables",
-          "error"=>"",
-          "error_message"=>"",
-          "dispute"=>"",
+          "created_at"=>"1377037504",
+          "status"=>"paid",
+          "currency"=>"MXN",
+          "description"=>"R706552773-5TAPHAJT",
+          "reference_id"=>"R706552773-5TAPHAJT",
+          "failure_code"=>"",
+          "failure_message"=>"",
+          "amount"=>"10040",
+          "processed_at"=>"0",
+          "fee"=>"233",
+          "customer"=>{
+            "name"=>"Jonathan Garay",
+            "phone"=>"3123123",
+            "email"=>""
+          },
           "card"=>{
-            "last4"=>"1111",
-            "name"=>"Arturo Octavio Ortiz"
+            "name"=>"Jonathan Garay",
+            "exp_month"=>"09",
+            "exp_year"=>"25",
+            "country"=>"Mexico",
+            "brand"=>"VISA",
+            "last4"=>"1111"
           }
-        },
-        "previous_attributes"=>
-        {
-          "status"=>"payment_pending"
         }
-      }
+      },
+      "created_at"=>"1377037506",
+      "type"=>"charge.paid",
+      "id"=>"5213ecc29328af245f00000f"
     }
   }
 
@@ -40,12 +45,16 @@ describe Spree::Conekta::PaymentsController do
       let(:order_number){ conekta_response['data']['object']['reference_id'].split('-')[0] }
 
       before do
-        create(:order_with_totals, :number => 'R987654321', state: 'cart')
+        order = create(:order_with_totals, :number => 'R706552773')
+        create(:payment, :order => order,
+               :state => "pending",
+               :amount => order.outstanding_balance,
+               :payment_method => create(:bogus_payment_method, :environment => 'test'))
         post :create, conekta_response
       end
 
       it 'should mark a payment as completed' do
-        expect(Spree::Order.last).to be_completed
+        expect( Spree::Payment.joins(:order).where(spree_orders: { number: order_number }).first).to be_completed
       end
     end
   end

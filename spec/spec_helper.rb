@@ -4,6 +4,7 @@ require File.expand_path("../dummy/config/environment", __FILE__)
 require 'rspec/rails'
 require 'pry'
 require 'faker'
+require 'database_cleaner'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -24,6 +25,23 @@ RSpec.configure do |config|
   # Capybara javascript drivers require transactional fixtures set to false, and we just use DatabaseCleaner to cleanup after each test instead.
   # Without transactional fixtures set to false none of the records created to setup a test will be available to the browser, which runs under a seperate server instance.
   config.use_transactional_fixtures = false
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+
+    # TODO: Find out why open_transactions ever gets below 0
+    # See issue #3428
+    if ActiveRecord::Base.connection.open_transactions < 0
+      ActiveRecord::Base.connection.increment_open_transactions
+    end
+
+    DatabaseCleaner.start
+    reset_spree_preferences
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
   config.include FactoryGirl::Syntax::Methods
 

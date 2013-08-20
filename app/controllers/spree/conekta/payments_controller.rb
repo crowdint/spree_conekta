@@ -7,10 +7,13 @@ module Spree::Conekta
 
     private
     def update_order_payment
-      #TODO: we need to figure out how implement an ACL list for this method
       order_number = params['data']['object']['reference_id'].split('-')[0]
-      order = Spree::Order.by_number(order_number).first
-      order.payments.first.capture!
+      find_payment(order_number).try(:capture!)
+    end
+
+
+    def find_payment(order_id)
+      Spree::Payment.joins(:order).where(spree_orders: { number: order_id }).first
     end
   end
 end
