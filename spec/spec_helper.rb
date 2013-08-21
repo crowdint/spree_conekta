@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'pry'
 require 'faker'
 require 'database_cleaner'
+require 'oj'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

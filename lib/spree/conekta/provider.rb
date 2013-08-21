@@ -12,7 +12,6 @@ module Spree::Conekta
       commit common, method_params
     end
 
-
     def capture(amount, method_params, gateway_options = {})
       Response.new({}, gateway_options)
     end

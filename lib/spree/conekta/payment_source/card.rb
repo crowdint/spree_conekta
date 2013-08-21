@@ -11,7 +11,7 @@ module Spree::Conekta::PaymentSource
     end
 
     def parse(response)
-      engine_response =  Spree::Conekta::Response.new response, self
+      engine_response = Spree::Conekta::Response.new response, self
       complete_3d_secure(response['card']) if engine_response.success?
       engine_response
     end

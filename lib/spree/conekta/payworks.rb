@@ -1,6 +1,5 @@
 module Spree::Conekta
   class Payworks
-
     def initialize(card)
       @banorte_base = URI(card['redirect_form']['url'])
       @base_uri = @banorte_base.path.split('/')
@@ -26,7 +25,7 @@ module Spree::Conekta
 
     def request(url, params, headers = {})
       connection = build_connection
-      connection.headers = connection.headers.merge(headers)
+      connection.headers = headers
       connection.post url, params
     end
 
