@@ -41,7 +41,7 @@ describe Spree::Conekta::PaymentsController do
   }
 
   describe :create do
-    context 'The order is completed' do
+    context 'The order is completed and a pending payment exist' do
       let(:order_number){ conekta_response['data']['object']['reference_id'].split('-')[0] }
 
       before do
@@ -54,7 +54,7 @@ describe Spree::Conekta::PaymentsController do
       end
 
       it 'should mark a payment as completed' do
-        expect( Spree::Payment.joins(:order).where(spree_orders: { number: order_number }).first).to be_completed
+        expect(Spree::Payment.joins(:order).where(spree_orders: {number: order_number }).first).to be_completed
       end
     end
   end

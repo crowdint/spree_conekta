@@ -13,7 +13,10 @@ module Spree::Conekta
 
 
     def find_payment(order_id)
-      Spree::Payment.joins(:order).where(spree_orders: { number: order_id }).first
+      Spree::Payment.joins(:order)
+        .where(state: 'pending',
+               spree_orders: { number: order_id })
+        .readonly(false).first
     end
   end
 end
