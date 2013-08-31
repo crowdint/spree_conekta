@@ -11,16 +11,9 @@ module Spree::Conekta::PaymentSource
     end
 
     def parse(response)
-      engine_response = Spree::Conekta::Response.new response, self
-      complete_3d_secure(response['card']) if engine_response.success?
-      engine_response
+      Spree::Conekta::Response.new response, self
     end
 
-    def complete_3d_secure(card)
-      payworks = Spree::Conekta::Payworks.new card
-      payworks.banorte_payment
-    end
-
-    module_function :request, :parse, :complete_3d_secure
+    module_function :request, :parse
   end
 end

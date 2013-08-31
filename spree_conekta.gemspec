@@ -17,6 +17,9 @@ Gem::Specification.new do |s|
 
 
   s.add_dependency 'spree_core', '~> 2.0'
+  s.add_dependency 'spree_frontend', '~> 2.0'
+  s.add_dependency 'spree_backend', '~> 2.0'
+
   s.add_dependency 'oj'
   s.add_dependency 'faraday'
   s.add_dependency 'typhoeus'

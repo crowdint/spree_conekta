@@ -6,6 +6,7 @@ require 'pry'
 require 'faker'
 require 'database_cleaner'
 require 'oj'
+require 'spree_frontend'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

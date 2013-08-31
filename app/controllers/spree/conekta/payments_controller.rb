@@ -1,5 +1,13 @@
 module Spree::Conekta
-  class PaymentsController < ActionController::Base
+  class PaymentsController < Spree::StoreController
+    ssl_required
+
+    def show
+      order = Spree::Order.find_by_number(params[:id])
+      @redirect_form = order.last_payment_details
+                           .params['card']['redirect_form']
+    end
+
     def create
       update_order_payment if params['type'].eql? 'charge.paid'
       render nothing: true

@@ -1,5 +1,5 @@
 Spree::Core::Engine.routes.draw do
   namespace :conekta do
-    resource :payments, only: [:create]
+    resources :payments, only: [:create, :show]
   end
 end
