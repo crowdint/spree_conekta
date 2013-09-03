@@ -6,6 +6,7 @@ PATH
       faraday
       faraday_middleware
       oj
+      spree_api (~> 2.0)
       spree_backend (~> 2.0)
       spree_core (~> 2.0)
       spree_frontend (~> 2.0)
@@ -263,6 +264,7 @@ DEPENDENCIES
   debugger
   factory_girl
   faker
+  nokogiri
   pry
   rspec-rails (~> 2.13)
   spree_conekta!

@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'spree_core', '~> 2.0'
   s.add_dependency 'spree_frontend', '~> 2.0'
   s.add_dependency 'spree_backend', '~> 2.0'
+  s.add_dependency 'spree_api', '~> 2.0'
 
   s.add_dependency 'oj'
   s.add_dependency 'faraday'
@@ -33,5 +34,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry'
   s.add_development_dependency 'faker'
   s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'nokogiri'
 
 end

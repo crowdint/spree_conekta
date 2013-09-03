@@ -1,18 +1,3 @@
 <h1><%=t ('conekta.additional_steps_warning') %></h1>
 <h2><%=t ('conekta.redirecting_message') %> <%=t ('conekta.redirecting_on') %></h2>
-
-<form id='redirectForm' target='conekta' method='<%= @redirect_form['action'] %>' action='<%= @redirect_form['url'] %>'>
-<% @redirect_form['attributes'].each do |k, v| %>
-   <input name="<%= k %>" value='<%= v %>' type='hidden'></input>
-<%-end%>
-</form>
-
-<iframe id='conekta' style='height: 400px;
-width: 50%; border' frameborder="0"></iframe>
-
-<script>
-  setTimeout(function() {
-    $('#redirectForm').submit();
-    $('#redirectForm').remove();
-  }, 2000);
-</script>
+<%= render partial: @order.last_payment_source %>

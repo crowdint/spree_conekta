@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Spree::Conekta::PaymentsController do
+#  render_views
   routes { Spree::Core::Engine.routes }
 
   let(:conekta_response){
@@ -13,7 +14,6 @@ describe Spree::Conekta::PaymentsController do
           "status"=>"paid",
           "currency"=>"MXN",
           "description"=>"R706552773-5TAPHAJT",
-          "reference_id"=>"R706552773-5TAPHAJT",
           "failure_code"=>"",
           "failure_message"=>"",
           "amount"=>"10040",
@@ -23,14 +23,6 @@ describe Spree::Conekta::PaymentsController do
             "name"=>"Jonathan Garay",
             "phone"=>"3123123",
             "email"=>""
-          },
-          "card"=>{
-            "name"=>"Jonathan Garay",
-            "exp_month"=>"09",
-            "exp_year"=>"25",
-            "country"=>"Mexico",
-            "brand"=>"VISA",
-            "last4"=>"1111"
           }
         }
       },
@@ -40,21 +32,26 @@ describe Spree::Conekta::PaymentsController do
     }
   }
 
+  let(:reference){ conekta_response['data']['object']['reference_id'] = "RT#{rand(0..1000)}-XCVBC" }
+  let(:order_number){ reference.split('-')[0] }
+  let(:order){ create(:order_with_totals, :number => order_number) }
+
+  before do
+    create(:payment, :order => order,
+           :state => "pending",
+           :amount => order.outstanding_balance,
+           :payment_method => create(:bogus_payment_method, :environment => 'test'))
+
+  end
+
   describe :create do
     context 'The order is completed and a pending payment exist' do
-      let(:order_number){ conekta_response['data']['object']['reference_id'].split('-')[0] }
-
       before do
-        order = create(:order_with_totals, :number => 'R706552773')
-        create(:payment, :order => order,
-               :state => "pending",
-               :amount => order.outstanding_balance,
-               :payment_method => create(:bogus_payment_method, :environment => 'test'))
         post :create, conekta_response
       end
 
       it 'should mark a payment as completed' do
-        expect(Spree::Payment.joins(:order).where(spree_orders: {number: order_number }).first).to be_completed
+        expect(Spree::Payment.joins(:order).where(spree_orders: {number: order_number }).last).to be_completed
       end
     end
   end

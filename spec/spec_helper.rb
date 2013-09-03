@@ -6,6 +6,10 @@ require 'pry'
 require 'faker'
 require 'database_cleaner'
 require 'oj'
+
+require 'spree_api'
+require 'spree_core'
+require 'spree_backend'
 require 'spree_frontend'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -20,6 +24,8 @@ require 'spree/testing_support/flash'
 require 'spree/testing_support/url_helpers'
 require 'spree/testing_support/order_walkthrough'
 require 'spree/testing_support/capybara_ext'
+require 'spree/api/testing_support/helpers'
+require 'spree/api/testing_support/setup'
 
 RSpec.configure do |config|
   config.color = true

@@ -1,0 +1,13 @@
+<h1><%= t('conekta.cash.payment_title') %></h1>
+<p>
+  <%= t('conekta.cash.payment_message') %>
+</p>
+
+<div id='total_amount'>
+  <%= t('conekta.cash.total') %>: <%= @order.amount %>
+</div>
+
+<div id='barcode'>
+  <%= image_tag(@order_details['cash']['barcode_url'] ) %>
+  <%= @order_details['cash']['barcode'] %>
+</div>

@@ -3,9 +3,8 @@ module Spree::Conekta
     ssl_required
 
     def show
-      order = Spree::Order.find_by_number(params[:id])
-      @redirect_form = order.last_payment_details
-                           .params['card']['redirect_form']
+      @order = Spree::Order.find_by_number(params[:id])
+      @order_details = @order.last_payment_details.params
     end
 
     def create
