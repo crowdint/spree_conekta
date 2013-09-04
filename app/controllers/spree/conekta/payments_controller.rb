@@ -18,7 +18,6 @@ module Spree::Conekta
       find_payment(order_number).try(:capture!)
     end
 
-
     def find_payment(order_id)
       Spree::Payment.joins(:order)
         .where(state: 'pending',
