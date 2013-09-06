@@ -1,15 +1,35 @@
-<form id='redirectForm' target='conekta' method='<%= @order_details['card']['redirect_form']['action'] %>' action='<%=@order_details['card']['redirect_form']['url'] %>'>
-  <% @order_details['card']['redirect_form']['attributes'].each do |k, v| %>
-   <input name="<%= k %>" value='<%= v %>' type='hidden'></input>
-  <%-end%>
-</form>
+<%= javascript_include_tag "spree_conekta" %>
 
-<iframe id='conekta' style='height: 400px;
-width: 50%; border' frameborder="0"></iframe>
+<h1><%= t('conekta.cash.processing_order')%></h1>
+
+<iframe style='display:none;' id='conekta_iframe_wrapper'></iframe>
 
 <script>
   setTimeout(function() {
-    $('#redirectForm').submit();
-    $('#redirectForm').remove();
+      var socket;
+
+      socket = new easyXDM.Socket({
+          swf: "https://s3.amazonaws.com/conekta_api/flash/easyxdm.swf",
+          remote: "https://api.conekta.io/iframe_proxy.html",
+          container: 'conekta_iframe_wrapper',
+          props: {
+              style: {
+                  width: '376px',
+                  height: '400px',
+                  position: 'relative',
+                  left: '-188px',
+                  'margin-top': '-200px',
+                  'overflow-x': 'hidden',
+                  'overflow-y': 'hidden'
+              },
+              scrolling: 'no'
+          },
+          onMessage: function(message, origin) {
+              socket.destroy();
+              window.location = '/orders/<%= @order.number %>';
+          }
+      });
+
+      socket.postMessage(JSON.stringify(<%= raw(@order_details['card']['redirect_form'].to_json ) %>));
   }, 2000);
 </script>
