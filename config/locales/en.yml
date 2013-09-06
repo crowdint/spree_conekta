@@ -1,0 +1,13 @@
+en:
+  conekta:
+    card:
+      processing_order: Prossesing order please way
+    cash:
+      payment_title: Payment with OXXO
+      total: Total
+      payment_messag: Your order will be processed 10 hours after your paymen
+    bank:
+      payment_title: Banorte deposit
+      service_number: Service Number
+      reference: Reference
+      payment_message: Present the reference number at Banorte branch
