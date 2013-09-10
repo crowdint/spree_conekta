@@ -132,10 +132,10 @@
     <div id="po-body">
       <div id="po-body-wrapper" style="padding: 30px 20px">
         <div class="left">
-          <h2 class="highlight">INFORMACIÓN DE PAGO</h2>
+          <h2 class="highlight"> <%= t('conekta.cash.title') %> </h2>
           <table>
             <tr style="height:80px;">
-              <td>CÓDIGO DE BARRAS</td>
+              <td> <%= t('conekta.cash.bar_code') %> </td>
               <td class="highlight">
                 <%= image_tag(@order_details['cash']['barcode_url']) %>
                 <div><%= @order_details['cash']['barcode'] %></div>
@@ -144,16 +144,16 @@
             <tr>
               <td> <%= t('conekta.cash.total') %></td>
               <td class="highlight">$
-                <%= @order.amount %>
+                <%= number_to_currency @order.amount %>
               </td>
             </tr>
           </table>
         </div>
         <div class="right">
           <div class="wrapper">
-            <h3 class="highlight">SIGUIENTE PASO</h3>
+            <h3 class="highlight"> <%= t('conekta.cash.next_step') %> </h3>
 
-            <p class="enhance">  <%= t('conekta.cash.payment_message') %></p>
+            <p class="enhance"> <%= t('conekta.cash.payment_message') %> </p>
           </div>
         </div>
         <div class="clear"></div>
@@ -161,7 +161,7 @@
     </div>
   </div>
   <div id="print">
-    <a class="right buttons" onclick="print();" id='pbutton'>IMPRIMIR FICHA DE PAGO</a>
+    <a class="right buttons" onclick="print();" id='pbutton'> <%= t('conekta.cash.print_payment_form') %> </a>
 
     <div class="clear"></div>
   </div>

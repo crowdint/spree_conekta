@@ -4,11 +4,13 @@ es-MX:
     card:
       processing_order:procesando su pago espere un momento
     cash:
+      bar_code: CÓDIGO DE BARRAS
+      next_step: SIGUIENTE PASO
+      payment_message: Imprime este formulario y preséntalo en el OXXO mas cercano para realizar tu pago.
       payment_title: Pago a través de OXXO
+      print_payment_form: IMPRIMIR FICHA DE PAGO
+      title: INFORMACIÓN DE PAGO
       total: Total
-      payment_message: |
-        Imprime este formulario, presentalo en el OXXO mas cercano y con el podras realizar tu pago,
-        el cual será procesado hasta las 10 AM del siguiente día hábil en que realizaste el pago.
     bank:
       payment_title: Depósito en ventanilla Banorte
       service_number: Numero de servicio

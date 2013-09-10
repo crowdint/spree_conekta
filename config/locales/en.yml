@@ -4,11 +4,13 @@ en:
     card:
       processing_order: Prossesing order please way
     cash:
+      bar_code: BAR CODE
+      next_step: NEXT STEP
+      payment_message: Print this form and take it to the nearest OXXO to make your payment.
       payment_title: Payment with OXXO
+      print_payment_form: PRINT PAYMENT FORM
+      title: PAYMENT INFORMATION
       total: Total
-      payment_messag: |
-        Print this form, take it to the nearest OXXO to make your payment,
-        wich will be processed 10 hours after your payment.
     bank:
       payment_title: Banorte deposit
       service_number: Service Number
