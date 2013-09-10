@@ -6,7 +6,9 @@ en:
     cash:
       payment_title: Payment with OXXO
       total: Total
-      payment_messag: Your order will be processed 10 hours after your paymen
+      payment_messag: |
+        Print this form, take it to the nearest OXXO to make your payment,
+        wich will be processed 10 hours after your payment.
     bank:
       payment_title: Banorte deposit
       service_number: Service Number
