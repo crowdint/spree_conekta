@@ -1,11 +1,12 @@
 es-MX:
   conekta:
+    additional_steps_warning: Pasos adicionales para completar su pago
     card:
       processing_order:procesando su pago espere un momento
     cash:
       payment_title: Pago a través de OXXO
       total: Total
-      payment_messag: Tu pago será procesado hasta las 10 AM del siguiente día hábil en que realizaste el pago.
+      payment_message: Tu pago será procesado hasta las 10 AM del siguiente día hábil en que realizaste el pago.
     bank:
       payment_title: Depósito en ventanilla Banorte
       service_number: Numero de servicio

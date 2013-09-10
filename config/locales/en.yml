@@ -1,5 +1,6 @@
 en:
   conekta:
+    additional_steps_warning: Additional steps to complete your payment
     card:
       processing_order: Prossesing order please way
     cash:
