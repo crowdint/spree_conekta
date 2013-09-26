@@ -1,0 +1,11 @@
+<%- @order_details = @order.last_payment_details.params %>
+
+<table>
+  <tr>
+    <td> <%= t('conekta.cash.bar_code') %> </td>
+    <td>
+      <%= image_tag(@order_details['cash']['barcode_url']) %>
+      <div><%= @order_details['cash']['barcode'] %></div>
+    </td>
+  </tr>
+</table>
