@@ -1,35 +1,32 @@
-<%= javascript_include_tag "spree_conekta" %>
+<%- @order_details = @order.last_payment_details.params %>
 
-<h1><%= t('conekta.card.processing_order')%></h1>
+<table class='print' id='conekta_bank'>
+  <thead>
+    <tr>
+      <th class='title' colspan='2'> <%= t('conekta.order_number', number: @order.number) %> </th>
+    </tr>
+    <tr>
+      <th> <%= t('conekta.bank.service_number') %> </th>
+      <th> <%= t('conekta.bank.reference') %> </th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan='2'> <%= raw t('conekta.bank.payment_message') %> </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td class='align-center'> <%= @order_details['bank']['service_number'] %> </td>
+      <td class='align-center'> <%= @order_details['bank']['reference'] %> </td>
+    </tr>
+    <tr>
+      <td class='align-right'> <%= t('conekta.total') %> </td>
+      <td class='align-center'><%= money(@order.total) %></td>
+    </tr>
+  </tbody>
+</table>
 
-<iframe style='display:none;' id='conekta_iframe_wrapper'></iframe>
-
-<script>
-  setTimeout(function() {
-      var socket;
-
-      socket = new easyXDM.Socket({
-          swf: "https://s3.amazonaws.com/conekta_api/flash/easyxdm.swf",
-          remote: "https://api.conekta.io/iframe_proxy.html",
-          container: 'conekta_iframe_wrapper',
-          props: {
-              style: {
-                  width: '376px',
-                  height: '400px',
-                  position: 'relative',
-                  left: '-188px',
-                  'margin-top': '-200px',
-                  'overflow-x': 'hidden',
-                  'overflow-y': 'hidden'
-              },
-              scrolling: 'no'
-          },
-          onMessage: function(message, origin) {
-              socket.destroy();
-              window.location = '/orders/<%= @order.number %>';
-          }
-      });
-
-      socket.postMessage(JSON.stringify(<%= raw(@order_details['card']['redirect_form'].to_json ) %>));
-  }, 2000);
-</script>
+<a id='pbutton' href='#' class='icon-print' onclick='printDoc("#conekta_bank")'>
+  <%= t('conekta.cash.print_payment_form') %>
+</a>

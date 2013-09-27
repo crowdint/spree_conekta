@@ -1,0 +1,35 @@
+window.spreeConekta || (window.spreeConekta = {})
+
+spreeConekta.Utils = (function(){
+  function Utils(args) {
+    this.printable = args.printable;
+    this.options = args.options;
+    if (args.trigger) {
+      this.setup(args.trigger)
+    };
+  };
+
+  Utils.prototype.print = function (){
+    this.printable.printThis(this.options);
+  };
+
+  Utils.prototype.setup = function(trigger) {
+    _this_ = this;
+    trigger.on('click', function(event){
+      event.preventDefault();
+      _this_.print();
+    })
+  };
+
+
+  return Utils;
+})();
+
+
+function printDoc(printable) {
+  printer = new spreeConekta.Utils({
+    printable: $(printable),
+    options: { loadCSS: "<%= asset_path('admin/print.css.sass') %>" }
+  });
+  printer.print();
+};

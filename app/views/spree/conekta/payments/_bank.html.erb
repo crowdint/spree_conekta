@@ -1,117 +1,3 @@
-<style>
-    #pbutton {
-        margin-top: 10px;
-        padding: 10px;
-        display: inline-block;
-        color: #977425;
-        font-size: 16px !important;
-        font-weight: 400;
-        text-shadow: 0 1px 0 rgba(255, 255, 255, .6);
-        text-align: center;
-        text-decoration: none;
-        -moz-border-radius: 4px;
-        -webkit-border-radius: 4px;
-        border-top: 1px solid #FCF170;
-        border-bottom: 1px solid #CE9A53;
-        border-radius: 4px;
-        background: #FBD24F;
-        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-        background: -moz-linear-gradient(top, #fee44a 0%, #fbd24f 50%, #f7c052 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fee44a), color-stop(50%, #fbd24f), color-stop(100%, #f7c052));
-        background: -webkit-linear-gradient(top, #fee44a 0%, #fbd24f 50%, #f7c052 100%);
-        background: -o-linear-gradient(top, #fee44a 0%, #fbd24f 50%, #f7c052 100%);
-        background: -ms-linear-gradient(top, #fee44a 0%, #fbd24f 50%, #f7c052 100%);
-        background: linear-gradient(to bottom, #fee44a 0%, #fbd24f 50%, #f7c052 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fee44a', endColorstr='#f7c052', GradientType=0);
-        cursor: pointer;
-        -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    }
-
-    #payment-order {
-        margin-top: 25px;
-    }
-
-    #po-header {
-        margin-bottom: 35px;
-    }
-
-    #po-header span {
-        display: block;
-        width: 250px;
-        height: 89px;
-        border-right: 1px solid #E1E2E3;
-    }
-
-    .left {
-        float: left;
-    }
-
-    #seller-co-logo {
-        border-right: none !important;
-    }
-
-    .right {
-        float: right;
-    }
-
-    #payment-order h1 {
-        padding-top: 11px;
-        font-size: 22px;
-        text-align: right;
-        line-height: 23px;
-    }
-
-    .clear {
-        clear: both;
-    }
-
-    #po-body {
-        border: 1px solid #E1E2E3;
-    }
-
-    @media print {
-        body * {
-            visibility: hidden;
-        }
-
-        #po-wrapper * {
-            visibility: visible;
-        }
-
-        #po-wrapper {
-            position: absolute;
-            top: 40px;
-            left: 30px;
-        }
-
-        div, span, td, h1, h2, h3 {
-            color: #000000;
-        }
-    }
-
-    #print, #po-footer {
-        text-shadow: none;
-    }
-
-    #po-body-wrapper tr:nth-child(odd) {
-        background: #FFFFFF ! important;
-    }
-
-    #po-body-wrapper tr:nth-child(even) {
-        background: #F7F8F8;
-    }
-
-    #po-body h2.highlight:first {
-        padding-bottom: 11px;
-    }
-
-    #po-header span {
-        width: 250px ! important;
-    }
-</style>
-
 <div id="payment-order">
   <div id="po-wrapper">
     <div id="po-header">
@@ -145,7 +31,7 @@
           <div class="wrapper">
             <h3 class="highlight">SIGUIENTE PASO</h3>
 
-            <p class="enhance">  <%= t('conekta.bank.payment_message') %></p>
+            <p class="enhance">  <%= raw(t('conekta.bank.payment_message')) %></p>
           </div>
         </div>
         <div class="clear"></div>
@@ -153,9 +39,8 @@
     </div>
   </div>
   <div id="print">
-    <a class="right buttons" onclick="print();" id='pbutton'>IMPRIMIR FICHA DE PAGO</a>
+    <a class="right buttons" id='pbutton' onclick='printDoc("#po-body")'>IMPRIMIR FICHA DE PAGO</a>
 
     <div class="clear"></div>
   </div>
 </div>
-
