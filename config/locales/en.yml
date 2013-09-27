@@ -16,3 +16,5 @@ en:
       service_number: Service Number
       reference: Reference
       payment_message: Present the reference number at Banorte branch
+    order_number: 'Order Number: %{number}'
+    total: 'Total:'
