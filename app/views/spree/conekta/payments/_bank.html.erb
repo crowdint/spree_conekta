@@ -1,46 +1,30 @@
-<div id="payment-order">
-  <div id="po-wrapper">
-    <div id="po-header">
-         <span class="left" id="pagalo-co-logo">
-         <img id="logo" src="https://s3.amazonaws.com/conekta/v5/img/conekta-brand.png" style="max-width:250px;max-height:100px;">
-         </span>
-      <h1 class="right"><%= t('conekta.bank.payment_title') %></h1>
+<h1><%= t("conekta.bank.payment_title") %></h1>
 
-      <div class="clear"></div>
-    </div>
-    <div id="po-body">
-      <div id="po-body-wrapper" style="padding: 30px 20px">
-        <div class="left">
-          <h2 class="highlight">INFORMACIÓN DE PAGO</h2>
-          <table>
-            <tr>
-              <td> <%= t('conekta.bank.service_number') %> </td>
-              <td class="highlight">
-                <%= @order_details['bank']['service_number'] %>
-              </td>
-            </tr>
-            <tr>
-              <td> <%= t('conekta.bank.reference') %></td>
-              <td class="highlight">
-                <%= @order_details['bank']['reference'] %>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="right">
-          <div class="wrapper">
-            <h3 class="highlight">SIGUIENTE PASO</h3>
-
-            <p class="enhance">  <%= raw(t('conekta.bank.payment_message')) %></p>
-          </div>
-        </div>
-        <div class="clear"></div>
-      </div>
-    </div>
-  </div>
-  <div id="print">
-    <a class="right buttons" id='pbutton' onclick='printDoc("#po-body")'>IMPRIMIR FICHA DE PAGO</a>
-
-    <div class="clear"></div>
-  </div>
-</div>
+<table id='conekta_bank' class='payment-information'>
+  <thead>
+    <tr>
+      <th colspan='2'> <%= t('conekta.order_number', number: @order.number) %> </th>
+    </tr>
+    <tr>
+      <th> <%= t('conekta.bank.service_number') %> </th>
+      <th> <%= t('conekta.bank.reference') %> </th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan='2'> <%= raw t('conekta.bank.payment_message') %> </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td class='align-center'> <%= @order_details['bank']['service_number'] %> </td>
+      <td class='align-center'> <%= @order_details['bank']['reference'] %> </td>
+    </tr>
+    <tr>
+      <td class='align-right' colspan='2'>
+        <b><%= t('conekta.total') %></b>
+        <%= money(@order.total) %>
+      </td>
+    </tr>
+  </tbody>
+</table>

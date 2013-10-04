@@ -1,49 +1,32 @@
-<div id="payment-order">
-  <div id="po-wrapper">
-    <div id="po-header">
-         <span class="left" id="pagalo-co-logo">
-         <img id="logo" src="https://s3.amazonaws.com/conekta/v5/img/conekta-brand.png" style="max-width:250px;max-height:100px;">
-         </span>
-      <span class="left" id="seller-co-logo"><img src="https://s3.amazonaws.com/pagalo/oxxo_logo.png" style="height:80px;padding-left:20px;"></span>
+<img class='conekta-oxxo' src='https://s3.amazonaws.com/pagalo/oxxo_logo.png'></img>
+<h1 id='oxxo-title'><%= t("conekta.cash.payment_title") %></h1>
 
-      <h1 class="right"><%= t('conekta.cash.payment_title') %></h1>
-
-      <div class="clear"></div>
-    </div>
-    <div id="po-body">
-      <div id="po-body-wrapper" style="padding: 30px 20px">
-        <div class="left">
-          <h2 class="highlight"> <%= t('conekta.cash.title') %> </h2>
-          <table>
-            <tr style="height:80px;">
-              <td> <%= t('conekta.cash.bar_code') %> </td>
-              <td class="highlight">
-                <%= image_tag(@order_details['cash']['barcode_url']) %>
-                <div><%= @order_details['cash']['barcode'] %></div>
-              </td>
-            </tr>
-            <tr>
-              <td> <%= t('conekta.cash.total') %></td>
-              <td class="highlight">
-                <%= number_to_currency @order.amount %>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="right">
-          <div class="wrapper">
-            <h3 class="highlight"> <%= t('conekta.cash.next_step') %> </h3>
-
-            <p class="enhance"> <%= t('conekta.cash.payment_message') %> </p>
-          </div>
-        </div>
-        <div class="clear"></div>
-      </div>
-    </div>
-  </div>
-  <div id="print">
-    <a class="right buttons" id='pbutton' onclick='printDoc("#po-body")'> <%= t('conekta.cash.print_payment_form') %> </a>
-
-    <div class="clear"></div>
-  </div>
-</div>
+<table id='conekta_cash' class='payment-information'>
+  <thead>
+    <tr>
+      <th colspan='2'> <%= t('conekta.order_number', number: @order.number) %> </th>
+    </tr>
+    <tr>
+      <th colspan='2'> <%= t('conekta.cash.bar_code') %> </th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan='2'> <%= raw t('conekta.cash.payment_message') %> </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td class='align-center' id='barcode'>
+        <%= image_tag(@order_details['cash']['barcode_url']) %>
+        <div><%= @order_details['cash']['barcode'] %></div>
+      </td>
+    </tr>
+    <tr>
+      <td class='align-right'>
+        <b><%= t('conekta.total') %></b>
+        <%= money(@order.total) %>
+      </td>
+    </tr>
+  </tbody>
+</table>
