@@ -1,2 +1,14 @@
-<h1><%=t ('conekta.additional_steps_warning') %></h1>
-<%= render partial: @order.last_payment_source %>
+<section id='order-payment'>
+  <header class='order-title'>
+    <div class='logos'>
+      <img class='conekta-brand' src='https://s3.amazonaws.com/conekta/v5/img/conekta-brand.png' alt='Conekta'></img>
+    </div>
+    <h2 class='payment-title'><%= t('conekta.title') %></h2>
+  </header>
+  <div class='order-body'>
+    <%= render partial: @order.last_payment_source %>
+  </div>
+  <footer class='order-footer'>
+    <%= button_tag t('conekta.print_payment_form'), class: 'right', onclick: 'printDoc("#order-payment")' %>
+  </footer>
+</section>
