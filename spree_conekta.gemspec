@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Spree Engine for Conekta Mexican Payment gateway'
   s.description = 'Spree Engine for Conekta Mexican Payment gateway'
 
-  s.files = Dir['{app,config,models,db,lib}/**/*'] + %w(MIT-LICENSE Rakefile README.rdoc)
+  s.files = Dir['{app,config,models,db,lib}/**/*'] + %w(MIT-LICENSE Rakefile README.md)
 
 
   s.add_dependency 'spree_core', '~> 2.0'
