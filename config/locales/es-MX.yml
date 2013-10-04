@@ -5,16 +5,16 @@ es-MX:
       processing_order: Procesando su pago espere un momento
     cash:
       bar_code: Código de barras
-      next_step: Siguiente paso
       payment_message: Imprime este formulario y preséntalo en el Oxxo mas cercano para realizar tu pago.
       payment_title: Pago a través de Oxxo
-      print_payment_form: Imprimir ficha de pago
-      title: Información de pago
       total: Total
     bank:
       payment_title: Depósito en ventanilla Banorte
       service_number: Número de servicio
       reference: Referencia
       payment_message: 'Presente este número de referencia en cualquier sucursal: <strong> Banorte </strong>'
+    title: Información de pago
+    next_step: Siguiente paso
     order_number: 'Número de orden: %{number}'
+    print_payment_form: Imprimir ficha de pago
     total: 'Total a pagar:'
