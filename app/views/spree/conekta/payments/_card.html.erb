@@ -28,6 +28,5 @@ setTimeout(function() {
     }
   });
 
-  socket.postMessage(JSON.stringify(<%= raw(@order_details['card']['redirect_form'].to_json ) %>));
 }, 2000);
 </script>
