@@ -9,7 +9,7 @@ module Spree::Conekta
 
     def authorize(amount, method_params, gateway_options = {})
       common = build_common(amount, gateway_options)
-      commit common, method_params
+      commit common, method_params, gateway_options
     end
 
     def capture(amount, method_params, gateway_options = {})
@@ -17,8 +17,8 @@ module Spree::Conekta
     end
 
     private
-    def commit(common, method_params)
-      source_method.request(common, method_params)
+    def commit(common, method_params, gateway_options)
+      source_method.request(common, method_params, gateway_options)
       Spree::Conekta::Response.new post(common), source_method
     end
 

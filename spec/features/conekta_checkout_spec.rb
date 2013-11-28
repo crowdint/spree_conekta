@@ -10,7 +10,9 @@ describe "Stripe checkout" do
   let!(:conekta_payment) do
     Spree::BillingIntegration::Conekta.create!(
       :name => "conekta",
-      :environment => "test"
+      :environment => "test",
+      :preferred_source_method => 'card',
+      :preferred_auth_token => '1tv5yJp3xnVZ7eK67m4h'
     )
   end
 
@@ -31,6 +33,7 @@ describe "Stripe checkout" do
     Spree::CheckoutController.any_instance.stub(:skip_state_validation? => true)
 
     visit spree.checkout_state_path(:payment)
+    sleep(2)
   end
 
   # This will pass the CC data to the server and the StripeGateway class handles it

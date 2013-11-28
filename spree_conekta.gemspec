@@ -15,12 +15,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,models,db,lib}/**/*'] + %w(MIT-LICENSE Rakefile README.md)
 
-
-  s.add_dependency 'spree_core', '~> 2.1'
-  s.add_dependency 'spree_frontend', '~> 2.1'
-  s.add_dependency 'spree_backend', '~> 2.1'
-  s.add_dependency 'spree_api', '~> 2.1'
-
+  s.add_dependency 'spree', '~> 2.1'
 
   s.add_dependency 'oj'
   s.add_dependency 'faraday'
@@ -36,7 +31,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'faker'
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'spork'
-
+  s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'capybara-webkit'
   s.add_development_dependency 'capybara'
 
