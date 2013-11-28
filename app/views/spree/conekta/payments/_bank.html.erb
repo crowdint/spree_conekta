@@ -23,7 +23,7 @@
     <tr>
       <td class='align-right' colspan='2'>
         <b><%= t('conekta.total') %></b>
-        <%= money(@order.total) %>
+        <%= @order.display_total.to_html %>
       </td>
     </tr>
   </tbody>
