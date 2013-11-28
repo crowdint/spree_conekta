@@ -32,7 +32,7 @@ module Spree::Conekta
       {
           'Accept' => ' application/vnd.conekta-v0.2.0+json',
           'Content-type' => ' application/json',
-          'Authorization' => "Token token=\"#{auth_token}\""
+          'Authorization' => "Basic #{auth_token}:"
       }
     end
   end

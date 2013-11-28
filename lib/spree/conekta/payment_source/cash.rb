@@ -6,10 +6,6 @@ module Spree::Conekta::PaymentSource
       }
     end
 
-    def parse(response)
-      Spree::Conekta::Response.new response, self
-    end
-
-    module_function :request, :parse
+    module_function :request
   end
 end

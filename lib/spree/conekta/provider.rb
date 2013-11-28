@@ -19,24 +19,16 @@ module Spree::Conekta
     private
     def commit(common, method_params)
       source_method.request(common, method_params)
-      source_method.parse(post(common))
+      Spree::Conekta::Response.new post(common), source_method
     end
 
     def build_common(amount, gateway_params)
       {
-          'amount' => amount,
-          'reference_id' => gateway_params[:order_id],
-          'currency' => gateway_params[:currency],
-          'description' => gateway_params[:order_id],
-          'customer' => customer_info(gateway_params)
+        'amount' => amount,
+        'reference_id' => gateway_params[:order_id],
+        'currency' => gateway_params[:currency],
+        'description' => gateway_params[:order_id]
       }
-    end
-
-    def customer_info(gateway_options)
-      customer = gateway_options[:billing_address]
-      customer['street1'] = customer.delete(:address1)
-      customer['street2'] = customer.delete(:address2)
-      customer
     end
   end
 end

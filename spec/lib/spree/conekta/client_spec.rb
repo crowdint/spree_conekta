@@ -3,11 +3,11 @@ require 'spec_helper'
 describe Spree::Conekta::Client do
   describe :payment_procesor do
     context "the payment source is card" do
-      it{ expect(subject.payment_processor('card')).to be(Spree::Conekta::PaymentSource::Card) }
+      it { expect(subject.payment_processor('card')).to be(Spree::Conekta::PaymentSource::Card) }
     end
 
     context "the payment source is bank" do
-      it{ expect(subject.payment_processor('bank')).to be(Spree::Conekta::PaymentSource::Bank) }
+      it { expect(subject.payment_processor('bank')).to be(Spree::Conekta::PaymentSource::Bank) }
     end
 
     context "the payment source is cash" do
