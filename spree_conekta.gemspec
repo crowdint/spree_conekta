@@ -35,7 +35,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry'
   s.add_development_dependency 'faker'
   s.add_development_dependency 'database_cleaner'
-  s.add_development_dependency 'capybara'
   s.add_development_dependency 'spork'
+
+  s.add_development_dependency 'capybara-webkit'
+  s.add_development_dependency 'capybara'
 
 end

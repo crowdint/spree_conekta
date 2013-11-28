@@ -10,9 +10,7 @@ describe "Stripe checkout" do
   let!(:conekta_payment) do
     Spree::BillingIntegration::Conekta.create!(
       :name => "conekta",
-      :environment => "test",
-      :auth_token => '1tv5yJp3xnVZ7eK67m4h',
-      :source_method => 'card'
+      :environment => "test"
     )
   end
 
