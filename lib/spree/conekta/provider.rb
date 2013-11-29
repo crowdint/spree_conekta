@@ -19,7 +19,13 @@ module Spree::Conekta
     private
     def commit(common, method_params, gateway_options)
       source_method.request(common, method_params, gateway_options)
-      Spree::Conekta::Response.new post(common), source_method
+      response = Spree::Conekta::Response.new post(common), source_method
+
+      if response.status.eql? 'paid'
+        Spree::Payment.capture_by_order_id gateway_options[:order_id]
+      end
+
+      response
     end
 
     def build_common(amount, gateway_params)
