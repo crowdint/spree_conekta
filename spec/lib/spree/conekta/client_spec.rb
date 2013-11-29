@@ -17,14 +17,12 @@ describe Spree::Conekta::Client do
 
   describe :headers do
     let(:token){ 'abc12345678' }
+    let(:auth_token){ Base64.encode64(token)}
+
     before { subject.stub(:auth_token).and_return token }
 
     it "should return headers with auth token" do
-      expect(subject.headers).to include 'Accept', 'Content-type', 'Authorization'
-    end
-
-    it "should include the authorization token" do
-      expect(subject.headers['Authorization']).to match(/#{token}/)
+      expect(subject.headers).to include 'Accept', 'Content-type'
     end
   end
 

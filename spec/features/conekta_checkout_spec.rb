@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Stripe checkout" do
+describe "Conekta checkout" do
   let!(:country) { create(:country, :states_required => true) }
   let!(:state) { create(:state, :country => country) }
   let!(:shipping_method) { create(:shipping_method) }
@@ -36,19 +36,6 @@ describe "Stripe checkout" do
     sleep(2)
   end
 
-  # This will pass the CC data to the server and the StripeGateway class handles it
-  it "can process a valid payment (without JS)" do
-    fill_in "Card Number", :with => "4242 4242 4242 4242"
-    fill_in "Card Code", :with => "123"
-    fill_in "Expiration", :with => "01 / #{Time.now.year + 1}"
-    click_button "Save and Continue"
-    page.current_url.should include("/checkout/confirm")
-    click_button "Place Order"
-    page.should have_content("Your order has been processed successfully")
-  end
-
-  # This will fetch a token from Stripe.com and then pass that to the webserver.
-  # The server then processes the payment using that token.
   it "can process a valid payment (with JS)", :js => true do
     fill_in "Card Number", :with => "4242 4242 4242 4242"
     # Otherwise ccType field does not get updated correctly
@@ -60,23 +47,5 @@ describe "Stripe checkout" do
     page.current_url.should include("/checkout/confirm")
     click_button "Place Order"
     page.should have_content("Your order has been processed successfully")
-  end
-
-  it "shows an error with an invalid credit card number", :js => true do
-    click_button "Save and Continue"
-    page.should have_content("This card number looks invalid")
-  end
-
-  it "shows an error with invalid security fields", :js => true do
-    fill_in "Card Number", :with => "4242 4242 4242 4242"
-    click_button "Save and Continue"
-    page.should have_content("Your card's security code is invalid.")
-  end
-
-  it "shows an error with invalid expiry fields", :js => true do
-    fill_in "Card Number", :with => "4242 4242 4242 4242"
-    fill_in "Card Code", :with => "123"
-    click_button "Save and Continue"
-    page.should have_content("Your card's expiration month is invalid.")
   end
 end

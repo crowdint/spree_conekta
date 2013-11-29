@@ -1,14 +1,14 @@
 module Spree::Conekta
   class Client
     CONEKTA_API = 'https://api.conekta.io/'
-    CHARGE_ENDPOINT = 'charges.json'
+    CHARGE_ENDPOINT = 'charges'
 
     attr_accessor :auth_token
 
     PAYMENT_SOURCES = {
-        'card' => Spree::Conekta::PaymentSource::Card,
-        'bank' => Spree::Conekta::PaymentSource::Bank,
-        'cash' => Spree::Conekta::PaymentSource::Cash
+      'card' => Spree::Conekta::PaymentSource::Card,
+      'bank' => Spree::Conekta::PaymentSource::Bank,
+      'cash' => Spree::Conekta::PaymentSource::Cash
     }
 
     def post(params)
@@ -25,14 +25,14 @@ module Spree::Conekta
         faraday.response :logger
         faraday.headers = headers
         faraday.adapter :typhoeus
+        faraday.basic_auth(auth_token, nil)
       end
     end
 
     def headers
       {
-          'Accept' => ' application/vnd.conekta-v0.2.0+json',
-          'Content-type' => ' application/json',
-          'Authorization' => "Basic #{auth_token}:"
+        'Accept' => ' application/vnd.conekta-v0.2.0+json',
+        'Content-type' => ' application/json'
       }
     end
   end
