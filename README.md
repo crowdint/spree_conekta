@@ -1,5 +1,6 @@
 # Spree Conekta
 [![Code Climate](https://codeclimate.com/github/crowdint/spree_conekta.png)](https://codeclimate.com/github/crowdint/spree_conekta)
+[![Build Status](https://travis-ci.org/crowdint/spree_conekta.png?branch=conekta-apiv2)](https://travis-ci.org/crowdint/spree_conekta)
 
 Setup
 -----
