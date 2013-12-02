@@ -78,7 +78,7 @@ describe 'spree/conekta/payments/show' do
 
   context 'The payment source is card' do
     before do
-      conekta_pending_response.params['cash'] ={
+      conekta_pending_response.params['payment_method'] ={
         "type"=>"oxxo",
         "expiry_date"=>"300713",
         "barcode"=>"38100000000042290121213001160013",

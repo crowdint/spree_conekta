@@ -54,4 +54,87 @@ describe "Conekta checkout" do
       page.should have_content("Your order has been processed successfully")
     end
   end
+
+  context "the payment source is cash" do
+    let!(:conekta_payment) do
+      Spree::BillingIntegration::Conekta.create!(
+        :name => "conekta",
+        :environment => "test",
+        :preferred_source_method => 'cash',
+        :preferred_auth_token => '1tv5yJp3xnVZ7eK67m4h'
+      )
+    end
+
+    before do
+      user = create(:user)
+
+      order = OrderWalkthrough.up_to(:delivery)
+      order.stub :confirmation_required? => true
+
+      order.reload
+      order.user = user
+      order.update!
+
+      order.stub(:total => 2000)
+
+      Spree::CheckoutController.any_instance.stub(:current_order => order)
+      Spree::CheckoutController.any_instance.stub(:try_spree_current_user => user)
+      Spree::CheckoutController.any_instance.stub(:skip_state_validation? => true)
+
+      visit spree.checkout_state_path(:payment)
+    end
+
+    it "can process a valid payment", :js => true do
+      click_button "Save and Continue"
+      sleep(5)
+
+      page.current_url.should include("/checkout/confirm")
+      click_button "Place Order"
+
+      page.should have_content("Your order has been processed successfully")
+      page.should have_content("OXXO")
+    end
+  end
+
+ context "the payment source is bank" do
+    let!(:conekta_payment) do
+      Spree::BillingIntegration::Conekta.create!(
+        :name => "conekta",
+        :environment => "test",
+        :preferred_source_method => 'bank',
+        :preferred_auth_token => '1tv5yJp3xnVZ7eK67m4h'
+      )
+    end
+
+    before do
+      user = create(:user)
+
+      order = OrderWalkthrough.up_to(:delivery)
+      order.stub :confirmation_required? => true
+
+      order.reload
+      order.user = user
+      order.update!
+
+      order.stub(:total => 2000)
+
+      Spree::CheckoutController.any_instance.stub(:current_order => order)
+      Spree::CheckoutController.any_instance.stub(:try_spree_current_user => user)
+      Spree::CheckoutController.any_instance.stub(:skip_state_validation? => true)
+
+      visit spree.checkout_state_path(:payment)
+    end
+
+    it "can process a valid payment", :js => true do
+      click_button "Save and Continue"
+      sleep(5)
+
+      page.current_url.should include("/checkout/confirm")
+      click_button "Place Order"
+
+      page.should have_content("Your order has been processed successfully")
+      page.should have_content("Banorte")
+    end
+  end
+
 end
