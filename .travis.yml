@@ -1,6 +1,6 @@
 before_install:
-  - "Xvfb :1 -screen 0 1024x768x16 -nolisten inet6"
-  - "export DISPLAY=localhost:1.0"
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
 
 before_script: "yes | LIB_NAME=spree_conekta bundle exec rake common:test_app -s"
 script: "bundle exec rspec spec"
