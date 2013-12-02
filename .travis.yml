@@ -1,0 +1,2 @@
+before_script: "yes | LIB_NAME=spree_conekta bundle exec rake common:test_app -s"
+script: "bundle exec rspec spec"

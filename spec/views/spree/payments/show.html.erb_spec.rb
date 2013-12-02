@@ -96,7 +96,7 @@ describe 'spree/conekta/payments/show' do
 
   context 'The payment source is bank' do
     before do
-      conekta_pending_response.params['bank'] ={
+      conekta_pending_response.params['payment_method'] ={
         "type"=>"Banorte",
         "service_name"=>"Conekta",
         "service_number"=>"127589",

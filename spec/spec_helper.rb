@@ -17,7 +17,6 @@ require File.expand_path("../dummy/config/environment", __FILE__)
 
 require 'rspec/rails'
 require 'pry'
-require 'faker'
 require 'database_cleaner'
 require 'oj'
 

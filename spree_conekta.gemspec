@@ -15,25 +15,12 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,models,db,lib}/**/*'] + %w(MIT-LICENSE Rakefile README.md)
 
-  s.add_dependency 'spree', '~> 2.1'
 
   s.add_dependency 'oj'
   s.add_dependency 'faraday'
   s.add_dependency 'typhoeus'
   s.add_dependency 'faraday_middleware'
   s.add_dependency 'activemerchant'
-
-  s.add_development_dependency 'rspec-rails', '~> 2.13'
-  s.add_development_dependency 'debugger'
-  s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'factory_girl'
-  s.add_development_dependency 'pry'
-  s.add_development_dependency 'faker'
-  s.add_development_dependency 'database_cleaner'
-  s.add_development_dependency 'spork'
-  s.add_development_dependency 'selenium-webdriver'
-  s.add_development_dependency 'capybara-webkit'
-  s.add_development_dependency 'capybara'
-  s.add_development_dependency 'vcr'
+  s.add_dependency 'spree', '~> 2.1'
 
 end
