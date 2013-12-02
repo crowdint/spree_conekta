@@ -29,7 +29,7 @@ require 'spree_frontend'
 require 'capybara/rspec'
 require 'capybara-webkit'
 
-# Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :webkit
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -47,6 +47,12 @@ require 'spree/testing_support/order_walkthrough'
 require 'spree/testing_support/capybara_ext'
 require 'spree/api/testing_support/helpers'
 require 'spree/api/testing_support/setup'
+require 'vcr'
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  c.hook_into :faraday
+end
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods

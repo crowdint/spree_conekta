@@ -271,6 +271,7 @@ GEM
       ethon (~> 0.6.1)
     tzinfo (0.3.38)
     uuidtools (2.1.4)
+    vcr (2.8.0)
     versioncake (1.2.0)
       actionpack (>= 3.2)
       activesupport (>= 3.2)
@@ -296,3 +297,4 @@ DEPENDENCIES
   spork
   spree_conekta!
   sqlite3
+  vcr

@@ -46,12 +46,14 @@ describe "Conekta checkout" do
       fill_in "Expiration", :with => "01 / #{Time.now.year + 1}"
       click_button "Save and Continue"
 
-      sleep(5)
+      sleep(2)
 
       page.current_url.should include("/checkout/confirm")
-      click_button "Place Order"
 
-      page.should have_content("Your order has been processed successfully")
+      VCR.use_cassette('conekta_card') do
+        click_button "Place Order"
+        page.should have_content("Your order has been processed successfully")
+      end
     end
   end
 
@@ -86,13 +88,15 @@ describe "Conekta checkout" do
 
     it "can process a valid payment", :js => true do
       click_button "Save and Continue"
-      sleep(5)
+      sleep(2)
 
       page.current_url.should include("/checkout/confirm")
-      click_button "Place Order"
 
-      page.should have_content("Your order has been processed successfully")
-      page.should have_content("OXXO")
+      VCR.use_cassette('conekta_cash') do
+        click_button "Place Order"
+        page.should have_content("Your order has been processed successfully")
+        page.should have_content("OXXO")
+      end
     end
   end
 
@@ -127,13 +131,15 @@ describe "Conekta checkout" do
 
     it "can process a valid payment", :js => true do
       click_button "Save and Continue"
-      sleep(5)
+      sleep(2)
 
       page.current_url.should include("/checkout/confirm")
-      click_button "Place Order"
+      VCR.use_cassette('conekta_bank') do
+        click_button "Place Order"
 
-      page.should have_content("Your order has been processed successfully")
-      page.should have_content("Banorte")
+        page.should have_content("Your order has been processed successfully")
+        page.should have_content("Banorte")
+      end
     end
   end
 

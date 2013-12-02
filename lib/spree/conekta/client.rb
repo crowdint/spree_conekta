@@ -22,7 +22,7 @@ module Spree::Conekta
     def connection
       Faraday.new(:url => CONEKTA_API) do |faraday|
         faraday.request :url_encoded
-        faraday.response :logger
+
         faraday.headers = headers
         faraday.adapter :typhoeus
         faraday.basic_auth(auth_token, nil)
