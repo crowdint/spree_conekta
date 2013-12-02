@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    spree_conekta (0.0.1)
+    spree_conekta (0.5.9)
       activemerchant
       faraday
       faraday_middleware
