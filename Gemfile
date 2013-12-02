@@ -15,7 +15,7 @@ group :test, :development do
 end
 
 group :test do
-  gem 'faker'
+  gem 'ffaker'
 end
 
 
