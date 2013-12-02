@@ -1,5 +1,7 @@
 module SpreeConekta
   class Engine < ::Rails::Engine
+    require 'spree'
+
     engine_name 'spree_gateway'
 
     config.autoload_paths += %W(#{config.root}/lib)

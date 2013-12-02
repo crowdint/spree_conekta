@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.conekta.io/charges
+    body:
+      encoding: UTF-8
+      string: '{"amount":200000,"reference_id":"R522380540-E3HPY5BE","currency":"USD","description":"R522380540-E3HPY5BE","bank":{"type":"banorte"}}'
+    headers:
+      Accept:
+      - ' application/vnd.conekta-v0.2.0+json'
+      Content-type:
+      - ' application/json'
+      Authorization:
+      - Basic MXR2NXlKcDN4blZaN2VLNjdtNGg6
+      User-Agent:
+      - Faraday v0.8.8
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Conekta-Media-Type:
+      - conekta-v0.2.0; format=json
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 02 Dec 2013 18:46:04 GMT
+      ETag:
+      - '"711b9c297ed1a69650c3540156cea7e6"'
+      Server:
+      - nginx/1.1.19
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Request-Id:
+      - 897f79ed5935a8f9f474999fb1c25551
+      X-Runtime:
+      - '0.207107'
+      Content-Length:
+      - '487'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"id":"529cd56cd7e1a0b8c600069d","livemode":false,"created_at":1386009964,"status":"pending_payment","currency":"USD","description":"R522380540-E3HPY5BE","reference_id":"R522380540-E3HPY5BE","failure_code":null,"failure_message":null,"object":"charge","amount":200000,"fee":3247,"payment_method":{"service_name":"Conekta","service_number":"127589","object":"bank_transfer_payment","type":"banorte","reference":"0014156"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+    http_version: 
+  recorded_at: Mon, 02 Dec 2013 18:46:03 GMT
+recorded_with: VCR 2.8.0

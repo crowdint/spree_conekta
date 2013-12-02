@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.conekta.io/charges
+    body:
+      encoding: UTF-8
+      string: '{"amount":200000,"reference_id":"R116287001-FMD3KEXZ","currency":"USD","description":"R116287001-FMD3KEXZ","cash":{"type":"oxxo"}}'
+    headers:
+      Accept:
+      - ' application/vnd.conekta-v0.2.0+json'
+      Content-type:
+      - ' application/json'
+      Authorization:
+      - Basic MXR2NXlKcDN4blZaN2VLNjdtNGg6
+      User-Agent:
+      - Faraday v0.8.8
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Conekta-Media-Type:
+      - conekta-v0.2.0; format=json
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 02 Dec 2013 18:46:00 GMT
+      ETag:
+      - '"344c8135084211d03fd11ded34141f13"'
+      Server:
+      - nginx/1.1.19
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Request-Id:
+      - 08aa733deb3b1917153305d936124127
+      X-Runtime:
+      - '0.102794'
+      transfer-encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"id":"529cd568d7e1a0faaa0006a0","livemode":false,"created_at":1386009960,"status":"pending_payment","currency":"USD","description":"R116287001-FMD3KEXZ","reference_id":"R116287001-FMD3KEXZ","failure_code":null,"failure_message":null,"object":"charge","amount":200000,"fee":3479,"payment_method":{"expiry_date":"010114","barcode":"38100000000042290121213001160013","barcode_url":"https://www2.oxxo.com:8443/HTP/barcode/genbc?data=38100000000042290121213001160013&height=50&width=1&type=Code128","object":"cash_payment","type":"oxxo"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+    http_version: 
+  recorded_at: Mon, 02 Dec 2013 18:45:58 GMT
+recorded_with: VCR 2.8.0

@@ -1,15 +1,11 @@
 module Spree::Conekta::PaymentSource
   module Cash
-    def request(common, method)
+    def request(common, method, gateway_options)
       common['cash'] = {
         'type' => 'oxxo'
       }
     end
 
-    def parse(response)
-      Spree::Conekta::Response.new response, self
-    end
-
-    module_function :request, :parse
+    module_function :request
   end
 end

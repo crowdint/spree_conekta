@@ -17,13 +17,13 @@
   </tfoot>
   <tbody>
     <tr>
-      <td class='align-center'> <%= @order_details['bank']['service_number'] %> </td>
-      <td class='align-center'> <%= @order_details['bank']['reference'] %> </td>
+      <td class='align-center'> <%= @order_details['payment_method']['service_number'] %> </td>
+      <td class='align-center'> <%= @order_details['payment_method']['reference'] %> </td>
     </tr>
     <tr>
       <td class='align-right' colspan='2'>
         <b><%= t('conekta.total') %></b>
-        <%= money(@order.total) %>
+        <%= @order.display_total.to_html %>
       </td>
     </tr>
   </tbody>

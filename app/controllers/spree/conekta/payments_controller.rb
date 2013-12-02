@@ -14,15 +14,7 @@ module Spree::Conekta
 
     private
     def update_order_payment
-      order_number = params['data']['object']['reference_id'].split('-')[0]
-      find_payment(order_number).try(:capture!)
-    end
-
-    def find_payment(order_id)
-      Spree::Payment.joins(:order)
-        .where(state: 'pending',
-               spree_orders: { number: order_id })
-        .readonly(false).first
+      Spree::Payment.capture_by_order_id params['data']['object']['reference_id']
     end
   end
 end

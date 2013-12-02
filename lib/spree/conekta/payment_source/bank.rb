@@ -1,15 +1,11 @@
 module Spree::Conekta::PaymentSource
   module Bank
-    def request(common, method)
+    def request(common, method, gateway_options)
       common['bank'] = {
           'type' => 'banorte'
       }
     end
 
-    def parse(response)
-      Spree::Conekta::Response.new response, self
-    end
-
-    module_function :request, :parse
+    module_function :request
   end
 end
