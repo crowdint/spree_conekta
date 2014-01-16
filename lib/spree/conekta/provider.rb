@@ -29,10 +29,25 @@ module Spree::Conekta
     end
 
     def build_common(amount, gateway_params)
+      if source_method == Spree::Conekta::PaymentSource::Cash && gateway_params[:currency] != 'MXN'
+        return build_common_to_cash(amount, gateway_params) 
+      else
+        {
+          'amount' => amount,
+          'reference_id' => gateway_params[:order_id],
+          'currency' => gateway_params[:currency],
+          'description' => gateway_params[:order_id]
+        }
+      end
+    end
+    
+    def build_common_to_cash(amount, gateway_params)
+      amount_exchanged = Spree::Conekta::Exchange.new(amount, gateway_params[:currency]).amount_exchanged
+      debugger
       {
-        'amount' => amount,
+        'amount' => amount_exchanged,
         'reference_id' => gateway_params[:order_id],
-        'currency' => gateway_params[:currency],
+        'currency' => "MXN",
         'description' => gateway_params[:order_id]
       }
     end

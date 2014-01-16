@@ -25,7 +25,11 @@
     <tr>
       <td class='align-right'>
         <b><%= t('conekta.total') %></b>
-        <%= @order.display_total.to_html %>
+        <% if @order.currency != 'MXN' %>
+          <%= Spree::Conekta::Exchange.new(@order.total, @order.currency).amount_exchanged  %> MXN
+        <% else %>
+          <%= @order.display_total.to_html%>
+        <% end%>
       </td>
     </tr>
   </tbody>
