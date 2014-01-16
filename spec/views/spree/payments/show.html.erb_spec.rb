@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'spree/conekta/payments/show' do
-  let(:order){ create(:order_with_totals, :number => 'RT1234567') }
+  let(:order){ create(:order_with_totals, :number => 'RT1234567', :currency => 'MXN') }
   let(:conekta_pending_response) do
     OpenStruct.new params:  {
       "id"=> "52260de18dce00317d0000ce",

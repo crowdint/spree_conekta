@@ -75,6 +75,7 @@ describe "Conekta checkout" do
 
       order.reload
       order.user = user
+      order.currency = 'MXN'
       order.update!
 
       order.stub(:total => 2000)
