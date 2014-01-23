@@ -24,14 +24,14 @@ describe "Conekta checkout" do
     before do
       user = create(:user)
 
-      order = OrderWalkthrough.up_to(:delivery)
-      order.stub :confirmation_required? => true
+      @order = OrderWalkthrough.up_to(:delivery)
+      @order.stub :confirmation_required? => true
 
-      order.reload
-      order.user = user
-      order.update!
+      @order.reload
+      @order.user = user
+      @order.update!
 
-      Spree::CheckoutController.any_instance.stub(:current_order => order)
+      Spree::CheckoutController.any_instance.stub(:current_order => @order)
       Spree::CheckoutController.any_instance.stub(:try_spree_current_user => user)
       Spree::CheckoutController.any_instance.stub(:skip_state_validation? => true)
 
@@ -53,6 +53,7 @@ describe "Conekta checkout" do
       VCR.use_cassette('conekta_card') do
         click_button "Place Order"
         page.should have_content("Your order has been processed successfully")
+        @order.payments.last.state.should eq('completed')
       end
     end
   end
