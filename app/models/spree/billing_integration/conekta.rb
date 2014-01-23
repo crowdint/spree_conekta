@@ -23,5 +23,8 @@ module Spree
        preferred_source_method.eql?('card')
      end
 
+     def auto_capture?
+       false
+     end
    end
 end
