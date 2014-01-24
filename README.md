@@ -28,15 +28,17 @@ rails g spree_conekta:install
 /admin/payment_methods/new
 ```
 
-3. In the provider box, choose:
+3. In the provider box,choose one of the following options depending on your needs:
 ```
-Spree::BillingIntegration::Conekta
+Spree::BillingIntegration::Conekta::Card
+
+Spree::BillingIntegration::Conekta::Cash
+
+Spree::BillingIntegration::Conekta::Bank
+
 ```
 
-4. On the source method field, add the value of one of the following:
-  * card
-  * cash
-  * bank
+4. On the auth token field, add your Conekta public key:
 
 ###Source Methods
 
