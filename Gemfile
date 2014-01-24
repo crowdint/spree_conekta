@@ -14,6 +14,11 @@ group :test, :development do
   gem 'vcr'
 end
 
+group :assets do
+  gem 'coffee-rails'
+  gem 'sass-rails'
+end
+
 group :test do
   gem 'ffaker'
 end

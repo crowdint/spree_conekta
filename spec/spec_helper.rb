@@ -28,7 +28,6 @@ require 'spree_frontend'
 require 'capybara/rspec'
 require 'capybara-webkit'
 
-Capybara.javascript_driver = :webkit
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

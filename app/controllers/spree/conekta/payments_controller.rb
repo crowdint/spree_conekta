@@ -14,7 +14,7 @@ module Spree::Conekta
 
     private
     def update_order_payment
-      Spree::Payment.capture_by_order_id params['data']['object']['reference_id']
+      Spree::Payment.capture_by_order_number params['data']['object']['reference_id']
     end
   end
 end
