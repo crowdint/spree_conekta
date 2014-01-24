@@ -4,7 +4,7 @@ module Spree
     preference :source_method, :string, default: 'card'
 
     unless Rails::VERSION::MAJOR == 4
-      attr_accessible :preferred_auth_token, :gateway_response
+      attr_accessible :preferred_auth_token, :preferred_source_method, :gateway_response
     end
 
     def provider_class
