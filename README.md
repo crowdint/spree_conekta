@@ -29,14 +29,12 @@ rails g spree_conekta:install
 ```
 
 3. In the provider box,choose one of the following options depending on your needs:
-```
-Spree::BillingIntegration::Conekta::Card
 
-Spree::BillingIntegration::Conekta::Cash
+        Spree::BillingIntegration::Conekta::Card
 
-Spree::BillingIntegration::Conekta::Bank
+        Spree::BillingIntegration::Conekta::Cash
 
-```
+        Spree::BillingIntegration::Conekta::Bank
 
 4. On the auth token field, add your Conekta public key:
 
