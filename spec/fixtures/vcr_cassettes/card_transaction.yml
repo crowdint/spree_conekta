@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.conekta.io/charges
+    body:
+      encoding: UTF-8
+      string: '{"amount":10000,"reference_id":"foo123","currency":"MXN","description":"foo123","card":{"name":"foo
+        bar","cvc":"123","number":"4242424242424242","exp_year":"14","exp_month":"08","address":{"street1":null,"street2":null}}}'
+    headers:
+      Accept:
+      - ' application/vnd.conekta-v0.2.0+json'
+      Content-type:
+      - ' application/json'
+      Authorization:
+      - Basic MXR2NXlKcDN4blZaN2VLNjdtNGg6
+      User-Agent:
+      - Faraday v0.8.9
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Conekta-Media-Type:
+      - conekta-v0.2.0; format=json
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 28 Jan 2014 17:59:50 GMT
+      ETag:
+      - '"27c0d0026252b0e5591a308f2ce32325"'
+      Server:
+      - nginx/1.1.19
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Request-Id:
+      - 12a91ebe496c0d24a01c42b3bfff8786
+      X-Runtime:
+      - '2.511011'
+      Content-Length:
+      - '586'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"id":"52e7f013d7e1a038180003f5","livemode":false,"created_at":1390931987,"status":"paid","currency":"MXN","description":"foo123","reference_id":"foo123","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":10000,"fee":649,"payment_method":{"name":"foo
+        bar","exp_month":"08","exp_year":"14","auth_code":"260105","object":"card_payment","last4":"4242","brand":"visa","address":{"street1":null,"street2":null,"street3":null,"city":null,"state":null,"zip":null,"country":"MX"}},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+    http_version: 
+  recorded_at: Tue, 28 Jan 2014 17:59:35 GMT
+recorded_with: VCR 2.8.0

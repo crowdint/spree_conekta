@@ -1,6 +1,14 @@
 module Spree::Conekta
-  class Provider < Client
+  class Provider
+    include Spree::Conekta::Client
+
     attr_accessor :auth_token, :source_method
+
+    PAYMENT_SOURCES = {
+        'card' => Spree::Conekta::PaymentSource::Card,
+        'bank' => Spree::Conekta::PaymentSource::Bank,
+        'cash' => Spree::Conekta::PaymentSource::Cash
+    }
 
     def initialize(options = {})
       self.auth_token = options[:auth_token]
@@ -18,7 +26,16 @@ module Spree::Conekta
       Response.new({}, gateway_options)
     end
 
+    def endpoint
+      'charges'
+    end
+
+    def payment_processor(source_name)
+      PAYMENT_SOURCES[source_name]
+    end
+
     private
+
     def commit(common, method_params, gateway_options)
       source_method.request(common, method_params, gateway_options)
       Spree::Conekta::Response.new post(common), source_method
@@ -39,7 +56,6 @@ module Spree::Conekta
     
     def build_common_to_cash(amount, gateway_params)
       amount_exchanged = Spree::Conekta::Exchange.new(amount, gateway_params[:currency]).amount_exchanged
-      debugger
       {
         'amount' => amount_exchanged,
         'reference_id' => gateway_params[:order_id],

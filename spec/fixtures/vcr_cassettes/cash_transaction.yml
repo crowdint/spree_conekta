@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.conekta.io/charges
+    body:
+      encoding: UTF-8
+      string: '{"amount":10000,"reference_id":"foo123","currency":"MXN","description":"foo123","cash":{"type":"oxxo"}}'
+    headers:
+      Accept:
+      - ' application/vnd.conekta-v0.2.0+json'
+      Content-type:
+      - ' application/json'
+      Authorization:
+      - Basic MXR2NXlKcDN4blZaN2VLNjdtNGg6
+      User-Agent:
+      - Faraday v0.8.9
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Conekta-Media-Type:
+      - conekta-v0.2.0; format=json
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 28 Jan 2014 18:02:30 GMT
+      ETag:
+      - '"7f827edbfba67dcaeed8ed36fc891dcf"'
+      Server:
+      - nginx/1.1.19
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Request-Id:
+      - aa62c786a869bf3fffaecc6332a07727
+      X-Runtime:
+      - '0.434669'
+      Content-Length:
+      - '602'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"id":"52e7f0b6d7e1a03818000436","livemode":false,"created_at":1390932150,"status":"pending_payment","currency":"MXN","description":"foo123","reference_id":"foo123","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":10000,"fee":14.96,"payment_method":{"expiry_date":"280214","barcode":"38100000000042290121213001160013","barcode_url":"https://www2.oxxo.com:8443/HTP/barcode/genbc?data=38100000000042290121213001160013&height=50&width=1&type=Code128","object":"cash_payment","type":"oxxo"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+    http_version: 
+  recorded_at: Tue, 28 Jan 2014 18:02:16 GMT
+recorded_with: VCR 2.8.0

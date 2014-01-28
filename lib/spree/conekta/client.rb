@@ -1,22 +1,11 @@
 module Spree::Conekta
-  class Client
+  module Client
     CONEKTA_API = 'https://api.conekta.io/'
-    CHARGE_ENDPOINT = 'charges'
 
     attr_accessor :auth_token
 
-    PAYMENT_SOURCES = {
-      'card' => Spree::Conekta::PaymentSource::Card,
-      'bank' => Spree::Conekta::PaymentSource::Bank,
-      'cash' => Spree::Conekta::PaymentSource::Cash
-    }
-
     def post(params)
-      Oj.load connection.post(CHARGE_ENDPOINT, Oj.dump(params)).body
-    end
-
-    def payment_processor(source_name)
-      PAYMENT_SOURCES[source_name]
+      Oj.load connection.post(endpoint, Oj.dump(params)).body
     end
 
     def connection
@@ -34,6 +23,10 @@ module Spree::Conekta
         'Accept' => ' application/vnd.conekta-v0.2.0+json',
         'Content-type' => ' application/json'
       }
+    end
+
+    def endpoint
+      raise 'Not Implemented'
     end
   end
 end
