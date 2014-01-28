@@ -8,6 +8,10 @@ module Spree::Conekta
       Oj.load connection.post(endpoint, Oj.dump(params)).body
     end
 
+    def get
+      Oj.load connection.get(endpoint).body
+    end
+
     def connection
       Faraday.new(:url => CONEKTA_API) do |faraday|
         faraday.request :url_encoded
@@ -20,7 +24,7 @@ module Spree::Conekta
 
     def headers
       {
-        'Accept' => ' application/vnd.conekta-v0.2.0+json',
+        'Accept' => ' application/vnd.conekta-v0.3.0+json',
         'Content-type' => ' application/json'
       }
     end

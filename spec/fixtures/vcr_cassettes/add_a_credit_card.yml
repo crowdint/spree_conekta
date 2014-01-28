@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.conekta.io/customers/cus_e7inii51RjUPsMbP8/cards
+    body:
+      encoding: UTF-8
+      string: '{"token":"tok_test_visa_4242"}'
+    headers:
+      Accept:
+      - ' application/vnd.conekta-v0.3.0+json'
+      Content-type:
+      - ' application/json'
+      Authorization:
+      - Basic MXR2NXlKcDN4blZaN2VLNjdtNGg6
+      User-Agent:
+      - Faraday v0.8.9
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Conekta-Media-Type:
+      - conekta-v0.3.0; format=json
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 28 Jan 2014 21:46:52 GMT
+      ETag:
+      - '"6453da9ca700879a9676990deb507b1f"'
+      Server:
+      - nginx/1.1.19
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Request-Id:
+      - 4a6f4dc0cb68afe3ab8324b4a63e7dbf
+      X-Runtime:
+      - '0.765933'
+      Content-Length:
+      - '206'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"id":"card_p9R45EcwFNswRsFK","created_at":1390945612,"active":true,"last4":"4242","object":"card","exp_month":"12","exp_year":"19","brand":"VISA","name":"Jorge
+        Lopez","customer_id":"cus_e7inii51RjUPsMbP8"}'
+    http_version: 
+  recorded_at: Tue, 28 Jan 2014 21:46:37 GMT
+recorded_with: VCR 2.8.0

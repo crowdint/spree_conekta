@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.conekta.io/customers
+    body:
+      encoding: UTF-8
+      string: '{"name":"foo@example.com","email":"foo@example.com"}'
+    headers:
+      Accept:
+      - ' application/vnd.conekta-v0.3.0+json'
+      Content-type:
+      - ' application/json'
+      Authorization:
+      - Basic MXR2NXlKcDN4blZaN2VLNjdtNGg6
+      User-Agent:
+      - Faraday v0.8.9
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Conekta-Media-Type:
+      - conekta-v0.3.0; format=json
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 28 Jan 2014 19:13:22 GMT
+      ETag:
+      - '"ecc582245d619614ea84753ccfa4ef59"'
+      Server:
+      - nginx/1.1.19
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Request-Id:
+      - b39f1c363c14db6ec0c95dca3116b367
+      X-Runtime:
+      - '0.098818'
+      transfer-encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"id":"cus_e7inii51RjUPsMbP8","email":"foo@example.com","name":"foo@example.com","phone":null,"livemode":false,"default_card_id":null,"object":"customer","created_at":1390936402,"cards":[],"subscription":null}'
+    http_version: 
+  recorded_at: Tue, 28 Jan 2014 19:13:08 GMT
+recorded_with: VCR 2.8.0
