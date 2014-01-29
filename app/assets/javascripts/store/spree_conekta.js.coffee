@@ -12,4 +12,5 @@ jQuery ->
       @form.submit()
 
     tokenErrorResponseHandler: (response)=>
-      console.log response
+      @form.off('submit')
+      @form.submit()
