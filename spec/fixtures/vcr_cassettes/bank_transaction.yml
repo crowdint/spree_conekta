@@ -8,7 +8,7 @@ http_interactions:
       string: '{"amount":10000,"reference_id":"foo123","currency":"MXN","description":"foo123","bank":{"type":"banorte"}}'
     headers:
       Accept:
-      - ' application/vnd.conekta-v0.2.0+json'
+      - ' application/vnd.conekta-v0.3.0+json'
       Content-type:
       - ' application/json'
       Authorization:
@@ -23,13 +23,13 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       Conekta-Media-Type:
-      - conekta-v0.2.0; format=json
+      - conekta-v0.3.0; format=json
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 28 Jan 2014 18:01:40 GMT
+      - Tue, 28 Jan 2014 21:58:21 GMT
       ETag:
-      - '"5bc2c73c23c8c6942619b282f1d75a8f"'
+      - '"6e2481df1ee32586a14890c7cad0ce2d"'
       Server:
       - nginx/1.1.19
       Status:
@@ -39,16 +39,16 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - 9bc6c502bc616e367a9e962611ea1040
+      - ead03fc197cc0bde0418a6e2b272e356
       X-Runtime:
-      - '0.279292'
+      - '0.283594'
       Content-Length:
-      - '489'
+      - '502'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"52e7f084d7e1a03818000419","livemode":false,"created_at":1390932100,"status":"pending_payment","currency":"MXN","description":"foo123","reference_id":"foo123","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":10000,"fee":14.85,"payment_method":{"service_name":"Conekta","service_number":"127589","object":"bank_transfer_payment","type":"banorte","reference":"0060152"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+      string: '{"id":"52e827fdd7e1a0a33000021e","livemode":false,"created_at":1390946301,"status":"pending_payment","currency":"MXN","description":"foo123","reference_id":"foo123","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":10000,"fee":14.85,"refunds":[],"payment_method":{"service_name":"Conekta","service_number":"127589","object":"bank_transfer_payment","type":"banorte","reference":"0060360"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
     http_version: 
-  recorded_at: Tue, 28 Jan 2014 18:01:25 GMT
+  recorded_at: Tue, 28 Jan 2014 21:58:07 GMT
 recorded_with: VCR 2.8.0

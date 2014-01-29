@@ -1,0 +1,91 @@
+<%= image_tag 'credit_cards/credit_card.gif', :id => 'credit-card-image' %>
+<% param_prefix = "payment_source[#{payment_method.id}]" %>
+
+
+<p class="field">
+  <%= label_tag "name_on_card_#{payment_method.id}", Spree.t(:name_on_card) %><span class="required">*</span><br />
+  <%= text_field_tag "#{param_prefix}[name]",
+                     "#{@order.billing_firstname} #{@order.billing_lastname}",
+                     { :id => "name_on_card_#{payment_method.id}", data: { conekta: 'card[name]' } } %>
+</p>
+
+<p class="field" data-hook="card_number">
+  <%= label_tag "card_number", Spree.t(:card_number) %><span class="required">*</span><br />
+  <% options_hash = Rails.env.production? ? {:autocomplete => 'off'} : {} %>
+  <%= text_field_tag "#{param_prefix}[number]",
+                     '',
+                     options_hash.merge(:id => 'card_number',
+                                        :class => 'required',
+                                        :size => 19,
+                                        :maxlength => 19,
+                                        :autocomplete => "off",
+                                        :data => { conekta: 'card[number]' }) %>
+  &nbsp;
+  <span id="card_type" style="display:none;">
+    ( <span id="looks_like" ><%= Spree.t(:card_type_is) %> <span id="type"></span></span>
+      <span id="unrecognized"><%= Spree.t(:unrecognized_card_type) %></span>
+    )
+  </span>
+</p>
+
+<p class="field" data-hook="card_expiration">
+  <%= label_tag "card_month", Spree.t(:expiration) %><span class="required">*</span><br />
+  <%= select_month(Date.today,
+                   { :prefix => param_prefix, :field_name => 'month', :use_month_numbers => true },
+                   :class => 'required',
+                   :id => "card_month",
+                   :data => { conekta: 'card[exp_month]' }) %>
+
+  <%= select_year(Date.today,
+                  { :prefix => param_prefix, :field_name => 'year', :start_year => Date.today.year, :end_year => Date.today.year + 15 },
+                  :class => 'required',
+                  :id => "card_year",
+                  :data => { conekta: 'card[exp_year]' }) %>
+</p>
+
+<p class="field" data-hook="card_code">
+  <%= label_tag "card_code", Spree.t(:card_code) %><span class="required">*</span><br />
+  <%= text_field_tag "#{param_prefix}[verification_value]",
+                     '',
+                     options_hash.merge(:id => 'card_code',
+                                        :class => 'required',
+                                        :size => 5,
+                                        :data => { conekta: 'card[cvc]' }) %>
+  <%= link_to "(#{Spree.t(:what_is_this)})", spree.content_path('cvv'), :target => '_blank', "data-hook" => "cvv_link", :id => "cvv_link" %>
+</p>
+
+<%= hidden_field_tag "conekta_month", Date.today.month, :data => { conekta: 'card[exp_month]' } %>
+<%= hidden_field_tag "conekta_year", Date.today.year, :data => { conekta: 'card[exp_year]' } %>
+
+<%= hidden_field_tag "#{param_prefix}[gateway_payment_profile_id]", '', :id => "gateway_payment_profile_id" %>
+
+<% unless Rails.env.test? %>
+    <script type="text/javascript">
+        $(function() {
+            Conekta.setPublishableKey('<%= ENV['CONEKTA_PUBLIC_KEY'] %>');
+
+            $('#card_month').on('change', function(e){
+                $('#conekta_month').val($(this).val());
+            });
+
+            $('#card_year').on('change', function(e){
+                $('#conekta_year').val($(this).val());
+            });
+
+            $('#checkout_form_payment').on('submit', function(e){
+                e.preventDefault();
+                var $form = $(this);
+                var spreeConekta = new Spree.Conekta($form);
+
+                if ($('#order_payments_attributes__payment_method_id_<%= payment_method.id %>').prop('checked')) {
+                    $form.find('button').prop('disabled', true);
+                    Conekta.token.create($form, spreeConekta.tokenSuccessResponseHandler, spreeConekta.tokenErrorResponseHandler);
+                }
+                else {
+                    $form.off('submit');
+                    $form.submit();
+                }
+            });
+        });
+    </script>
+<% end %>

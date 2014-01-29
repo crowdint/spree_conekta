@@ -5,16 +5,16 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R116287001-FMD3KEXZ","currency":"USD","description":"R116287001-FMD3KEXZ","cash":{"type":"oxxo"}}'
+      string: '{"amount":200000,"reference_id":"R507601773-6VGRNH3F","currency":"MXN","description":"R507601773-6VGRNH3F","cash":{"type":"oxxo"}}'
     headers:
       Accept:
-      - ' application/vnd.conekta-v0.2.0+json'
+      - ' application/vnd.conekta-v0.3.0+json'
       Content-type:
       - ' application/json'
       Authorization:
       - Basic MXR2NXlKcDN4blZaN2VLNjdtNGg6
       User-Agent:
-      - Faraday v0.8.8
+      - Faraday v0.8.9
   response:
     status:
       code: 200
@@ -23,13 +23,13 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       Conekta-Media-Type:
-      - conekta-v0.2.0; format=json
+      - conekta-v0.3.0; format=json
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 02 Dec 2013 18:46:00 GMT
+      - Tue, 28 Jan 2014 21:58:01 GMT
       ETag:
-      - '"344c8135084211d03fd11ded34141f13"'
+      - '"4684ac69784bb58aa0c273244d61b33e"'
       Server:
       - nginx/1.1.19
       Status:
@@ -39,16 +39,16 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - 08aa733deb3b1917153305d936124127
+      - b9784c90e7282f1f47febc4d7c7a9beb
       X-Runtime:
-      - '0.102794'
+      - '0.557016'
       transfer-encoding:
       - chunked
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"529cd568d7e1a0faaa0006a0","livemode":false,"created_at":1386009960,"status":"pending_payment","currency":"USD","description":"R116287001-FMD3KEXZ","reference_id":"R116287001-FMD3KEXZ","failure_code":null,"failure_message":null,"object":"charge","amount":200000,"fee":3479,"payment_method":{"expiry_date":"010114","barcode":"38100000000042290121213001160013","barcode_url":"https://www2.oxxo.com:8443/HTP/barcode/genbc?data=38100000000042290121213001160013&height=50&width=1&type=Code128","object":"cash_payment","type":"oxxo"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+      string: '{"id":"52e827e9d7e1a04fd00001b7","livemode":false,"created_at":1390946281,"status":"pending_payment","currency":"MXN","description":"R507601773-6VGRNH3F","reference_id":"R507601773-6VGRNH3F","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":200000,"fee":34.8,"refunds":[],"payment_method":{"expiry_date":"280214","barcode":"38100000000042290121213001160013","barcode_url":"https://www2.oxxo.com:8443/HTP/barcode/genbc?data=38100000000042290121213001160013&height=50&width=1&type=Code128","object":"cash_payment","type":"oxxo","expires_at":1393545600},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
     http_version: 
-  recorded_at: Mon, 02 Dec 2013 18:45:58 GMT
+  recorded_at: Tue, 28 Jan 2014 21:57:47 GMT
 recorded_with: VCR 2.8.0

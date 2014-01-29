@@ -5,16 +5,16 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R522380540-E3HPY5BE","currency":"USD","description":"R522380540-E3HPY5BE","bank":{"type":"banorte"}}'
+      string: '{"amount":200000,"reference_id":"R210313731-JK93WYC5","currency":"MXN","description":"R210313731-JK93WYC5","bank":{"type":"banorte"}}'
     headers:
       Accept:
-      - ' application/vnd.conekta-v0.2.0+json'
+      - ' application/vnd.conekta-v0.3.0+json'
       Content-type:
       - ' application/json'
       Authorization:
       - Basic MXR2NXlKcDN4blZaN2VLNjdtNGg6
       User-Agent:
-      - Faraday v0.8.8
+      - Faraday v0.8.9
   response:
     status:
       code: 200
@@ -23,13 +23,13 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       Conekta-Media-Type:
-      - conekta-v0.2.0; format=json
+      - conekta-v0.3.0; format=json
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 02 Dec 2013 18:46:04 GMT
+      - Tue, 28 Jan 2014 21:58:13 GMT
       ETag:
-      - '"711b9c297ed1a69650c3540156cea7e6"'
+      - '"827b19d729e916a5ec43279508cde03c"'
       Server:
       - nginx/1.1.19
       Status:
@@ -39,16 +39,16 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - 897f79ed5935a8f9f474999fb1c25551
+      - 24a622588efdab2021db59e66392bc78
       X-Runtime:
-      - '0.207107'
-      Content-Length:
-      - '487'
+      - '0.408156'
+      transfer-encoding:
+      - chunked
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"529cd56cd7e1a0b8c600069d","livemode":false,"created_at":1386009964,"status":"pending_payment","currency":"USD","description":"R522380540-E3HPY5BE","reference_id":"R522380540-E3HPY5BE","failure_code":null,"failure_message":null,"object":"charge","amount":200000,"fee":3247,"payment_method":{"service_name":"Conekta","service_number":"127589","object":"bank_transfer_payment","type":"banorte","reference":"0014156"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+      string: '{"id":"52e827f4d7e1a0dfbf00024b","livemode":false,"created_at":1390946292,"status":"pending_payment","currency":"MXN","description":"R210313731-JK93WYC5","reference_id":"R210313731-JK93WYC5","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":200000,"fee":32.48,"refunds":[],"payment_method":{"service_name":"Conekta","service_number":"127589","object":"bank_transfer_payment","type":"banorte","reference":"0060359"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
     http_version: 
-  recorded_at: Mon, 02 Dec 2013 18:46:03 GMT
+  recorded_at: Tue, 28 Jan 2014 21:57:58 GMT
 recorded_with: VCR 2.8.0

@@ -37,7 +37,8 @@ describe Spree::Conekta::Provider do
                          verification_value: '123',
                          number: '4242424242424242',
                          year: '2014',
-                         month: '8'
+                         month: '8',
+                         gateway_payment_profile_id: 'tok_test_visa_4242'
       end
 
       before do

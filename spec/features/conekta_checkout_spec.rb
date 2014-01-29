@@ -32,6 +32,10 @@ describe "Conekta checkout" do
   end
 
   describe "the payment source is credit card", :js => true do
+    before do
+      ENV['CONEKTA_PUBLIC_KEY'] = '1tv5yJp3xnVZ7eK67m4h'
+    end
+
     context 'With a valid card' do
       let!(:conekta_payment) do
         Spree::BillingIntegration::Conekta::Card.create!(
@@ -48,7 +52,12 @@ describe "Conekta checkout" do
 
         page.execute_script("$('.cardNumber').trigger('change')")
         fill_in "Card Code", :with => "123"
-        fill_in "Expiration", :with => "01 / #{Time.now.year + 1}"
+
+        select('1', :from => 'card_month')
+        select(Time.now.year + 1, :from => 'card_year')
+
+        page.execute_script("$('#gateway_payment_profile_id').val('tok_test_visa_4242')")
+
         click_button "Save and Continue"
 
         sleep(2)
@@ -89,7 +98,12 @@ describe "Conekta checkout" do
 
         page.execute_script("$('.cardNumber').trigger('change')")
         fill_in "Card Code", :with => "123"
-        fill_in "Expiration", :with => "01 / #{Time.now.year + 1}"
+
+        select('1', :from => 'card_month')
+        select(Time.now.year + 1, :from => 'card_year')
+
+        page.execute_script("$('#gateway_payment_profile_id').val('test_tok_card_declined')")
+
         click_button "Save and Continue"
 
         sleep(2)
@@ -130,7 +144,12 @@ describe "Conekta checkout" do
 
         page.execute_script("$('.cardNumber').trigger('change')")
         fill_in "Card Code", :with => "123"
-        fill_in "Expiration", :with => "01 / #{Time.now.year + 1}"
+
+        select('1', :from => 'card_month')
+        select(Time.now.year + 1, :from => 'card_year')
+
+        page.execute_script("$('#gateway_payment_profile_id').val('test_tok_processing_error')")
+
         click_button "Save and Continue"
 
         sleep(2)
@@ -171,7 +190,12 @@ describe "Conekta checkout" do
 
         page.execute_script("$('.cardNumber').trigger('change')")
         fill_in "Card Code", :with => "123"
-        fill_in "Expiration", :with => "01 / #{Time.now.year + 1}"
+
+        select('1', :from => 'card_month')
+        select(Time.now.year + 1, :from => 'card_year')
+
+        page.execute_script("$('#gateway_payment_profile_id').val('test_tok_limit_exceeded')")
+
         click_button "Save and Continue"
 
         sleep(2)

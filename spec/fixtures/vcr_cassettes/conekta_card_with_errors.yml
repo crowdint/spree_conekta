@@ -5,13 +5,10 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R011084371-95FCJD3S","currency":"MXN","description":"R011084371-95FCJD3S","card":{"name":"John
-        Doe","cvc":"123","number":"4000000000000119","exp_year":"15","exp_month":"01","address":{"name":"John
-        Doe","city":"Herndon","state":"AL","zip":"20170","country":"US","phone":"123-456-7890","street1":"10
-        Lovely Street","street2":"Northwest"}}}'
+      string: '{"amount":200000,"reference_id":"R822745753-G2XP3S3Q","currency":"MXN","description":"R822745753-G2XP3S3Q","card":"tok_xw1fNM9gRdpy2v4pN"}'
     headers:
       Accept:
-      - ' application/vnd.conekta-v0.2.0+json'
+      - ' application/vnd.conekta-v0.3.0+json'
       Content-type:
       - ' application/json'
       Authorization:
@@ -26,11 +23,11 @@ http_interactions:
       Cache-Control:
       - no-cache
       Conekta-Media-Type:
-      - conekta-v0.2.0; format=json
+      - conekta-v0.3.0; format=json
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 23 Jan 2014 23:53:31 GMT
+      - Wed, 29 Jan 2014 16:07:40 GMT
       Server:
       - nginx/1.1.19
       Status:
@@ -40,9 +37,9 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - d959738f491625999a3fe9571f31462d
+      - ed8c76143b1f53a9f565390a7c8099d6
       X-Runtime:
-      - '0.052900'
+      - '1.800357'
       Content-Length:
       - '91'
       Connection:
@@ -52,5 +49,5 @@ http_interactions:
       string: '{"object":"error","type":"processing_error","message":"The payment
         could not be processed"}'
     http_version: 
-  recorded_at: Thu, 23 Jan 2014 23:53:17 GMT
+  recorded_at: Wed, 29 Jan 2014 16:07:26 GMT
 recorded_with: VCR 2.8.0

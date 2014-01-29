@@ -5,13 +5,10 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R747148663-B2PTCG46","currency":"MXN","description":"R747148663-B2PTCG46","card":{"name":"John
-        Doe","cvc":"123","number":"4242424242424242","exp_year":"15","exp_month":"01","address":{"name":"John
-        Doe","city":"Herndon","state":"AL","zip":"20170","country":"US","phone":"123-456-7890","street1":"10
-        Lovely Street","street2":"Northwest"}}}'
+      string: '{"amount":200000,"reference_id":"R241733181-WZAYDAMJ","currency":"MXN","description":"R241733181-WZAYDAMJ","card":"tok_9D296DAjPa7qthJPr"}'
     headers:
       Accept:
-      - ' application/vnd.conekta-v0.2.0+json'
+      - ' application/vnd.conekta-v0.3.0+json'
       Content-type:
       - ' application/json'
       Authorization:
@@ -26,13 +23,13 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       Conekta-Media-Type:
-      - conekta-v0.2.0; format=json
+      - conekta-v0.3.0; format=json
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 23 Jan 2014 23:49:37 GMT
+      - Wed, 29 Jan 2014 18:20:05 GMT
       ETag:
-      - '"a6381012fcb3133d624ccb209ecf7c69"'
+      - '"23e72b7b8efd9d64215f7ac81318b66a"'
       Server:
       - nginx/1.1.19
       Status:
@@ -42,18 +39,17 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - 10227ae0d7b7712787d1aa152afd5502
+      - 50bd00c73d003e096dca5d65f6d4e04e
       X-Runtime:
-      - '2.937930'
+      - '6.513257'
       transfer-encoding:
       - chunked
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"52e1aa8ed7e1a0ab73000b90","livemode":false,"created_at":1390520974,"status":"paid","currency":"MXN","description":"R747148663-B2PTCG46","reference_id":"R747148663-B2PTCG46","failure_code":null,"failure_message":null,"monthly_instalments":null,"object":"charge","amount":200000,"fee":7261,"payment_method":{"name":"John
-        Doe","exp_month":"01","exp_year":"15","auth_code":"595001","object":"card_payment","last4":"4242","brand":"visa","address":{"street1":"10
-        Lovely Street","street2":"Northwest","street3":null,"city":"Herndon","state":"AL","zip":"20170","country":"US"}},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+      string: '{"id":"52e9464fd7e1a08328000045","livemode":false,"created_at":1391019599,"status":"paid","currency":"MXN","description":"R241733181-WZAYDAMJ","reference_id":"R241733181-WZAYDAMJ","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":200000,"fee":7261,"refunds":[],"payment_method":{"name":"John
+        Doe","exp_month":"01","exp_year":"15","auth_code":"389468","object":"card_payment","last4":"4242","brand":"visa"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
     http_version: 
-  recorded_at: Thu, 23 Jan 2014 23:49:24 GMT
+  recorded_at: Wed, 29 Jan 2014 18:19:50 GMT
 recorded_with: VCR 2.8.0
