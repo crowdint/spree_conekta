@@ -13,7 +13,7 @@ module Spree::Conekta
     end
 
     def connection
-      Faraday.new(:url => CONEKTA_API) do |faraday|
+      Faraday.new(url: CONEKTA_API) do |faraday|
         faraday.request :url_encoded
 
         faraday.headers = headers

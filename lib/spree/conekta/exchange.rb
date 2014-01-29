@@ -21,7 +21,7 @@ module Spree::Conekta
     end
     
     def connection
-      Faraday.new(:url => EXCHANCE_SERVICES) do |faraday|
+      Faraday.new(url: EXCHANCE_SERVICES) do |faraday|
         faraday.request :url_encoded
         faraday.adapter :typhoeus
       end

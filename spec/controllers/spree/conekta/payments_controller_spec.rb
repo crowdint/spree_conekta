@@ -34,13 +34,13 @@ describe Spree::Conekta::PaymentsController do
 
   let(:reference){ conekta_response['data']['object']['reference_id'] = "RT#{rand(0..1000)}-XCVBC" }
   let(:order_number){ reference.split('-')[0] }
-  let(:order){ create(:order_with_totals, :number => order_number) }
+  let(:order){ create(:order_with_totals, number: order_number) }
 
   before do
-    create(:payment, :order => order,
-           :state => "pending",
-           :amount => order.outstanding_balance,
-           :payment_method => create(:bogus_payment_method, :environment => 'test'))
+    create(:payment, order: order,
+           state: "pending",
+           amount: order.outstanding_balance,
+           payment_method: create(:bogus_payment_method, environment: 'test'))
 
   end
 
