@@ -62,7 +62,7 @@
 <% unless Rails.env.test? %>
     <script type="text/javascript">
         $(function() {
-            Conekta.setPublishableKey('<%= ENV['CONEKTA_PUBLIC_KEY'] %>');
+            Conekta.setPublishableKey('<%= payment_method.preferred_auth_token %>');
 
             $('#card_month').on('change', function(e){
                 $('#conekta_month').val($(this).val());
