@@ -2,9 +2,10 @@ module Spree
   class BillingIntegration::Conekta::Card < Gateway
     preference :auth_token, :string
     preference :source_method, :string, default: 'card'
+    preference :installments, :integer
 
     unless Rails::VERSION::MAJOR == 4
-      attr_accessible :preferred_auth_token, :preferred_source_method, :gateway_response
+      attr_accessible :preferred_auth_token, :preferred_source_method, :gateway_response, :preferred_installments
     end
 
     def provider_class
