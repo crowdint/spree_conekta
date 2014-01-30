@@ -6,7 +6,7 @@ module SpreeConekta
 
       def add_javascripts
         append_file 'app/assets/javascripts/store/all.js', "\n//= require store/spree_conekta\n"
-        append_file 'app/assets/javascripts/admin/all.js', "\n//= require store/spree_conekta\n"
+        append_file 'app/assets/javascripts/admin/all.js', "\n//= require admin/spree_conekta\n"
       end
 
       def add_stylesheets
