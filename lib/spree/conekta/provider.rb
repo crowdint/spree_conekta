@@ -4,6 +4,8 @@ module Spree::Conekta
 
     attr_accessor :auth_token, :source_method
 
+    attr_reader :options
+
     PAYMENT_SOURCES = {
         'card' => Spree::Conekta::PaymentSource::Card,
         'bank' => Spree::Conekta::PaymentSource::Bank,
@@ -11,8 +13,9 @@ module Spree::Conekta
     }
 
     def initialize(options = {})
-      self.auth_token = options[:auth_token]
-      self.source_method = payment_processor(options[:source_method])
+      @options       = options
+      @auth_token    = options[:auth_token]
+      @source_method = payment_processor(options[:source_method])
     end
 
     def authorize(amount, method_params, gateway_options = {})
@@ -49,9 +52,14 @@ module Spree::Conekta
           'amount' => amount,
           'reference_id' => gateway_params[:order_id],
           'currency' => gateway_params[:currency],
-          'description' => gateway_params[:order_id]
+          'description' => gateway_params[:order_id],
+          'monthly_installments' => installments_number
         }
       end
+    end
+
+    def installments_number
+      [1,6,12].include?(options[:installments]) ? options[:installments] : 1
     end
     
     def build_common_to_cash(amount, gateway_params)

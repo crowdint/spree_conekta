@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R822745753-G2XP3S3Q","currency":"MXN","description":"R822745753-G2XP3S3Q","card":"tok_xw1fNM9gRdpy2v4pN"}'
+      string: '{"amount":200000,"reference_id":"R742373265-SWNW4UVJ","currency":"MXN","description":"R742373265-SWNW4UVJ","monthly_installments":1,"card":"test_tok_processing_error"}'
     headers:
       Accept:
       - ' application/vnd.conekta-v0.3.0+json'
@@ -17,7 +17,7 @@ http_interactions:
       - Faraday v0.8.9
   response:
     status:
-      code: 402
+      code: 404
       message: 
     headers:
       Cache-Control:
@@ -27,27 +27,27 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 29 Jan 2014 16:07:40 GMT
+      - Thu, 30 Jan 2014 01:05:08 GMT
       Server:
       - nginx/1.1.19
       Status:
-      - 402 Payment Required
+      - 404 Not Found
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - ed8c76143b1f53a9f565390a7c8099d6
+      - ba3ea95a3b2e6fa24e0270dcca89035e
       X-Runtime:
-      - '1.800357'
+      - '0.029842'
       Content-Length:
-      - '91'
+      - '112'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"object":"error","type":"processing_error","message":"The payment
-        could not be processed"}'
+      string: '{"object":"error","type":"resource_not_found","message":"Token ''test_tok_processing_error''
+        could not be found."}'
     http_version: 
-  recorded_at: Wed, 29 Jan 2014 16:07:26 GMT
+  recorded_at: Thu, 30 Jan 2014 01:04:53 GMT
 recorded_with: VCR 2.8.0

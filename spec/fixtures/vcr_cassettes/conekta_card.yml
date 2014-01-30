@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R241733181-WZAYDAMJ","currency":"MXN","description":"R241733181-WZAYDAMJ","card":"tok_9D296DAjPa7qthJPr"}'
+      string: '{"amount":200000,"reference_id":"R112421384-AHTXWDVY","currency":"MXN","description":"R112421384-AHTXWDVY","monthly_installments":1,"card":"tok_test_visa_4242"}'
     headers:
       Accept:
       - ' application/vnd.conekta-v0.3.0+json'
@@ -27,9 +27,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 29 Jan 2014 18:20:05 GMT
+      - Thu, 30 Jan 2014 01:04:25 GMT
       ETag:
-      - '"23e72b7b8efd9d64215f7ac81318b66a"'
+      - '"19f510c4933a8ab750a6f8762bb6ed1c"'
       Server:
       - nginx/1.1.19
       Status:
@@ -39,17 +39,17 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - 50bd00c73d003e096dca5d65f6d4e04e
+      - af59c6f0a09c2ebfd4c618a63a6ee352
       X-Runtime:
-      - '6.513257'
-      transfer-encoding:
-      - chunked
+      - '6.423722'
+      Content-Length:
+      - '520'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"52e9464fd7e1a08328000045","livemode":false,"created_at":1391019599,"status":"paid","currency":"MXN","description":"R241733181-WZAYDAMJ","reference_id":"R241733181-WZAYDAMJ","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":200000,"fee":7261,"refunds":[],"payment_method":{"name":"John
-        Doe","exp_month":"01","exp_year":"15","auth_code":"389468","object":"card_payment","last4":"4242","brand":"visa"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+      string: '{"id":"52e9a513d7e1a03f19000235","livemode":false,"created_at":1391043859,"status":"paid","currency":"MXN","description":"R112421384-AHTXWDVY","reference_id":"R112421384-AHTXWDVY","failure_code":null,"failure_message":null,"monthly_installments":1,"object":"charge","amount":200000,"fee":7261,"refunds":[],"payment_method":{"name":"Jorge
+        Lopez","exp_month":"12","exp_year":"19","auth_code":"348385","object":"card_payment","last4":"4242","brand":"visa"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
     http_version: 
-  recorded_at: Wed, 29 Jan 2014 18:19:50 GMT
+  recorded_at: Thu, 30 Jan 2014 01:04:10 GMT
 recorded_with: VCR 2.8.0

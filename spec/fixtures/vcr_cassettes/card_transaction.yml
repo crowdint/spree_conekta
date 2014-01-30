@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":10000,"reference_id":"foo123","currency":"MXN","description":"foo123","card":"tok_test_visa_4242"}'
+      string: '{"amount":10000,"reference_id":"foo123","currency":"MXN","description":"foo123","monthly_installments":1,"card":"tok_test_visa_4242"}'
     headers:
       Accept:
       - ' application/vnd.conekta-v0.3.0+json'
@@ -27,9 +27,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 29 Jan 2014 16:35:05 GMT
+      - Thu, 30 Jan 2014 01:06:15 GMT
       ETag:
-      - '"fc62b403f7afb46eae486ed79e6ae0d9"'
+      - '"37764125a1372ae6185104e5f213fafb"'
       Server:
       - nginx/1.1.19
       Status:
@@ -39,17 +39,17 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - 334444cfaa9ac1e0c74111c8b933df77
+      - 04ca3b02be5f9dd5ff479f847828d911
       X-Runtime:
-      - '6.809170'
+      - '6.570461'
       Content-Length:
-      - '495'
+      - '492'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"52e92db3d7e1a03957000198","livemode":false,"created_at":1391013299,"status":"paid","currency":"MXN","description":"foo123","reference_id":"foo123","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":10000,"fee":649,"refunds":[],"payment_method":{"name":"Jorge
-        Lopez","exp_month":"12","exp_year":"19","auth_code":"388986","object":"card_payment","last4":"4242","brand":"visa"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+      string: '{"id":"52e9a581d7e1a0395700062b","livemode":false,"created_at":1391043969,"status":"paid","currency":"MXN","description":"foo123","reference_id":"foo123","failure_code":null,"failure_message":null,"monthly_installments":1,"object":"charge","amount":10000,"fee":649,"refunds":[],"payment_method":{"name":"Jorge
+        Lopez","exp_month":"12","exp_year":"19","auth_code":"458923","object":"card_payment","last4":"4242","brand":"visa"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
     http_version: 
-  recorded_at: Wed, 29 Jan 2014 16:34:50 GMT
+  recorded_at: Thu, 30 Jan 2014 01:06:01 GMT
 recorded_with: VCR 2.8.0
