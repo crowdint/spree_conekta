@@ -22,5 +22,9 @@ module Spree
     def auto_capture?
       true
     end
+
+    def method_type
+      'conekta_card'
+    end
   end
 end

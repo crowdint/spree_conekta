@@ -23,7 +23,7 @@ module SpreeConekta
       end
     end
 
-    initializer "spree.gateway.payment_methods", :after => "spree.register.payment_methods" do |app|
+    initializer "spree.gateway.payment_methods", after: "spree.register.payment_methods" do |app|
       app.config.spree.payment_methods << Spree::BillingIntegration::Conekta
       app.config.spree.payment_methods << Spree::BillingIntegration::Conekta::Card
       app.config.spree.payment_methods << Spree::BillingIntegration::Conekta::Cash

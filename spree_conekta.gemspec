@@ -22,5 +22,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'faraday_middleware'
   s.add_dependency 'activemerchant'
   s.add_dependency 'spree', '~> 2.0'
-
+  s.add_dependency 'coffee-rails'
 end

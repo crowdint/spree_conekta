@@ -7,8 +7,8 @@ module Spree
     let(:order) { FactoryGirl.create(:order_with_totals) }
 
     before do
-      controller.stub :try_spree_current_user => user
-      controller.stub :current_order => order
+      controller.stub try_spree_current_user: user
+      controller.stub current_order: order
     end
   end
 end

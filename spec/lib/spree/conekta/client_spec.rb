@@ -1,19 +1,7 @@
 require 'spec_helper'
 
 describe Spree::Conekta::Client do
-  describe :payment_procesor do
-    context "the payment source is card" do
-      it { expect(subject.payment_processor('card')).to be(Spree::Conekta::PaymentSource::Card) }
-    end
-
-    context "the payment source is bank" do
-      it { expect(subject.payment_processor('bank')).to be(Spree::Conekta::PaymentSource::Bank) }
-    end
-
-    context "the payment source is cash" do
-      it { expect(subject.payment_processor('cash')).to be(Spree::Conekta::PaymentSource::Cash) }
-    end
-  end
+  subject { double('client').extend Spree::Conekta::Client }
 
   describe :headers do
     let(:token){ 'abc12345678' }
@@ -36,6 +24,7 @@ describe Spree::Conekta::Client do
 
     before do
       subject.stub_chain(:connection, :post, :body).and_return(json)
+      subject.stub endpoint: 'charges'
     end
 
     it 'should return parsed body' do
