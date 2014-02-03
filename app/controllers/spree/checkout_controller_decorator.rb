@@ -1,7 +1,7 @@
 module Spree
   CheckoutController.class_eval do
     def completion_route
-      if @order.payments.present? && conekta_payment?(@order.payments.last)
+      if @order.payments.present? && conekta_payment?(@order.payments.last.payment_method)
          conekta_payment_path(@order)
       else
         spree.order_path(@order)
