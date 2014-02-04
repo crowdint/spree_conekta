@@ -59,7 +59,7 @@ module Spree::Conekta
     end
 
     def installments_number
-      [1,6,12].include?(options[:installments]) ? options[:installments] : 1
+      [6,12].include?(options[:installments]) ? options[:installments] : nil
     end
     
     def build_common_to_cash(amount, gateway_params)
