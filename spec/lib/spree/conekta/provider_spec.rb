@@ -24,7 +24,14 @@ describe Spree::Conekta::Provider do
   end
 
   describe '#authorize' do
-    let(:gateway_options) { { order_id: 'foo123', currency: 'MXN', billing_address: {} } }
+    let(:gateway_options) do
+      {
+        order_id: 'foo123',
+        currency: 'MXN',
+        billing_address: {},
+        shipping_address: {},
+      }
+    end
 
     before do
       subject.auth_token = '1tv5yJp3xnVZ7eK67m4h'
@@ -43,6 +50,7 @@ describe Spree::Conekta::Provider do
 
       before do
         subject.stub source_method: Spree::Conekta::PaymentSource::Card
+        subject.stub line_items: [{ name: 'foo', description: 'var' }]
       end
 
       it 'authorizes a transaction' do
@@ -57,6 +65,7 @@ describe Spree::Conekta::Provider do
 
       before do
         subject.stub source_method: Spree::Conekta::PaymentSource::Bank
+        subject.stub line_items: [{ name: 'foo', description: 'var' }]
       end
 
       it 'authorizes a transaction' do
@@ -71,6 +80,7 @@ describe Spree::Conekta::Provider do
 
       before do
         subject.stub source_method: Spree::Conekta::PaymentSource::Cash
+        subject.stub line_items: [{ name: 'foo', description: 'var' }]
       end
 
       it 'authorizes a transaction' do

@@ -5,7 +5,16 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R112421384-AHTXWDVY","currency":"MXN","description":"R112421384-AHTXWDVY","monthly_installments":1,"card":"tok_test_visa_4242"}'
+      string: '{"amount":200000,"reference_id":"R670558612-R438VMSG","currency":"MXN","description":"R670558612-R438VMSG","monthly_installments":null,"details":{"name":"John
+        Doe","email":"spree@example.com","phone":"123-456-7890","billing_address":{"email":"spree@example.com","street1":"10
+        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"},"line_items":[{"name":"Product
+        #2 - 9814","description":"Et et praesentium quia. Impedit minus mollitia qui
+        culpa explicabo distinctio eius iusto. Est et id ratione dolorem harum. Et
+        earum repellendus modi quis non dignissimos nisi. Sit magnam sapiente voluptatum
+        maiores qui quibusdam iusto.\nModi eius nam sit. Voluptatem voluptas aliquid
+        vel omnis voluptatem corrupti non repellendus. Earum non error est iste est
+        veritatis itaque laborum.","sku":"00fe41c408e5cc192ac8d1adf92e70f5","unit_price":"19.99"}],"shipment":{"price":"0.0","address":{"street1":"10
+        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"}}},"card":"tok_test_visa_4242"}'
     headers:
       Accept:
       - ' application/vnd.conekta-v0.3.0+json'
@@ -20,6 +29,7 @@ http_interactions:
       code: 200
       message: 
     headers:
+      HTTP/1.1 200 OK: []
       Cache-Control:
       - max-age=0, private, must-revalidate
       Conekta-Media-Type:
@@ -27,9 +37,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 30 Jan 2014 01:04:25 GMT
+      - Tue, 04 Feb 2014 22:43:07 GMT
       ETag:
-      - '"19f510c4933a8ab750a6f8762bb6ed1c"'
+      - '"4cda33e52f7904afcda8a55bb7a10e50"'
       Server:
       - nginx/1.1.19
       Status:
@@ -39,17 +49,26 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - af59c6f0a09c2ebfd4c618a63a6ee352
+      - 608df4ebe9a93fd0ff5deab10fddfe04
       X-Runtime:
-      - '6.423722'
+      - '7.755919'
       Content-Length:
-      - '520'
+      - '1502'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"52e9a513d7e1a03f19000235","livemode":false,"created_at":1391043859,"status":"paid","currency":"MXN","description":"R112421384-AHTXWDVY","reference_id":"R112421384-AHTXWDVY","failure_code":null,"failure_message":null,"monthly_installments":1,"object":"charge","amount":200000,"fee":7261,"refunds":[],"payment_method":{"name":"Jorge
-        Lopez","exp_month":"12","exp_year":"19","auth_code":"348385","object":"card_payment","last4":"4242","brand":"visa"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+      string: '{"id":"52f16cf5d7e1a009120006e0","livemode":false,"created_at":1391553781,"status":"paid","currency":"MXN","description":"R670558612-R438VMSG","reference_id":"R670558612-R438VMSG","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":200000,"fee":7261,"refunds":[],"payment_method":{"name":"Jorge
+        Lopez","exp_month":"12","exp_year":"19","auth_code":"870090","object":"card_payment","last4":"4242","brand":"visa"},"details":{"name":"John
+        Doe","phone":"123-456-7890","email":"spree@example.com","line_items":[{"name":"Product
+        #2 - 9814","description":"Et et praesentium quia. Impedit minus mollitia qui
+        culpa explicabo distinctio eius iusto. Est et id ratione dolorem harum. Et
+        earum repellendus modi quis non dignissimos nisi. Sit magnam sapiente voluptatum
+        maiores qui quibusdam iusto.\nModi eius nam sit. Voluptatem voluptas aliquid
+        vel omnis voluptatem corrupti non repellendus. Earum non error est iste est
+        veritatis itaque laborum.","unit_price":19,"quantity":null,"sku":"00fe41c408e5cc192ac8d1adf92e70f5","category":null}],"billing_address":{"street1":"10
+        Lovely Street","street2":"Northwest","street3":null,"city":"Herndon","state":"AL","zip":"20170","country":"US","tax_id":null,"company_name":null,"phone":null,"email":"spree@example.com"},"shipment":{"carrier":null,"service":null,"tracking_id":null,"price":0,"address":{"street1":"10
+        Lovely Street","street2":"Northwest","street3":null,"city":"Herndon","state":"AL","zip":"20170","country":"US"}}}}'
     http_version: 
-  recorded_at: Thu, 30 Jan 2014 01:04:10 GMT
+  recorded_at: Tue, 04 Feb 2014 22:42:51 GMT
 recorded_with: VCR 2.8.0

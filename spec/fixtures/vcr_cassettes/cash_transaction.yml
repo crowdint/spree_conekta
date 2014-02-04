@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":10000,"reference_id":"foo123","currency":"MXN","description":"foo123","cash":{"type":"oxxo"}}'
+      string: '{"amount":10000,"reference_id":"foo123","currency":"MXN","description":"foo123","monthly_installments":null,"details":{"name":null,"email":null,"phone":null,"billing_address":{"email":null,"street1":null,"street2":null,"city":null,"state":null,"country":null,"zip":null},"line_items":[{"name":"foo","description":"var"}],"shipment":{"price":null,"address":{"street1":null,"street2":null,"city":null,"state":null,"country":null,"zip":null}}},"cash":{"type":"oxxo"}}'
     headers:
       Accept:
       - ' application/vnd.conekta-v0.3.0+json'
@@ -27,9 +27,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 28 Jan 2014 21:58:22 GMT
+      - Tue, 04 Feb 2014 22:51:02 GMT
       ETag:
-      - '"1f3fa93bea4bb3a97acd61b1c621271c"'
+      - '"2b4297d98188d2850198aeb1c9a8f8a7"'
       Server:
       - nginx/1.1.19
       Status:
@@ -39,16 +39,16 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - eaa58c1f9dad72904b85ff464256b047
+      - aed06813e2ba9fe9cf24729078ac69c1
       X-Runtime:
-      - '0.310479'
-      Content-Length:
-      - '639'
+      - '0.137736'
+      transfer-encoding:
+      - chunked
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"52e827fed7e1a0a330000224","livemode":false,"created_at":1390946302,"status":"pending_payment","currency":"MXN","description":"foo123","reference_id":"foo123","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":10000,"fee":14.96,"refunds":[],"payment_method":{"expiry_date":"280214","barcode":"38100000000042290121213001160013","barcode_url":"https://www2.oxxo.com:8443/HTP/barcode/genbc?data=38100000000042290121213001160013&height=50&width=1&type=Code128","object":"cash_payment","type":"oxxo","expires_at":1393545600},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+      string: '{"id":"52f16ed6d7e1a08d5500072c","livemode":false,"created_at":1391554262,"status":"pending_payment","currency":"MXN","description":"foo123","reference_id":"foo123","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":10000,"fee":1496,"refunds":[],"payment_method":{"expiry_date":"040314","barcode":"38100000000042290121213001160013","barcode_url":"https://www2.oxxo.com:8443/HTP/barcode/genbc?data=38100000000042290121213001160013&height=50&width=1&type=Code128","object":"cash_payment","type":"oxxo","expires_at":1393891200},"details":{"name":null,"phone":null,"email":null,"line_items":[{"name":"foo","description":"var","unit_price":0,"quantity":null,"sku":null,"category":null}],"billing_address":{"street1":null,"street2":null,"street3":null,"city":null,"state":null,"zip":null,"country":null,"tax_id":null,"company_name":null,"phone":null,"email":null},"shipment":{"carrier":null,"service":null,"tracking_id":null,"price":null,"address":{"street1":null,"street2":null,"street3":null,"city":null,"state":null,"zip":null,"country":null}}}}'
     http_version: 
-  recorded_at: Tue, 28 Jan 2014 21:58:07 GMT
+  recorded_at: Tue, 04 Feb 2014 22:50:46 GMT
 recorded_with: VCR 2.8.0

@@ -5,7 +5,19 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R507601773-6VGRNH3F","currency":"MXN","description":"R507601773-6VGRNH3F","cash":{"type":"oxxo"}}'
+      string: '{"amount":200000,"reference_id":"R164485503-88UE844H","currency":"MXN","description":"R164485503-88UE844H","monthly_installments":null,"details":{"name":"John
+        Doe","email":"spree@example.com","phone":"123-456-7890","billing_address":{"email":"spree@example.com","street1":"10
+        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"},"line_items":[{"name":"Product
+        #14 - 2412","description":"Autem magni vitae labore voluptatem commodi. Explicabo
+        inventore aut tempora odit ex vel ea temporibus. Animi et qui placeat nemo.\nAccusamus
+        consequatur quia quisquam. Odit unde ratione velit recusandae sint illo molestiae
+        expedita. Aliquid optio illo accusamus et excepturi sunt asperiores.\nLaudantium
+        optio laborum qui aspernatur et porro. Illum inventore saepe rerum. Explicabo
+        incidunt vitae harum deleniti. A quam repellat ut aperiam sint praesentium
+        cumque velit. Ea eius rerum voluptate numquam.\nAmet beatae est fugiat qui
+        ad repudiandae eos. Exercitationem at maiores nulla sed error molestiae. Rerum
+        provident numquam rerum nihil ea qui aut.","sku":"4f32dc8e96c9a9fe2e47a09d5e7e2637","unit_price":"19.99"}],"shipment":{"price":"0.0","address":{"street1":"10
+        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"}}},"cash":{"type":"oxxo"}}'
     headers:
       Accept:
       - ' application/vnd.conekta-v0.3.0+json'
@@ -20,6 +32,7 @@ http_interactions:
       code: 200
       message: 
     headers:
+      HTTP/1.1 200 OK: []
       Cache-Control:
       - max-age=0, private, must-revalidate
       Conekta-Media-Type:
@@ -27,9 +40,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 28 Jan 2014 21:58:01 GMT
+      - Tue, 04 Feb 2014 22:44:11 GMT
       ETag:
-      - '"4684ac69784bb58aa0c273244d61b33e"'
+      - '"75aefeab9f132261a4adea28f0f1db75"'
       Server:
       - nginx/1.1.19
       Status:
@@ -39,16 +52,28 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - b9784c90e7282f1f47febc4d7c7a9beb
+      - cdeb5802ad94ea7d58fc4b7a306419a7
       X-Runtime:
-      - '0.557016'
-      transfer-encoding:
-      - chunked
+      - '0.161639'
+      Content-Length:
+      - '1913'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"52e827e9d7e1a04fd00001b7","livemode":false,"created_at":1390946281,"status":"pending_payment","currency":"MXN","description":"R507601773-6VGRNH3F","reference_id":"R507601773-6VGRNH3F","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":200000,"fee":34.8,"refunds":[],"payment_method":{"expiry_date":"280214","barcode":"38100000000042290121213001160013","barcode_url":"https://www2.oxxo.com:8443/HTP/barcode/genbc?data=38100000000042290121213001160013&height=50&width=1&type=Code128","object":"cash_payment","type":"oxxo","expires_at":1393545600},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+      string: '{"id":"52f16d3bd7e1a0b43f000018","livemode":false,"created_at":1391553851,"status":"pending_payment","currency":"MXN","description":"R164485503-88UE844H","reference_id":"R164485503-88UE844H","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":200000,"fee":3480,"refunds":[],"payment_method":{"expiry_date":"040314","barcode":"38100000000042290121213001160013","barcode_url":"https://www2.oxxo.com:8443/HTP/barcode/genbc?data=38100000000042290121213001160013&height=50&width=1&type=Code128","object":"cash_payment","type":"oxxo","expires_at":1393891200},"details":{"name":"John
+        Doe","phone":"123-456-7890","email":"spree@example.com","line_items":[{"name":"Product
+        #14 - 2412","description":"Autem magni vitae labore voluptatem commodi. Explicabo
+        inventore aut tempora odit ex vel ea temporibus. Animi et qui placeat nemo.\nAccusamus
+        consequatur quia quisquam. Odit unde ratione velit recusandae sint illo molestiae
+        expedita. Aliquid optio illo accusamus et excepturi sunt asperiores.\nLaudantium
+        optio laborum qui aspernatur et porro. Illum inventore saepe rerum. Explicabo
+        incidunt vitae harum deleniti. A quam repellat ut aperiam sint praesentium
+        cumque velit. Ea eius rerum voluptate numquam.\nAmet beatae est fugiat qui
+        ad repudiandae eos. Exercitationem at maiores nulla sed error molestiae. Rerum
+        provident numquam rerum nihil ea qui aut.","unit_price":19,"quantity":null,"sku":"4f32dc8e96c9a9fe2e47a09d5e7e2637","category":null}],"billing_address":{"street1":"10
+        Lovely Street","street2":"Northwest","street3":null,"city":"Herndon","state":"AL","zip":"20170","country":"US","tax_id":null,"company_name":null,"phone":null,"email":"spree@example.com"},"shipment":{"carrier":null,"service":null,"tracking_id":null,"price":0,"address":{"street1":"10
+        Lovely Street","street2":"Northwest","street3":null,"city":"Herndon","state":"AL","zip":"20170","country":"US"}}}}'
     http_version: 
-  recorded_at: Tue, 28 Jan 2014 21:57:47 GMT
+  recorded_at: Tue, 04 Feb 2014 22:43:54 GMT
 recorded_with: VCR 2.8.0
