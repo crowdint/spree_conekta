@@ -5,7 +5,12 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R210313731-JK93WYC5","currency":"MXN","description":"R210313731-JK93WYC5","bank":{"type":"banorte"}}'
+      string: '{"amount":200000,"reference_id":"R853010275-Z2VB7MZM","currency":"MXN","description":"R853010275-Z2VB7MZM","monthly_installments":null,"details":{"name":"John
+        Doe","email":"spree@example.com","phone":"123-456-7890","billing_address":{"email":"spree@example.com","street1":"10
+        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"},"line_items":[{"name":"Product
+        #17 - 4453","description":"Eligendi odio aut vel. Quas accusantium fugiat
+        aut eum debitis aut et officiis. Deserunt voluptas ipsum voluptas aliquid.","sku":"5847fe7049ea723bb0d3879503d7fbbf","unit_price":"19.99"}],"shipment":{"price":"0.0","address":{"street1":"10
+        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"}}},"bank":{"type":"banorte"}}'
     headers:
       Accept:
       - ' application/vnd.conekta-v0.3.0+json'
@@ -27,9 +32,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 28 Jan 2014 21:58:13 GMT
+      - Tue, 04 Feb 2014 22:44:23 GMT
       ETag:
-      - '"827b19d729e916a5ec43279508cde03c"'
+      - '"86d6aaaba4a38ed05f03e2d1f3d3b33d"'
       Server:
       - nginx/1.1.19
       Status:
@@ -39,16 +44,21 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - 24a622588efdab2021db59e66392bc78
+      - 61a2607dae89b2c088b0c048f37d68e7
       X-Runtime:
-      - '0.408156'
+      - '0.140063'
       transfer-encoding:
       - chunked
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"52e827f4d7e1a0dfbf00024b","livemode":false,"created_at":1390946292,"status":"pending_payment","currency":"MXN","description":"R210313731-JK93WYC5","reference_id":"R210313731-JK93WYC5","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":200000,"fee":32.48,"refunds":[],"payment_method":{"service_name":"Conekta","service_number":"127589","object":"bank_transfer_payment","type":"banorte","reference":"0060359"},"details":{"name":null,"phone":null,"email":null,"line_items":[]}}'
+      string: '{"id":"52f16d47d7e1a08d550006f8","livemode":false,"created_at":1391553863,"status":"pending_payment","currency":"MXN","description":"R853010275-Z2VB7MZM","reference_id":"R853010275-Z2VB7MZM","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":200000,"fee":3248,"refunds":[],"payment_method":{"service_name":"Conekta","service_number":"127589","object":"bank_transfer_payment","type":"banorte","reference":"0064987"},"details":{"name":"John
+        Doe","phone":"123-456-7890","email":"spree@example.com","line_items":[{"name":"Product
+        #17 - 4453","description":"Eligendi odio aut vel. Quas accusantium fugiat
+        aut eum debitis aut et officiis. Deserunt voluptas ipsum voluptas aliquid.","unit_price":19,"quantity":null,"sku":"5847fe7049ea723bb0d3879503d7fbbf","category":null}],"billing_address":{"street1":"10
+        Lovely Street","street2":"Northwest","street3":null,"city":"Herndon","state":"AL","zip":"20170","country":"US","tax_id":null,"company_name":null,"phone":null,"email":"spree@example.com"},"shipment":{"carrier":null,"service":null,"tracking_id":null,"price":0,"address":{"street1":"10
+        Lovely Street","street2":"Northwest","street3":null,"city":"Herndon","state":"AL","zip":"20170","country":"US"}}}}'
     http_version: 
-  recorded_at: Tue, 28 Jan 2014 21:57:58 GMT
+  recorded_at: Tue, 04 Feb 2014 22:44:07 GMT
 recorded_with: VCR 2.8.0

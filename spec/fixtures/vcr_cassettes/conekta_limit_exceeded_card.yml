@@ -5,7 +5,23 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R310171588-AXAXYLW4","currency":"MXN","description":"R310171588-AXAXYLW4","monthly_installments":1,"card":"test_tok_limit_exceeded"}'
+      string: '{"amount":200000,"reference_id":"R116582866-LTU2FNLF","currency":"MXN","description":"R116582866-LTU2FNLF","monthly_installments":null,"details":{"name":"John
+        Doe","email":"spree@example.com","phone":"123-456-7890","billing_address":{"email":"spree@example.com","street1":"10
+        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"},"line_items":[{"name":"Product
+        #11 - 6994","description":"Cumque rem sed dignissimos tempore. Dolor quis
+        quia excepturi. Nobis animi deserunt laudantium. Ducimus sed vero dolorem
+        repellendus iusto.\nEst dignissimos tempore sed dolores aspernatur quidem
+        excepturi. Atque molestiae sunt rerum qui error maxime. Aut incidunt optio
+        explicabo autem dolorem quis saepe pariatur.\nVelit sunt qui beatae voluptatem
+        praesentium et quos amet. Excepturi minima corporis minus pariatur. Ea laborum
+        nobis alias quasi. Id aliquid ea nihil fuga soluta sint ab.\nDistinctio tempore
+        nulla rerum magnam consectetur iusto dolor tenetur. Possimus minus deleniti
+        numquam est soluta sed quam repellendus. Eos odit blanditiis ut beatae ipsa
+        numquam deserunt amet.\nVoluptatum ullam in id ipsa mollitia. Blanditiis rerum
+        eaque ex quis dignissimos consequatur totam beatae. Tempore est architecto
+        et incidunt voluptatem facere. Voluptas id ut culpa soluta rerum ipsum et
+        aut.","sku":"7dd3c80eb6bda505a56084b0efae2743","unit_price":"19.99"}],"shipment":{"price":"0.0","address":{"street1":"10
+        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"}}},"card":"test_tok_limit_exceeded"}'
     headers:
       Accept:
       - ' application/vnd.conekta-v0.3.0+json'
@@ -20,6 +36,7 @@ http_interactions:
       code: 404
       message: 
     headers:
+      HTTP/1.1 404 Not Found: []
       Cache-Control:
       - no-cache
       Conekta-Media-Type:
@@ -27,7 +44,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 30 Jan 2014 01:05:27 GMT
+      - Tue, 04 Feb 2014 22:43:54 GMT
       Server:
       - nginx/1.1.19
       Status:
@@ -37,9 +54,9 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - d739743e3bf818d4b951e361dc1799d4
+      - 2b41a5c4591c206ccbecefc7b33a0574
       X-Runtime:
-      - '0.032704'
+      - '0.031661'
       Content-Length:
       - '110'
       Connection:
@@ -49,5 +66,5 @@ http_interactions:
       string: '{"object":"error","type":"resource_not_found","message":"Token ''test_tok_limit_exceeded''
         could not be found."}'
     http_version: 
-  recorded_at: Thu, 30 Jan 2014 01:05:12 GMT
+  recorded_at: Tue, 04 Feb 2014 22:43:38 GMT
 recorded_with: VCR 2.8.0

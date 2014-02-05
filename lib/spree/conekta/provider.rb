@@ -49,17 +49,60 @@ module Spree::Conekta
         return build_common_to_cash(amount, gateway_params) 
       else
         {
-          'amount' => amount,
-          'reference_id' => gateway_params[:order_id],
-          'currency' => gateway_params[:currency],
-          'description' => gateway_params[:order_id],
-          'monthly_installments' => installments_number
+          'amount'               => amount,
+          'reference_id'         => gateway_params[:order_id],
+          'currency'             => gateway_params[:currency],
+          'description'          => gateway_params[:order_id],
+          'monthly_installments' => installments_number,
+          'details'              => details(gateway_params)
         }
       end
     end
 
     def installments_number
       [6,12].include?(options[:installments]) ? options[:installments] : nil
+    end
+
+    def details(gateway_params)
+      {
+        'name'            => gateway_params[:billing_address][:name],
+        'email'           => gateway_params[:email],
+        'phone'           => gateway_params[:billing_address][:phone],
+        'billing_address' => billing_address(gateway_params),
+        'line_items'      => line_items(gateway_params),
+        'shipment'        => {
+          'price'   => gateway_params[:shipping],
+          'address' => shipping_address(gateway_params)
+        }
+      }
+    end
+
+    def shipping_address(gateway_params)
+      {
+        'street1' => gateway_params[:shipping_address][:address1],
+        'street2' => gateway_params[:shipping_address][:address2],
+        'city'    => gateway_params[:shipping_address][:city],
+        'state'   => gateway_params[:shipping_address][:state],
+        'country' => gateway_params[:shipping_address][:country],
+        'zip'     => gateway_params[:shipping_address][:zip]
+      }
+    end
+
+    def billing_address(gateway_params)
+      {
+        'email'   => gateway_params[:email],
+        'street1' => gateway_params[:billing_address][:address1],
+        'street2' => gateway_params[:billing_address][:address2],
+        'city'    => gateway_params[:billing_address][:city],
+        'state'   => gateway_params[:billing_address][:state],
+        'country' => gateway_params[:billing_address][:country],
+        'zip'     => gateway_params[:billing_address][:zip]
+      }
+    end
+
+    def line_items(gateway_params)
+      order = Spree::Order.find_by_number(gateway_params[:order_id].split('-').first)
+      order.line_items.map(&:to_conekta)
     end
     
     def build_common_to_cash(amount, gateway_params)
