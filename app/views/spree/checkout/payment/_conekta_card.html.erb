@@ -59,33 +59,8 @@
 
 <%= hidden_field_tag "#{param_prefix}[gateway_payment_profile_id]", '', :id => "gateway_payment_profile_id" %>
 
-<% unless Rails.env.test? %>
-    <script type="text/javascript">
-        $(function() {
-            Conekta.setPublishableKey('<%= payment_method.preferred_auth_token %>');
-
-            $('#card_month').on('change', function(e){
-                $('#conekta_month').val($(this).val());
-            });
-
-            $('#card_year').on('change', function(e){
-                $('#conekta_year').val($(this).val());
-            });
-
-            $('#checkout_form_payment').on('submit', function(e){
-                e.preventDefault();
-                var $form = $(this);
-                var spreeConekta = new Spree.Conekta($form);
-
-                if ($('#order_payments_attributes__payment_method_id_<%= payment_method.id %>').prop('checked')) {
-                    $form.find('button').prop('disabled', true);
-                    Conekta.token.create($form, spreeConekta.tokenSuccessResponseHandler, spreeConekta.tokenErrorResponseHandler);
-                }
-                else {
-                    $form.off('submit');
-                    $form.submit();
-                }
-            });
-        });
-    </script>
-<% end %>
+<script type="text/javascript">
+    $(function() {
+        Conekta.setPublishableKey('<%= payment_method.preferred_auth_token %>');
+    });
+</script>
