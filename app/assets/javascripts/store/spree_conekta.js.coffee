@@ -41,7 +41,7 @@ jQuery ->
       @form.submit()
 
     tokenSuccessResponseHandler: (response)=>
-      @form.find('#gateway_payment_profile_id').val(response.id)
+      @form.find("input[name='payment_source[#{@currentMethod}][gateway_payment_profile_id]']").val(response.id)
       @submitForm()
 
     tokenErrorResponseHandler: (response)=>
