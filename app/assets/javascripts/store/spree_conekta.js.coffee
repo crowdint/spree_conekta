@@ -7,8 +7,8 @@ jQuery ->
     currentMethod: null
 
     constructor: (@form)->
-      @methods       = @form.find 'input[name="order[payments_attributes][][payment_method_id]"]:checked'
-      @currentMethod = @methods.val()
+      @methods       = @form.find 'input[name="order[payments_attributes][][payment_method_id]"]'
+      @currentMethod = @methods.filter(':checked').val()
       @listenMethodChange()
       @listenSubmit()
 
