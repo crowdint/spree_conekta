@@ -13,7 +13,6 @@ module Spree::Conekta::PaymentSource
     end
 
     def installments_number(source)
-      binding.pry
       [6,12].include?(source.installments_number) ? source.installments_number : nil
     end
 
