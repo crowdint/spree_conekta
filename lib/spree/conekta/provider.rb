@@ -37,6 +37,10 @@ module Spree::Conekta
       PAYMENT_SOURCES[source_name]
     end
 
+    def supports?(brand)
+      %w(visa master).include? brand
+    end
+
     private
 
     def commit(common, method_params, gateway_options)
@@ -53,14 +57,9 @@ module Spree::Conekta
           'reference_id'         => gateway_params[:order_id],
           'currency'             => gateway_params[:currency],
           'description'          => gateway_params[:order_id],
-          'monthly_installments' => installments_number,
           'details'              => details(gateway_params)
         }
       end
-    end
-
-    def installments_number
-      [6,12].include?(options[:installments]) ? options[:installments] : nil
     end
 
     def details(gateway_params)

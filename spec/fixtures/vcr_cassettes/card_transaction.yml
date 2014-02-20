@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":10000,"reference_id":"foo123","currency":"MXN","description":"foo123","monthly_installments":null,"details":{"name":null,"email":null,"phone":null,"billing_address":{"email":null,"street1":null,"street2":null,"city":null,"state":null,"country":null,"zip":null},"line_items":[{"name":"foo","description":"var"}],"shipment":{"price":null,"address":{"street1":null,"street2":null,"city":null,"state":null,"country":null,"zip":null}}},"card":"tok_test_visa_4242"}'
+      string: '{"amount":10000,"reference_id":"foo123","currency":"MXN","description":"foo123","details":{"name":null,"email":null,"phone":null,"billing_address":{"email":null,"street1":null,"street2":null,"city":null,"state":null,"country":null,"zip":null},"line_items":[{"name":"foo","description":"var"}],"shipment":{"price":null,"address":{"street1":null,"street2":null,"city":null,"state":null,"country":null,"zip":null}}},"card":"tok_test_visa_4242","monthly_installments":null}'
     headers:
       Accept:
       - ' application/vnd.conekta-v0.3.0+json'
@@ -27,9 +27,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 04 Feb 2014 22:50:30 GMT
+      - Thu, 20 Feb 2014 18:02:24 GMT
       ETag:
-      - '"393066d47ec29d6ed941791463136166"'
+      - '"8f418d7d3ae42f0d3cd9dd29f8e5f77c"'
       Server:
       - nginx/1.1.19
       Status:
@@ -39,17 +39,17 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - b2a6b072042e88c2f056a03566f8db18
+      - c52a1cf0aac05c96a1eec45862d7acaa
       X-Runtime:
-      - '6.126185'
+      - '4.667617'
       Content-Length:
       - '946'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"52f16eb1d7e1a00912000700","livemode":false,"created_at":1391554225,"status":"paid","currency":"MXN","description":"foo123","reference_id":"foo123","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":10000,"fee":649,"refunds":[],"payment_method":{"name":"Jorge
-        Lopez","exp_month":"12","exp_year":"19","auth_code":"413208","object":"card_payment","last4":"4242","brand":"visa"},"details":{"name":null,"phone":null,"email":null,"line_items":[{"name":"foo","description":"var","unit_price":0,"quantity":null,"sku":null,"category":null}],"billing_address":{"street1":null,"street2":null,"street3":null,"city":null,"state":null,"zip":null,"country":null,"tax_id":null,"company_name":null,"phone":null,"email":null},"shipment":{"carrier":null,"service":null,"tracking_id":null,"price":null,"address":{"street1":null,"street2":null,"street3":null,"city":null,"state":null,"zip":null,"country":null}}}}'
+      string: '{"id":"5306432cd7e1a010ec000085","livemode":false,"created_at":1392919340,"status":"paid","currency":"MXN","description":"foo123","reference_id":"foo123","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":10000,"fee":649,"refunds":[],"payment_method":{"name":"Jorge
+        Lopez","exp_month":"12","exp_year":"19","auth_code":"223643","object":"card_payment","last4":"4242","brand":"visa"},"details":{"name":null,"phone":null,"email":null,"line_items":[{"name":"foo","description":"var","unit_price":0,"quantity":null,"sku":null,"category":null}],"billing_address":{"street1":null,"street2":null,"street3":null,"city":null,"state":null,"zip":null,"country":null,"tax_id":null,"company_name":null,"phone":null,"email":null},"shipment":{"carrier":null,"service":null,"tracking_id":null,"price":null,"address":{"street1":null,"street2":null,"street3":null,"city":null,"state":null,"zip":null,"country":null}}}}'
     http_version: 
-  recorded_at: Tue, 04 Feb 2014 22:50:14 GMT
+  recorded_at: Thu, 20 Feb 2014 18:02:04 GMT
 recorded_with: VCR 2.8.0
