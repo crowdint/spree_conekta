@@ -2,5 +2,5 @@ before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 
-before_script: "Y | LIB_NAME=spree_conekta bundle exec rake common:test_app -s"
+before_script: "LIB_NAME=spree_conekta bundle exec rake common:test_app -s"
 script: "bundle exec rspec spec"
