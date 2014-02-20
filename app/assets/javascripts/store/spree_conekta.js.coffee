@@ -8,7 +8,7 @@ jQuery ->
 
     constructor: (@form)->
       @methods       = @form.find 'input[name="order[payments_attributes][][payment_method_id]"]'
-      @currentMethod = @methods.val()
+      @currentMethod = @methods.filter(':checked').val()
       @listenMethodChange()
       @listenSubmit()
 
@@ -41,7 +41,7 @@ jQuery ->
       @form.submit()
 
     tokenSuccessResponseHandler: (response)=>
-      @form.find('#gateway_payment_profile_id').val(response.id)
+      @form.find("input[name='payment_source[#{@currentMethod}][gateway_payment_profile_id]']").val(response.id)
       @submitForm()
 
     tokenErrorResponseHandler: (response)=>
