@@ -45,7 +45,8 @@ describe Spree::Conekta::Provider do
                          number: '4242424242424242',
                          year: '2014',
                          month: '8',
-                         gateway_payment_profile_id: 'tok_test_visa_4242'
+                         gateway_payment_profile_id: 'tok_test_visa_4242',
+                         installments_number: nil
       end
 
       before do
@@ -91,5 +92,17 @@ describe Spree::Conekta::Provider do
     end
   end
 
+  describe '#supports?' do
+    it 'does not support amex' do
+      expect(subject.supports?('american_express')).to be_false
+    end
 
+    it 'supports visa' do
+      expect(subject.supports?('visa')).to be_true
+    end
+
+    it 'supports master card' do
+      expect(subject.supports?('master')).to be_true
+    end
+  end
 end

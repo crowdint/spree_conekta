@@ -54,6 +54,13 @@
   <%= link_to "(#{Spree.t(:what_is_this)})", spree.content_path('cvv'), :target => '_blank', "data-hook" => "cvv_link", :id => "cvv_link" %>
 </p>
 
+<% if payment_method.with_installments? %>
+  <p class="field">
+    <%= label_tag "installments_number_#{payment_method.id}", Spree.t(:installments_number) %>
+    <%= select_tag "#{param_prefix}[installments_number]", options_for_select([6,12], 6) %>
+  </p>
+<% end %>
+
 <%= hidden_field_tag "conekta_month", Date.today.month, :data => { conekta: 'card[exp_month]' } %>
 <%= hidden_field_tag "conekta_year", Date.today.year, :data => { conekta: 'card[exp_year]' } %>
 
