@@ -5,16 +5,22 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R670558612-R438VMSG","currency":"MXN","description":"R670558612-R438VMSG","monthly_installments":null,"details":{"name":"John
+      string: '{"amount":200000,"reference_id":"R207558352-6GP6PDQS","currency":"MXN","description":"R207558352-6GP6PDQS","details":{"name":"John
         Doe","email":"spree@example.com","phone":"123-456-7890","billing_address":{"email":"spree@example.com","street1":"10
         Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"},"line_items":[{"name":"Product
-        #2 - 9814","description":"Et et praesentium quia. Impedit minus mollitia qui
-        culpa explicabo distinctio eius iusto. Est et id ratione dolorem harum. Et
-        earum repellendus modi quis non dignissimos nisi. Sit magnam sapiente voluptatum
-        maiores qui quibusdam iusto.\nModi eius nam sit. Voluptatem voluptas aliquid
-        vel omnis voluptatem corrupti non repellendus. Earum non error est iste est
-        veritatis itaque laborum.","sku":"00fe41c408e5cc192ac8d1adf92e70f5","unit_price":"19.99"}],"shipment":{"price":"0.0","address":{"street1":"10
-        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"}}},"card":"tok_test_visa_4242"}'
+        #2 - 2899","description":"Modi voluptatem enim ullam. Exercitationem sit rem
+        iusto. Excepturi sint quasi aut voluptatem reiciendis. Illo ut maxime dolorem
+        velit earum maiores et.\nDolorum fuga qui pariatur quia deleniti. Voluptas
+        modi sapiente est fugiat eaque dolores id. Dolor necessitatibus nulla aliquam
+        dolores quaerat nisi sunt.\nRerum autem est harum eos. Qui temporibus non
+        id soluta blanditiis accusamus odio. Qui et eligendi voluptas excepturi quis
+        odit. Voluptas aut natus beatae. Architecto perspiciatis error voluptates
+        voluptatem sequi.\nQuia nihil repellendus omnis consequatur. Corporis ullam
+        illo rerum maxime id doloremque. Quasi dolores omnis optio dicta illo ut blanditiis
+        soluta.\nDelectus qui explicabo voluptatem quidem dolore. Eveniet magni rerum
+        et sunt. Amet et similique perspiciatis ut consequatur dolores at recusandae.
+        Quas unde enim veritatis. Praesentium velit eligendi odit.","sku":"852429246c1f3ecdd62cbc6a53f97ab6","unit_price":"19.99"}],"shipment":{"price":"0.0","address":{"street1":"10
+        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"}}},"card":"tok_test_visa_4242","monthly_installments":null}'
     headers:
       Accept:
       - ' application/vnd.conekta-v0.3.0+json'
@@ -37,9 +43,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 04 Feb 2014 22:43:07 GMT
+      - Thu, 20 Feb 2014 17:59:13 GMT
       ETag:
-      - '"4cda33e52f7904afcda8a55bb7a10e50"'
+      - '"3d2f74675d88f99cb880f691231eee0b"'
       Server:
       - nginx/1.1.19
       Status:
@@ -49,26 +55,32 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - 608df4ebe9a93fd0ff5deab10fddfe04
+      - 5f95e8603cc6ec79fd8f576060de1bd0
       X-Runtime:
-      - '7.755919'
+      - '7.006776'
       Content-Length:
-      - '1502'
+      - '1998'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"52f16cf5d7e1a009120006e0","livemode":false,"created_at":1391553781,"status":"paid","currency":"MXN","description":"R670558612-R438VMSG","reference_id":"R670558612-R438VMSG","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":200000,"fee":7261,"refunds":[],"payment_method":{"name":"Jorge
-        Lopez","exp_month":"12","exp_year":"19","auth_code":"870090","object":"card_payment","last4":"4242","brand":"visa"},"details":{"name":"John
+      string: '{"id":"5306426bd7e1a010ec000074","livemode":false,"created_at":1392919147,"status":"paid","currency":"MXN","description":"R207558352-6GP6PDQS","reference_id":"R207558352-6GP6PDQS","failure_code":null,"failure_message":null,"monthly_installments":null,"object":"charge","amount":200000,"fee":7261,"refunds":[],"payment_method":{"name":"Jorge
+        Lopez","exp_month":"12","exp_year":"19","auth_code":"932798","object":"card_payment","last4":"4242","brand":"visa"},"details":{"name":"John
         Doe","phone":"123-456-7890","email":"spree@example.com","line_items":[{"name":"Product
-        #2 - 9814","description":"Et et praesentium quia. Impedit minus mollitia qui
-        culpa explicabo distinctio eius iusto. Est et id ratione dolorem harum. Et
-        earum repellendus modi quis non dignissimos nisi. Sit magnam sapiente voluptatum
-        maiores qui quibusdam iusto.\nModi eius nam sit. Voluptatem voluptas aliquid
-        vel omnis voluptatem corrupti non repellendus. Earum non error est iste est
-        veritatis itaque laborum.","unit_price":19,"quantity":null,"sku":"00fe41c408e5cc192ac8d1adf92e70f5","category":null}],"billing_address":{"street1":"10
+        #2 - 2899","description":"Modi voluptatem enim ullam. Exercitationem sit rem
+        iusto. Excepturi sint quasi aut voluptatem reiciendis. Illo ut maxime dolorem
+        velit earum maiores et.\nDolorum fuga qui pariatur quia deleniti. Voluptas
+        modi sapiente est fugiat eaque dolores id. Dolor necessitatibus nulla aliquam
+        dolores quaerat nisi sunt.\nRerum autem est harum eos. Qui temporibus non
+        id soluta blanditiis accusamus odio. Qui et eligendi voluptas excepturi quis
+        odit. Voluptas aut natus beatae. Architecto perspiciatis error voluptates
+        voluptatem sequi.\nQuia nihil repellendus omnis consequatur. Corporis ullam
+        illo rerum maxime id doloremque. Quasi dolores omnis optio dicta illo ut blanditiis
+        soluta.\nDelectus qui explicabo voluptatem quidem dolore. Eveniet magni rerum
+        et sunt. Amet et similique perspiciatis ut consequatur dolores at recusandae.
+        Quas unde enim veritatis. Praesentium velit eligendi odit.","unit_price":19,"quantity":null,"sku":"852429246c1f3ecdd62cbc6a53f97ab6","category":null}],"billing_address":{"street1":"10
         Lovely Street","street2":"Northwest","street3":null,"city":"Herndon","state":"AL","zip":"20170","country":"US","tax_id":null,"company_name":null,"phone":null,"email":"spree@example.com"},"shipment":{"carrier":null,"service":null,"tracking_id":null,"price":0,"address":{"street1":"10
         Lovely Street","street2":"Northwest","street3":null,"city":"Herndon","state":"AL","zip":"20170","country":"US"}}}}'
     http_version: 
-  recorded_at: Tue, 04 Feb 2014 22:42:51 GMT
+  recorded_at: Thu, 20 Feb 2014 17:58:53 GMT
 recorded_with: VCR 2.8.0

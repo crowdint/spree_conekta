@@ -5,23 +5,20 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R848567456-SX5L7Q7X","currency":"MXN","description":"R848567456-SX5L7Q7X","monthly_installments":null,"details":{"name":"John
+      string: '{"amount":200000,"reference_id":"R382112103-3RECBG9H","currency":"MXN","description":"R382112103-3RECBG9H","details":{"name":"John
         Doe","email":"spree@example.com","phone":"123-456-7890","billing_address":{"email":"spree@example.com","street1":"10
         Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"},"line_items":[{"name":"Product
-        #8 - 9926","description":"Perspiciatis ut tenetur minus rerum necessitatibus.
-        Quis odio odit doloribus. Suscipit dolores consectetur velit voluptas quia.
-        Laudantium totam amet blanditiis dolorem natus nisi eaque quas.\nQui veniam
-        atque odit sequi. Officia eligendi sed voluptatibus non dolores expedita voluptates
-        sapiente. At earum facere id aperiam quo illo. Beatae reprehenderit ut sint
-        eos sit.\nSit doloremque tempore est reiciendis et. Nostrum dolore in cupiditate
-        architecto suscipit. Incidunt magni fugiat eos nihil enim tenetur assumenda.
-        Quisquam tempore qui nihil autem similique voluptatem eum cum.\nAperiam qui
-        ut dicta dolorem laborum rerum et eum. Autem ipsa aliquid aperiam eveniet
-        est ut nihil minima. Qui quod a dignissimos doloremque velit eos.\nEt vero
-        suscipit voluptate fugit laborum. Harum esse expedita laudantium rem error
-        quis et sint. Ut est et ducimus vel mollitia. Exercitationem vitae culpa voluptas
-        vel natus.","sku":"58666f0150806a4de4f255fcdb6b4c88","unit_price":"19.99"}],"shipment":{"price":"0.0","address":{"street1":"10
-        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"}}},"card":"test_tok_processing_error"}'
+        #8 - 9356","description":"Illo minima enim et quia omnis assumenda. Fugiat
+        ea molestiae sit. Illo harum perspiciatis omnis ut quos aliquid nihil. Sint
+        possimus et perspiciatis eos sed dolorem sit. Non est tempora qui maxime a
+        ex deserunt officia.\nCum repellendus sequi quibusdam dicta reiciendis consequatur
+        ut sint. Quisquam quaerat ullam accusantium nesciunt ipsam consequatur. Quod
+        laudantium sequi et. Incidunt officiis et velit neque. Et quos ratione praesentium.\nHic
+        eaque voluptatem iusto. Harum voluptatibus consequatur eum voluptates. Reprehenderit
+        earum consectetur tenetur maxime. Ipsum sed praesentium consequatur eligendi
+        porro nihil.\nIn ullam quas fugiat harum. Aut ut fugit vero quia harum itaque
+        dicta qui. Eum provident iusto aliquid.","sku":"993f39a2b806311d983d9a278759e615","unit_price":"19.99"}],"shipment":{"price":"0.0","address":{"street1":"10
+        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"}}},"card":"test_tok_processing_error","monthly_installments":null}'
     headers:
       Accept:
       - ' application/vnd.conekta-v0.3.0+json'
@@ -44,7 +41,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 04 Feb 2014 22:43:39 GMT
+      - Thu, 20 Feb 2014 17:59:48 GMT
       Server:
       - nginx/1.1.19
       Status:
@@ -54,9 +51,9 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - aaed46d97bcda6becb0047397e4d178d
+      - c71c6abbf87b80bff8306504307f1ca8
       X-Runtime:
-      - '0.040687'
+      - '0.057431'
       Content-Length:
       - '112'
       Connection:
@@ -66,5 +63,5 @@ http_interactions:
       string: '{"object":"error","type":"resource_not_found","message":"Token ''test_tok_processing_error''
         could not be found."}'
     http_version: 
-  recorded_at: Tue, 04 Feb 2014 22:43:22 GMT
+  recorded_at: Thu, 20 Feb 2014 17:59:28 GMT
 recorded_with: VCR 2.8.0

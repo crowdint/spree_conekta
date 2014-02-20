@@ -5,22 +5,17 @@ http_interactions:
     uri: https://api.conekta.io/charges
     body:
       encoding: UTF-8
-      string: '{"amount":200000,"reference_id":"R785450751-3HENAVNT","currency":"MXN","description":"R785450751-3HENAVNT","monthly_installments":null,"details":{"name":"John
+      string: '{"amount":200000,"reference_id":"R577145641-WRXQPNCU","currency":"MXN","description":"R577145641-WRXQPNCU","details":{"name":"John
         Doe","email":"spree@example.com","phone":"123-456-7890","billing_address":{"email":"spree@example.com","street1":"10
         Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"},"line_items":[{"name":"Product
-        #5 - 5213","description":"Occaecati repellat consequatur sint sint sequi consequuntur.
-        Ut similique nemo architecto sunt deserunt amet. Praesentium nostrum voluptates
-        culpa laudantium quod incidunt eius. Sed quo sed explicabo autem. Voluptates
-        impedit incidunt iusto est.\nNon iusto consectetur ut eligendi. Qui aliquid
-        tempore ducimus deleniti et voluptate cumque. Dolore facilis accusantium ad.
-        Omnis impedit in et sed.\nConsequatur ipsam quis error. Iusto et laborum voluptate
-        consequuntur ea blanditiis. Ducimus aut et dolorum voluptatem mollitia rerum
-        similique ea. Laudantium possimus nihil voluptas enim.\nAut voluptatem consequatur
-        minus dolorem in sapiente. Ad eaque qui numquam voluptatem omnis et labore
-        ipsa. Veniam doloremque rerum et officia.\nNeque accusamus voluptas velit
-        in. Est eum enim delectus accusamus quis. Amet qui nulla cumque aut ut modi
-        qui sed. Est est mollitia excepturi in qui recusandae provident.","sku":"f1b34c8885be7c11d7de4b0bd16bedf4","unit_price":"19.99"}],"shipment":{"price":"0.0","address":{"street1":"10
-        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"}}},"card":"test_tok_card_declined"}'
+        #5 - 3774","description":"Repellendus eum repudiandae vitae omnis quia. Aspernatur
+        error iure mollitia assumenda. Ex consequatur dolor explicabo praesentium.\nVelit
+        rerum ducimus iure error. Non eum est cumque autem omnis quia earum. Quia
+        eligendi ut et alias eos voluptate rerum dolores.\nDolores sed quidem quos
+        tenetur dolore laborum accusantium sunt. Nulla alias pariatur debitis laudantium.
+        Tenetur necessitatibus voluptas quis similique iusto itaque. Animi et consequatur
+        excepturi error velit totam.","sku":"9ea7e1f2b5cb2d20032a46e6688e905e","unit_price":"19.99"}],"shipment":{"price":"0.0","address":{"street1":"10
+        Lovely Street","street2":"Northwest","city":"Herndon","state":"AL","country":"US","zip":"20170"}}},"card":"test_tok_card_declined","monthly_installments":null}'
     headers:
       Accept:
       - ' application/vnd.conekta-v0.3.0+json'
@@ -43,7 +38,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 04 Feb 2014 22:43:23 GMT
+      - Thu, 20 Feb 2014 17:59:29 GMT
       Server:
       - nginx/1.1.19
       Status:
@@ -53,9 +48,9 @@ http_interactions:
       X-Rack-Cache:
       - invalidate, pass
       X-Request-Id:
-      - cc685025ffbee564ee6187ee2e47b981
+      - 3f8b45116556074d7ae18682e8032340
       X-Runtime:
-      - '0.073684'
+      - '0.035006'
       Content-Length:
       - '109'
       Connection:
@@ -65,5 +60,5 @@ http_interactions:
       string: '{"object":"error","type":"resource_not_found","message":"Token ''test_tok_card_declined''
         could not be found."}'
     http_version: 
-  recorded_at: Tue, 04 Feb 2014 22:43:06 GMT
+  recorded_at: Thu, 20 Feb 2014 17:59:09 GMT
 recorded_with: VCR 2.8.0
