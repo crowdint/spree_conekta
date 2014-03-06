@@ -206,8 +206,15 @@
 
   window.Conekta = {
     setPublishableKey: function(key) {
+      var e, s;
       if (typeof key === 'string' && key.match(/^[a-zA-Z0-9_]*$/) && key.length >= 20 && key.length < 30) {
         publishable_key = key;
+        e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.async = true;
+        e.src = 'https://s3.amazonaws.com/conektaapi_includes/' + publishable_key + '.js';
+        s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(e, s);
       } else {
         Conekta._helpers.log('Unusable public key: ' + key);
       }
@@ -217,7 +224,7 @@
     },
     _helpers: {
       parseForm: function(charge_form) {
-        var all_inputs, attribute, attribute_name, attributes, charge, input, inputs, key, last_attribute, line_items, node, parent_node, textareas, val, _j, _k, _l, _len, _len1, _m, _ref, _ref1;
+        var all_inputs, attribute, attribute_name, attributes, charge, input, inputs, key, last_attribute, line_items, node, parent_node, selects, textareas, val, _j, _k, _l, _len, _len1, _m, _n, _ref, _ref1, _ref2;
         charge = {};
         if (typeof charge_form === 'object') {
           if (typeof jQuery !== 'undefined' && (charge_form instanceof jQuery || 'jquery' in Object(charge_form))) {
@@ -226,25 +233,33 @@
           if (charge_form.nodeType) {
             textareas = charge_form.getElementsByTagName('textarea');
             inputs = charge_form.getElementsByTagName('input');
-            all_inputs = new Array(textareas.length + inputs.length);
+            selects = charge_form.getElementsByTagName('select');
+            all_inputs = new Array(textareas.length + inputs.length + selects.length);
             for (i = _j = 0, _ref = textareas.length - 1; _j <= _ref; i = _j += 1) {
               all_inputs[i] = textareas[i];
             }
             for (i = _k = 0, _ref1 = inputs.length - 1; _k <= _ref1; i = _k += 1) {
               all_inputs[i + textareas.length] = inputs[i];
             }
-            for (_l = 0, _len = all_inputs.length; _l < _len; _l++) {
-              input = all_inputs[_l];
+            for (i = _l = 0, _ref2 = selects.length - 1; _l <= _ref2; i = _l += 1) {
+              all_inputs[i + textareas.length + inputs.length] = selects[i];
+            }
+            for (_m = 0, _len = all_inputs.length; _m < _len; _m++) {
+              input = all_inputs[_m];
               if (input) {
                 attribute_name = input.getAttribute('data-conekta');
                 if (attribute_name) {
-                  val = input.getAttribute('value') || input.innerHTML || input.value;
+                  if (input.tagName === 'SELECT') {
+                    val = input.value;
+                  } else {
+                    val = input.getAttribute('value') || input.innerHTML || input.value;
+                  }
                   attributes = attribute_name.replace(/\]/g, '').replace(/\-/g, '_').split(/\[/);
                   parent_node = null;
                   node = charge;
                   last_attribute = null;
-                  for (_m = 0, _len1 = attributes.length; _m < _len1; _m++) {
-                    attribute = attributes[_m];
+                  for (_n = 0, _len1 = attributes.length; _n < _len1; _n++) {
+                    attribute = attributes[_n];
                     if (!node[attribute]) {
                       node[attribute] = {};
                     }
@@ -293,7 +308,7 @@
           });
         };
         if (document.location.protocol === 'file:') {
-          params.url = (params.jsonp_url || params.url) + '.js';
+          params.url = (params.jsonp_url || params.url) + '/create.js';
           params.data['_Version'] = "0.3.0";
           params.data['_RaiseHtmlError'] = false;
           params.data['auth_token'] = Conekta.getPublishableKey();
@@ -368,6 +383,9 @@
     }
     charge = Conekta._helpers.parseForm(charge_form);
     charge.session_id = Conekta._helpers.getSessionId();
+    if (charge.card && charge.card.address && !(charge.card.address.street1 || charge.card.address.street2 || charge.card.address.street3 || charge.card.address.city || charge.card.address.state || charge.card.address.country || charge.card.address.zip)) {
+      delete charge.card.address;
+    }
     if (typeof charge === 'object') {
       return Conekta._helpers.xDomainPost({
         jsonp_url: 'charges/create',
@@ -461,7 +479,7 @@
     return _ref = number.length, __indexOf.call(card_type.valid_length, _ref) >= 0;
   };
 
-  accepted_cards = ['visa', 'mastercard'];
+  accepted_cards = ['visa', 'mastercard', 'maestro', 'visa_electron', 'amex', 'laser', 'diners_club_carte_blanche', 'diners_club_international', 'discover', 'jcb'];
 
   get_card_type = function(number) {
     var card, card_type, _i, _len, _ref;
@@ -562,8 +580,10 @@
     var card_type, length_valid, luhn_valid;
     if (typeof number === 'string') {
       number = number.replace(/[ -]/g, '');
-    } else if (type(number === 'number')) {
-      number = toString(number);
+    } else if (typeof number === 'number') {
+      number = number.toString();
+    } else {
+      number = "";
     }
     card_type = get_card_type(number);
     luhn_valid = false;
@@ -597,6 +617,9 @@
         'type': 'invalid_request_error',
         'message': "The form or hash has no attributes 'card'.  If you are using a form, please ensure that you have have an input or text area with the data-conekta attribute 'card[number]'.  For an example form see: https://github.com/conekta/conekta.js/blob/master/examples/credit_card.html"
       });
+    }
+    if (token.card && token.card.address && !(token.card.address.street1 || token.card.address.street2 || token.card.address.street3 || token.card.address.city || token.card.address.state || token.card.address.country || token.card.address.zip)) {
+      delete token.card.address;
     }
     if (typeof token === 'object') {
       return Conekta._helpers.xDomainPost({
