@@ -36,11 +36,13 @@ rails g spree_conekta:install
 
         Spree::BillingIntegration::Conekta::Bank
 
+        Spree::BillingIntegration::Conekta::MonthlyPayment
+
 4. On the auth token field, add your Conekta public key:
 
 ###Source Methods
 
-Conekta currently supports three different methods:
+Conekta currently supports four different methods:
 
 ####Card
 >Card method will let you pay using your credit or debit card. More info: [Conekta Card](https://www.conekta.io/docs/crear_cargo#tarjetas)
@@ -51,6 +53,8 @@ Conekta currently supports three different methods:
 ####Bank
 >Bank method will let you generate a deposit or transfer reference. More info: [Conekta Bank](https://www.conekta.io/docs/crear_cargo#bancos)
 
+####Monthly Payment
+>This method will let you pay using your credit card with a monthly payment schema. More info: [Conekta Monthly Payments](https://www.conekta.io/es/docs/tutoriales/meses-sin-intereses)
 
 **Important Note:** If you want to support all source methods, you'll need to create a payment method for each one.
 
