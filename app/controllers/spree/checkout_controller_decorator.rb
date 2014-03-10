@@ -2,6 +2,7 @@ module Spree
   CheckoutController.class_eval do
     if Rails::VERSION::MAJOR >= 4
       before_action :permit_installments_number
+      before_action :permit_conekta_response
     end
 
     def completion_route
@@ -20,6 +21,10 @@ module Spree
 
     def permit_installments_number
       permitted_source_attributes << :installments_number
+    end
+
+    def permit_conekta_response
+      permitted_source_attributes << :conekta_response
     end
   end
 end

@@ -28,6 +28,7 @@ module SpreeConekta
       app.config.spree.payment_methods << Spree::BillingIntegration::Conekta::Card
       app.config.spree.payment_methods << Spree::BillingIntegration::Conekta::Cash
       app.config.spree.payment_methods << Spree::BillingIntegration::Conekta::Bank
+      app.config.spree.payment_methods << Spree::BillingIntegration::Conekta::MonthlyPayment
     end
 
     config.to_prepare &method(:activate).to_proc
