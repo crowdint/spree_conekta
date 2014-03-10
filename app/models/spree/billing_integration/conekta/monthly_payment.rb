@@ -1,14 +1,13 @@
 module Spree
-  class BillingIntegration::Conekta::Card < Gateway
+  class BillingIntegration::Conekta::MonthlyPayment < Gateway
     preference :auth_token, :string
-    preference :source_method, :string, default: 'card'
 
     unless Rails::VERSION::MAJOR == 4
-      attr_accessible :preferred_auth_token, :preferred_source_method, :gateway_response
+      attr_accessible :preferred_auth_token
     end
 
     def provider_class
-      Spree::Conekta::Provider
+      Spree::Conekta::MonthlyPaymentProvider
     end
 
     def payment_source_class
@@ -20,11 +19,11 @@ module Spree
     end
 
     def auto_capture?
-      true
+      false
     end
 
     def with_installments?
-      false
+      true
     end
 
     def method_type
