@@ -9,10 +9,10 @@
                 $('#conekta_year').val($(this).val());
             });
 
-            var gatewayOptions = JSON.parse('<%= Rabl.render(@order,
-                                                             'spree/conekta/gateway_options',
-                                                             view_path: File.expand_path('app/views', SpreeConekta::Engine.root),
-                                                             format: :json).html_safe %>');
+            var gatewayOptions = JSON.parse('<%= escape_javascript Rabl.render(@order,
+                                                     'spree/conekta/gateway_options',
+                                                     view_path: File.expand_path('app/views', SpreeConekta::Engine.root),
+                                                     format: :json).html_safe %>');
 
             spreeConekta = new Spree.Conekta($('#checkout_form_payment'), gatewayOptions);
         });
