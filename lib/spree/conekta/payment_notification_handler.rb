@@ -17,13 +17,19 @@ module Spree
       end
 
       def perform_action
-        after(delay) { payment.send(action) }
+        after(delay) do
+          ActiveRecord::Base.connection_pool.with_connection do
+            payment.send(action)
+          end
+        end
       end
 
       private
 
       def payment
-        Spree::Payment.find_by_order_number(order)
+        ActiveRecord::Base.connection_pool.with_connection do
+          Spree::Payment.find_by_order_number(order)
+        end
       end
     end
   end
