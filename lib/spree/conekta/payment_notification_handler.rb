@@ -20,6 +20,7 @@ module Spree
         after(delay) do
           ActiveRecord::Base.connection_pool.with_connection do
             Rails.logger.info 'Performing conekta action'
+            Rails.logger.info payment.inspect
             payment.try(action)
           end
         end
