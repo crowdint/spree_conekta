@@ -9,7 +9,7 @@ module Spree
 
       ACTIONS = Hash.new(:failure!).merge! 'charge.paid' => :capture!
 
-      def initialize(params, delay = 30)
+      def initialize(params, delay = 60)
         @params = params
         @delay  = delay
         @action = ACTIONS[params['type']]
@@ -19,7 +19,7 @@ module Spree
       def perform_action
         after(delay) do
           ActiveRecord::Base.connection_pool.with_connection do
-            payment.send(action)
+            payment.try(action)
           end
         end
       end
