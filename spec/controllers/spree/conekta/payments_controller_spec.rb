@@ -1,8 +1,15 @@
 require 'spec_helper'
+require 'celluloid'
 
 describe Spree::Conekta::PaymentsController do
 #  render_views
   routes { Spree::Core::Engine.routes }
+
+  before do
+    DatabaseCleaner.clean
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.start
+  end
 
   let(:conekta_response){
     {
@@ -47,10 +54,12 @@ describe Spree::Conekta::PaymentsController do
   describe :create do
     context 'The order is completed and a pending payment exist' do
       before do
+        Spree::Conekta::PaymentNotificationHandler.any_instance.stub delay: 1
         post :create, conekta_response
       end
 
       it 'should mark a payment as completed' do
+        sleep 2
         expect(Spree::Payment.joins(:order).where(spree_orders: {number: order_number }).last).to be_completed
       end
     end
