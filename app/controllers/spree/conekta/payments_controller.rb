@@ -8,7 +8,7 @@ module Spree::Conekta
     end
 
     def create
-      PaymentNotificationHandler.new(params).perform_action unless params['type'] == 'charge.created'
+      PaymentNotificationHandler.new(params).perform_action if params['type'] == 'charge.paid'
       render nothing: true
     end
   end

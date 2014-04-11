@@ -63,5 +63,17 @@ describe Spree::Conekta::PaymentsController do
         expect(Spree::Payment.joins(:order).where(spree_orders: {number: order_number }).last).to be_completed
       end
     end
+
+    context 'The order is completed and a pending payment exist but the charge is not paid' do
+      before do
+        Spree::Conekta::PaymentNotificationHandler.any_instance.stub delay: 1
+        Spree::Conekta::PaymentNotificationHandler.any_instance.should_not_receive :perform_action
+      end
+
+      it 'It should do nothing if the charge notification is not paid' do
+        post :create, conekta_response.merge!('type' => 'charge.created')
+        sleep 2
+      end
+    end
   end
 end
