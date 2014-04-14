@@ -32,6 +32,10 @@ module Spree
         super { |credit_card| credit_card.id == id }
       end
 
+      def to_ary
+        self
+      end
+
       private
 
       def build_cards(response)

@@ -21,7 +21,7 @@ module Spree::Conekta
     private
 
     def find_customer
-      @customer = Spree::Conekta::Customer.new(spree_current_user, ENV['CONEKTA_TOKEN'])
+      @customer = Spree::Conekta::Customer.new(spree_current_user, auth_token: SpreeConekta::Config.private_key)
     end
   end
 end

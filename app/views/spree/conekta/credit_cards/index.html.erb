@@ -1,0 +1,16 @@
+<h1><%= Spree.t(:credit_card_manager) %></h1>
+
+<p><%= Spree.t(:credit_card_storing_advice) %></p>
+
+<table id="credit-cards">
+  <thead>
+    <tr>
+      <th><%= Spree.t(:credit_card) %></th>
+      <th><%= Spree.t(:credit_card_expiration_date) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'spree/conekta/credit_cards/credit_card', collection: @credit_cards %>
+  </tbody>
+</table>
