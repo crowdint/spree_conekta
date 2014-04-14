@@ -24,11 +24,19 @@ module Spree
         "customers/#{customer.id}/cards"
       end
 
+      def reload
+        @cards = build_cards(get)
+      end
+
+      def find(id)
+        super { |credit_card| credit_card.id == id }
+      end
+
       private
 
       def build_cards(response)
         response.map do |credit_card|
-          Spree::Conekta::CreditCard.build(customer, credit_card, auth_token: auth_token)
+          Spree::Conekta::CreditCard.build(customer, credit_card, auth_token)
         end
       end
     end

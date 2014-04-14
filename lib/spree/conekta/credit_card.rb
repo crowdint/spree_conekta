@@ -25,6 +25,10 @@ module Spree
         "customers/#{customer.id}/cards"
       end
 
+      def destroy
+        delete(id)
+      end
+
       private
 
       def build_card(card)

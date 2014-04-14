@@ -21,4 +21,20 @@ describe Spree::Conekta::CreditCardCollection do
   describe '#endpoint' do
     specify { expect(subject.endpoint).to eq('customers/cus_e7inii51RjUPsMbP8/cards') }
   end
+
+  describe '#reload' do
+    before do
+      subject.stub get: double('response')
+      subject.stub build_cards: [double(Spree::Conekta::CreditCard)]
+    end
+
+    specify { expect{subject.reload}.to change{subject.size}.to(1) }
+  end
+
+  describe '#find' do
+    it 'finds a credit card by id' do
+      expect(subject.find('card_pSwoseKzEwBr9SDM')).to be_a_kind_of Spree::Conekta::CreditCard
+      expect(subject.find('card_Ph6kuMK2dL3QWJAc')).to be_a_kind_of Spree::Conekta::CreditCard
+    end
+  end
 end

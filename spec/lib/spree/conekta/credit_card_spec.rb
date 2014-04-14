@@ -29,4 +29,18 @@ describe Spree::Conekta::CreditCard do
 
     specify { expect(subject.endpoint).to eq('customers/cus_e7inii51RjUPsMbP8/cards') }
   end
+
+  describe '#destroy' do
+    before do
+      VCR.use_cassette('create_credit_card') do
+        @card = described_class.create(customer, 'tok_test_visa_4242', auth_token)
+      end
+    end
+
+    it 'Removes the credit card from conekta' do
+      VCR.use_cassette('destroy_credit_card') do
+        expect(@card.destroy).to be_true
+      end
+    end
+  end
 end

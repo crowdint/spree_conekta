@@ -42,6 +42,7 @@ describe Spree::Conekta::PaymentsController do
   let(:reference){ conekta_response['data']['object']['reference_id'] = "RT#{rand(0..1000)}-XCVBC" }
   let(:order_number){ reference.split('-')[0] }
   let(:order){ create(:order_with_totals, number: order_number) }
+  let(:user) { create(:admin_user) }
 
   before do
     create(:payment, order: order,
@@ -49,6 +50,7 @@ describe Spree::Conekta::PaymentsController do
            amount: order.outstanding_balance,
            payment_method: create(:bogus_payment_method, environment: 'test'))
 
+    controller.stub spree_current_user: user
   end
 
   describe :create do

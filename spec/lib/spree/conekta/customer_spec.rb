@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Spree::Conekta::Customer do
-  let(:user)         { double('user', email: 'foo@example.com') }
+  let(:user)         { create(:user, email: 'foo@example.com') }
   let(:credit_cards) { double('credit_cards') }
   let(:token)        { '123456' }
 
@@ -13,7 +13,7 @@ describe Spree::Conekta::Customer do
 
   context 'When the user does not has a customer associated' do
     before do
-      user.stub gateway_customer_profile_id: nil
+      user.gateway_customer_profile_id = nil
     end
 
     it 'creates a new customer' do
@@ -25,7 +25,7 @@ describe Spree::Conekta::Customer do
 
   context 'When the user has a customer associated' do
     before do
-      user.stub gateway_customer_profile_id: '123'
+      user.gateway_customer_profile_id = '123'
     end
 
     it 'uses the users customer id' do
