@@ -1,6 +1,6 @@
 module Spree
   class BillingIntegration::Conekta::MonthlyPayment < Gateway
-    preference :auth_token, :string
+    preference :auth_token, :string, default: SpreeConekta::Config.public_key
 
     unless Rails::VERSION::MAJOR == 4
       attr_accessible :preferred_auth_token
