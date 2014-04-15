@@ -4,20 +4,20 @@ module Spree::Conekta
 
     attr_accessor :auth_token, :response_error
 
-    def post(params)
-      parse_response connection.post(endpoint, Oj.dump(params))
+    def post(params, raise_exceptions = true)
+      parse_response connection.post(endpoint, Oj.dump(params)), raise_exceptions
     end
 
-    def put(id, params)
-      parse_response connection.put("#{endpoint}/#{id}", Oj.dump(params))
+    def put(id, params, raise_exceptions = true)
+      parse_response connection.put("#{endpoint}/#{id}", Oj.dump(params)), raise_exceptions
     end
 
-    def get
-      parse_response connection.get(endpoint)
+    def get(raise_exceptions = true)
+      parse_response connection.get(endpoint), raise_exceptions
     end
 
-    def delete(id)
-      parse_response connection.delete("#{endpoint}/#{id}")
+    def delete(id, raise_exceptions = true)
+      parse_response connection.delete("#{endpoint}/#{id}"), raise_exceptions
     end
 
     def response_error?
@@ -47,10 +47,16 @@ module Spree::Conekta
 
     private
 
-    def parse_response(response)
+    def parse_response(response, raise_exceptions)
       body = Oj.load response.body
-      response.success? ? response_error = nil : response_error = body
-      body
+      if response.success?
+        self.response_error = nil
+        body
+      else
+        self.response_error = body
+        Spree::Conekta::Exceptions.create body['type'], body['message'] if raise_exceptions
+        body
+      end
     end
   end
 end

@@ -1,0 +1,104 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.conekta.io/customers/cus_tVggKneQBGuVWps4n/cards
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - " application/vnd.conekta-v0.3.0+json"
+      Content-type:
+      - " application/json"
+      Authorization:
+      - Basic a2V5X1IzSk5IYWRjY01UZG1welo6
+      User-Agent:
+      - Faraday v0.8.9
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Conekta-Media-Type:
+      - conekta-v0.3.0; format=json
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 15 Apr 2014 22:15:00 GMT
+      ETag:
+      - "\"d751713988987e9331980363e24189ce\""
+      Server:
+      - nginx/1.1.19
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Record-Count:
+      - '0'
+      X-Request-Id:
+      - 806615038dc13f21e5f5834454847d46
+      X-Runtime:
+      - '0.077701'
+      Content-Length:
+      - '2'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: 
+  recorded_at: Tue, 15 Apr 2014 22:14:28 GMT
+- request:
+    method: post
+    uri: https://api.conekta.io/customers/cus_tVggKneQBGuVWps4n/cards
+    body:
+      encoding: UTF-8
+      string: "{\"token\":\"tok_test_mastercard_5100\"}"
+    headers:
+      Accept:
+      - " application/vnd.conekta-v0.3.0+json"
+      Content-type:
+      - " application/json"
+      Authorization:
+      - Basic a2V5X1IzSk5IYWRjY01UZG1welo6
+      User-Agent:
+      - Faraday v0.8.9
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Conekta-Media-Type:
+      - conekta-v0.3.0; format=json
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 15 Apr 2014 22:15:00 GMT
+      ETag:
+      - "\"62c58ef78778c5c97a3fbc417366894b\""
+      Server:
+      - nginx/1.1.19
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Request-Id:
+      - 2df1fb9a5f277191a3597caf0d610960
+      X-Runtime:
+      - '0.132192'
+      transfer-encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "{\"id\":\"card_jrWX3KxJ8euvFvXA\",\"created_at\":1397600100,\"active\":true,\"last4\":\"5100\",\"object\":\"card\",\"exp_month\":\"12\",\"exp_year\":\"19\",\"brand\":\"MC\",\"name\":\"Jorge
+        Lopez\",\"customer_id\":\"cus_tVggKneQBGuVWps4n\"}"
+    http_version: 
+  recorded_at: Tue, 15 Apr 2014 22:14:28 GMT
+recorded_with: VCR 2.8.0

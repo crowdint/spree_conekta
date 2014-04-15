@@ -6,7 +6,7 @@ module Spree
 
       extend  Forwardable
 
-      def_instance_delegators :@cards, :each, :size
+      def_instance_delegators :@cards, :each, :size, :empty?
 
       attr_reader :customer
 

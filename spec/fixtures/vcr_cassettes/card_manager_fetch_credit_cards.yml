@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.conekta.io/customers/cus_tVggKneQBGuVWps4n/cards
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - " application/vnd.conekta-v0.3.0+json"
+      Content-type:
+      - " application/json"
+      Authorization:
+      - Basic a2V5X1IzSk5IYWRjY01UZG1welo6
+      User-Agent:
+      - Faraday v0.8.9
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Conekta-Media-Type:
+      - conekta-v0.3.0; format=json
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 15 Apr 2014 22:01:37 GMT
+      ETag:
+      - "\"151e5739099513672cda3ac1a89c4fbc\""
+      Server:
+      - nginx/1.1.19
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Record-Count:
+      - '1'
+      X-Request-Id:
+      - 9a884287fb5001497ec6321e795acd6c
+      X-Runtime:
+      - '0.233205'
+      transfer-encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "[{\"id\":\"card_cs4HeSKnhW9ADqN1\",\"created_at\":1397599296,\"active\":true,\"last4\":\"4242\",\"object\":\"card\",\"exp_month\":\"12\",\"exp_year\":\"19\",\"brand\":\"VISA\",\"name\":\"Jorge
+        Lopez\",\"customer_id\":\"cus_tVggKneQBGuVWps4n\"}]"
+    http_version: 
+  recorded_at: Tue, 15 Apr 2014 22:01:05 GMT
+recorded_with: VCR 2.8.0

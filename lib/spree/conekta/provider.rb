@@ -45,7 +45,7 @@ module Spree::Conekta
 
     def commit(common, method_params, gateway_options)
       source_method.request(common, method_params, gateway_options)
-      Spree::Conekta::Response.new post(common), source_method
+      Spree::Conekta::Response.new post(common, false), source_method
     end
 
     def build_common(amount, gateway_params)

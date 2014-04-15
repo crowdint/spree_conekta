@@ -2,6 +2,8 @@ module Spree::Conekta
   class CreditCardsController < Spree::StoreController
     ssl_required
 
+    include Spree::Conekta::ControllerExceptionHandling
+
     before_filter :find_customer
     before_filter :find_credit_card, only: [:edit, :update, :destroy]
 

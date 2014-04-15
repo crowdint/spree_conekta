@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.conekta.io/customers
+    body:
+      encoding: UTF-8
+      string: "{\"name\":\"catharine.rogahn@keebler.info\",\"email\":\"catharine.rogahn@keebler.info\"}"
+    headers:
+      Accept:
+      - " application/vnd.conekta-v0.3.0+json"
+      Content-type:
+      - " application/json"
+      Authorization:
+      - Basic a2V5X1IzSk5IYWRjY01UZG1welo6
+      User-Agent:
+      - Faraday v0.8.9
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Conekta-Media-Type:
+      - conekta-v0.3.0; format=json
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 15 Apr 2014 22:01:36 GMT
+      ETag:
+      - "\"58ddc20956114117f8e964dde8ecdf1f\""
+      Server:
+      - nginx/1.1.19
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Request-Id:
+      - 63dbbfcd67ed4836a41c11e8aebee88e
+      X-Runtime:
+      - '0.201446'
+      transfer-encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "{\"id\":\"cus_tVggKneQBGuVWps4n\",\"email\":\"catharine.rogahn@keebler.info\",\"name\":\"catharine.rogahn@keebler.info\",\"phone\":null,\"livemode\":false,\"default_card_id\":null,\"object\":\"customer\",\"created_at\":1397599296,\"cards\":[],\"subscription\":null}"
+    http_version: 
+  recorded_at: Tue, 15 Apr 2014 22:01:04 GMT
+recorded_with: VCR 2.8.0
