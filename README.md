@@ -54,6 +54,8 @@ Conekta currently supports three different methods:
 
 **Important Note:** If you want to support all source methods, you'll need to create a payment method for each one.
 
+**Important Note:** This extension only works with ruby 2.0+.
+
 # About the Author
 
 [Crowd Interactive](http://www.crowdint.com) is an American web design and development company that happens to work in Colima, Mexico.
