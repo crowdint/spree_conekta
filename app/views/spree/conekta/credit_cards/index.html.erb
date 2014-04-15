@@ -8,9 +8,12 @@
       <th><%= Spree.t(:credit_card) %></th>
       <th><%= Spree.t(:credit_card_expiration_date) %></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <%= render partial: 'spree/conekta/credit_cards/credit_card', collection: @credit_cards %>
   </tbody>
 </table>
+
+<%= link_to Spree.t(:create_credit_card), new_conekta_credit_card_path %>

@@ -27,6 +27,10 @@ module Spree
         'customers'
       end
 
+      def delete_credit_card(id)
+        credit_cards.find(id).destroy
+      end
+
       private
 
       def create_new_client

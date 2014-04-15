@@ -8,6 +8,10 @@ module Spree::Conekta
       parse_response connection.post(endpoint, Oj.dump(params))
     end
 
+    def put(id, params)
+      parse_response connection.put("#{endpoint}/#{id}", Oj.dump(params))
+    end
+
     def get
       parse_response connection.get(endpoint)
     end

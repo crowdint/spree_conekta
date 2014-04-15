@@ -67,8 +67,4 @@
 <%= hidden_field_tag "#{param_prefix}[conekta_response]", '' %>
 <%= hidden_field_tag "#{param_prefix}[gateway_payment_profile_id]", '', :id => "gateway_payment_profile_id" %>
 
-<script type="text/javascript">
-    $(function() {
-        Conekta.setPublishableKey('<%= payment_method.preferred_auth_token -%>');
-    });
-</script>
+<%= render 'spree/shared/conekta_token' %>
