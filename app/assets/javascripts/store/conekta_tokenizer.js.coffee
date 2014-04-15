@@ -15,7 +15,7 @@ class Conekta.Tokenizer
     @submitForm()
 
   errorResponseHandler: (response)=>
-    debugger
+    $('#content').prepend "<div class='flash error'>#{response.message}</div>"
 
   submitForm: ->
     @$form.off('submit')
