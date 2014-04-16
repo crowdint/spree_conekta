@@ -8,7 +8,7 @@ module Spree
       Spree::Payment.joins(:order)
         .where(state: 'pending', spree_orders: {
           number: order_number
-        }).readonly(false).first
+        }).readonly(false).last
     end
 
     def self.capture_by_order_number(order_number)
