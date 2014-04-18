@@ -65,6 +65,7 @@ module Spree
         @exp_month = card['exp_month']
         @exp_year  = card['exp_year']
         @name      = card['name']
+        self
       end
 
       def create_card(token)
