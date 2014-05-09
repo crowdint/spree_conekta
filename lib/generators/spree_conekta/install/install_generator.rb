@@ -5,13 +5,13 @@ module SpreeConekta
       class_option :auto_run_migrations, type: :boolean, default: false
 
       def add_javascripts
-        append_file 'app/assets/javascripts/store/all.js', "\n//= require store/spree_conekta\n"
-        append_file 'app/assets/javascripts/admin/all.js', "\n//= require admin/spree_conekta\n"
+        append_file 'vendor/assets/javascripts/spree/frontend/all.js', "\n//= require spree/frontend/spree_conekta\n"
+        append_file 'vendor/assets/javascripts/spree/backend/all.js', "\n//= require spree/backend/spree_conekta\n"
       end
 
       def add_stylesheets
-        inject_into_file 'app/assets/stylesheets/store/all.css', "\n *= require store/spree_conekta\n", before: /\*\//, verbose: true
-        inject_into_file 'app/assets/stylesheets/admin/all.css', "\n *= require admin/spree_conekta\n", before: /\*\//, verbose: true
+        inject_into_file 'vendor/assets/stylesheets/spree/frontend/all.css', "\n *= require spree/frontend/spree_conekta\n", before: /\*\//, verbose: true
+        inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', "\n *= require spree/backend/spree_conekta\n", before: /\*\//, verbose: true
       end
 
       def add_migrations
