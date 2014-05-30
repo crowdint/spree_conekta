@@ -41,6 +41,10 @@ module Spree::Conekta
       %w(visa master).include? brand
     end
 
+    def credit(credit_cents, response_code, gateway_options)
+      Spree::Conekta::FakeResponse.new
+    end
+
     private
 
     def commit(common, method_params, gateway_options)
