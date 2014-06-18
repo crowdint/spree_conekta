@@ -1,4 +1,5 @@
 source "http://rubygems.org"
+gem 'spree', github: 'spree/spree', branch: 'master'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.13'

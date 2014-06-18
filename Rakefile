@@ -1,24 +1,21 @@
-#!/usr/bin/env rake
-begin
-  require 'bundler/setup'
-rescue LoadError
-  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
-end
-begin
-  require 'rdoc/task'
-  require 'spree/testing_support/common_rake'
-
-rescue LoadError
-  require 'rdoc/rdoc'
-  require 'rake/rdoctask'
-  RDoc::Task = Rake::RDocTask
-end
-
+require 'bundler'
 Bundler::GemHelper.install_tasks
 
-require 'rspec/core'
 require 'rspec/core/rake_task'
+require 'spree/testing_support/extension_rake'
 
-desc "Run all specs in spec directory (excluding plugin specs)"
-RSpec::Core::RakeTask.new(:spec => 'app:db:test:prepare')
-task :default => :spec
+RSpec::Core::RakeTask.new
+
+task :default do
+  if Dir["spec/dummy"].empty?
+    Rake::Task[:test_app].invoke
+    Dir.chdir("../../")
+  end
+  Rake::Task[:spec].invoke
+end
+
+desc 'Generates a dummy app for testing'
+task :test_app do
+  ENV['LIB_NAME'] = 'spree_conekta'
+  Rake::Task['extension:test_app'].invoke
+end

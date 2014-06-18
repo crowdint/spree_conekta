@@ -1,6 +1,6 @@
 # Spree Conekta
-[![Code Climate](https://codeclimate.com/github/crowdint/spree_conekta.png)](https://codeclimate.com/github/crowdint/spree_conekta)
-[![Build Status](https://travis-ci.org/crowdint/spree_conekta.png?branch=conekta-apiv2)](https://travis-ci.org/crowdint/spree_conekta)
+[![Code Climate](https://codeclimate.com/github/crowdint/spree_conekta.png)](https://codeclimate.com/github/AgilTec/spree_conekta)
+[![Build Status](https://travis-ci.org/crowdint/spree_conekta.png?branch=conekta-apiv2)](https://travis-ci.org/AgilTec/spree_conekta)
 [![Gem Version](https://badge.fury.io/rb/spree_conekta.png)](http://badge.fury.io/rb/spree_conekta)
 
 Setup
@@ -9,7 +9,7 @@ Setup
 Add this extension to your Gemfile:
 
 ```ruby
-gem 'spree_conekta', git: 'git://github.com/crowdint/spree_conekta.git'
+gem 'spree_conekta', github: 'AgilTec/spree_conekta', branch: '2.3.0.beta'
 ```
 
 Then run:
