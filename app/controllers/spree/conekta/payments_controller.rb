@@ -1,6 +1,7 @@
 module Spree::Conekta
   class PaymentsController < Spree::StoreController
     ssl_required
+    skip_before_filter :verify_authenticity_token, only: :create
 
     def show
       @order = Spree::Order.find_by_number(params[:id])

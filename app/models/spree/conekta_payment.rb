@@ -1,4 +1,5 @@
 class Spree::ConektaPayment < ActiveRecord::Base
+  belongs_to :payment_method
   has_many :payments, as: :source
 
   unless Rails::VERSION::MAJOR == 4
