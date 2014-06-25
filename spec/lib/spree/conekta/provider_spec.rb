@@ -94,15 +94,15 @@ describe Spree::Conekta::Provider do
 
   describe '#supports?' do
     it 'does not support amex' do
-      expect(subject.supports?('american_express')).to be_false
+      expect(subject.supports?('american_express')).to be false
     end
 
     it 'supports visa' do
-      expect(subject.supports?('visa')).to be_true
+      expect(subject.supports?('visa')).to be true
     end
 
     it 'supports master card' do
-      expect(subject.supports?('master')).to be_true
+      expect(subject.supports?('master')).to be true
     end
   end
 end

@@ -47,7 +47,7 @@ describe Spree::Conekta::PaymentsController do
     create(:payment, order: order,
            state: "pending",
            amount: order.outstanding_balance,
-           payment_method: create(:bogus_payment_method, environment: 'test'))
+           payment_method: create(:credit_card_payment_method, environment: 'test'))
 
   end
 

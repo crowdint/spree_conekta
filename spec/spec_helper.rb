@@ -63,12 +63,13 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.before(:each) do
-    if example.metadata[:js]
+    if RSpec.current_example.metadata[:js]
       DatabaseCleaner.strategy = :truncation
     else
       DatabaseCleaner.strategy = :transaction
     end
     DatabaseCleaner.start
+    # FactoryGirl.lint
     reset_spree_preferences
   end
 

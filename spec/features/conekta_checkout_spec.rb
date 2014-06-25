@@ -1,4 +1,7 @@
 require 'spec_helper'
+Dir[File.join(File.dirname(__FILE__), "../factories/**/*.rb")].each {|f| require f }
+
+Spree::Config[:currency] = 'MXN'
 
 describe "Conekta checkout" do
   let!(:country) { create(:country, states_required: true) }
@@ -7,12 +10,13 @@ describe "Conekta checkout" do
   let!(:stock_location) { create(:stock_location) }
   let!(:mug) { create(:product, name: "RoR Mug") }
 
-
   let!(:zone) { create(:zone) }
 
   let!(:order) { OrderWalkthrough.up_to(:delivery) }
 
   before do
+    puts "factory :price amount: #{price.amount} currency: #{price.currency}"
+
     user = create(:user)
 
     order.stub :confirmation_required? => true
@@ -21,6 +25,7 @@ describe "Conekta checkout" do
     order.user = user
     order.currency = 'MXN'
     order.update!
+
 
     order.stub total: 2000
 
