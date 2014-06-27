@@ -17,5 +17,6 @@ group :test do
   gem 'ffaker'
 end
 
+gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-1-stable'
 
 gemspec

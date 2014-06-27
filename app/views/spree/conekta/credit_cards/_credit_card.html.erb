@@ -1,0 +1,6 @@
+<tr>
+  <td><%= "#{credit_card.brand} xxxx-xxxx-xxxx-#{credit_card.last4}" %></td>
+  <td><%= "#{credit_card.exp_month}/#{credit_card.exp_year}" %></td>
+  <td><%= link_to Spree.t(:edit), edit_conekta_credit_card_path(credit_card.id) %></td>
+  <td><%= link_to Spree.t(:delete), conekta_credit_card_path(credit_card.id), method: :delete %></td>
+</tr>

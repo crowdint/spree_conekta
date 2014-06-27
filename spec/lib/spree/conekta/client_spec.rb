@@ -22,8 +22,10 @@ describe Spree::Conekta::Client do
       }.to_json
     end
 
+    let(:response) { double('response', body: json, success?: true) }
+
     before do
-      subject.stub_chain(:connection, :post, :body).and_return(json)
+      subject.stub_chain(:connection, :post).and_return(response)
       subject.stub endpoint: 'charges'
     end
 

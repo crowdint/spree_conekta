@@ -1,6 +1,6 @@
 module Spree
   class BillingIntegration::Conekta::Bank < Gateway
-    preference :auth_token, :string
+    preference :auth_token, :string, default: SpreeConekta::Config.public_key
     preference :source_method, :string, default: 'bank'
 
     unless Rails::VERSION::MAJOR == 4

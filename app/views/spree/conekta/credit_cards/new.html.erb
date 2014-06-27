@@ -1,0 +1,11 @@
+<h1><%= Spree.t(:new_credit_card) %></h1>
+
+<%= render 'spree/conekta/credit_cards/form', credit_card: @credit_card %>
+
+<%= render 'spree/shared/conekta_token' %>
+
+<script type="text/javascript">
+  $(function() {
+    tokenizer = new Conekta.Tokenizer($('#new_conekta_credit_card_'));
+  });
+</script>

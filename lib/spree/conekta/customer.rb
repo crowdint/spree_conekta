@@ -27,11 +27,15 @@ module Spree
         'customers'
       end
 
+      def delete_credit_card(id)
+        credit_cards.find(id).destroy
+      end
+
       private
 
       def create_new_client
         response = post(name: user.email, email: user.email)
-        user.update_column(:gateway_customer_profile_id, response['id']) if options[:persist]
+        user.update_column(:gateway_customer_profile_id, response['id'])
         response['id']
       end
     end

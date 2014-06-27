@@ -1,0 +1,32 @@
+<%= form_for credit_card do |f| %>
+  <div class="errors"></div>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, data: { conekta: 'card[name]' } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.text_field :number, data: { conekta: 'card[number]' }, value: '', placeholder: f.object.number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :exp_month %>
+    <%= select_month Time.zone.now, { field_name: :exp_month, prefix: :conekta_credit_card, use_month_numbers: true },
+                                    {  data: { conekta: 'card[exp_month]' } } %>
+    <%= f.label :exp_year %>
+    <%= select_year Time.zone.now, { field_name: :exp_year, prefix: :conekta_credit_card },
+                                   { data: { conekta: 'card[exp_year]' }} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cvc %>
+    <%= f.text_field :cvc, data: { conekta: 'card[cvc]' } %>
+  </div>
+
+  <%= f.hidden_field :token, class: 'token' %>
+
+  <div class="field">
+    <%= f.submit %>
+  </div>
+<% end %>

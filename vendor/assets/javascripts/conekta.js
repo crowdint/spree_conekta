@@ -246,7 +246,7 @@
                   if (input.tagName === 'SELECT') {
                     val = input.value;
                   } else {
-                    val = input.getAttribute('value') || input.innerHTML || input.value;
+                    val = input.value || input.getAttribute('value') || input.innerHTML;
                   }
                   attributes = attribute_name.replace(/\]/g, '').replace(/\-/g, '_').split(/\[/);
                   parent_node = null;
