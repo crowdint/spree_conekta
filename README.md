@@ -9,7 +9,7 @@ Setup
 Add this extension to your Gemfile:
 
 ```ruby
-gem 'spree_conekta', github: 'AgilTec/spree_conekta', branch: '2.3.0.beta'
+gem 'spree_conekta', github: 'AgilTec/spree_conekta', branch: '2.4.0.beta'
 ```
 
 Then run:
@@ -64,3 +64,23 @@ Conekta currently supports four different methods:
 
 [Crowd Interactive](http://www.crowdint.com) is an American web design and development company that happens to work in Colima, Mexico.
 We specialize in building and growing online retail stores. We don’t work with everyone – just companies we believe in. Call us today to see if there’s a fit.
+
+## Contributors
+  * Jonathan Garay
+  * Fernando Cuauhtemoc Barajas Chavez
+  * Herman Moreno
+  * Edwin Cruz
+  * Carlos A. Muñiz Moreno
+  * Chalo Fernandez
+  * Guillermo Siliceo
+  * Jaime Victoria
+  * Jorge Pardiñas
+  * Juan Carlos Rojas
+  * Leo Fischer
+  * Manuel Vidaurre
+  * Marco Medina
+  * Mumo Carlos
+  * Sergio Morales
+  * Steven Barragan
+  * Ulices Barajas
+  * bishma-stornelli
