@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'typhoeus'
   s.add_dependency 'faraday_middleware'
   s.add_dependency 'activemerchant'
-  s.add_dependency 'spree', '~> 2.4.0.beta'
+  s.add_dependency 'spree', '~> 2.4.0.rc3'
   s.add_dependency 'coffee-rails'
   s.add_dependency 'celluloid'
 end

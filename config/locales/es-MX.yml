@@ -18,3 +18,4 @@ es-MX:
     order_number: 'Número de orden: %{number}'
     print_payment_form: Imprimir ficha de pago
     total: 'Total a pagar:'
+    installments_number: 'Meses sin intereses'

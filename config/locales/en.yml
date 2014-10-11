@@ -18,3 +18,4 @@ en:
       payment_message: Give this reference number at any Banorte bank.
     order_number: 'Order Number: %{number}'
     total: 'Total:'
+    installments_number: 'Installments Number'
