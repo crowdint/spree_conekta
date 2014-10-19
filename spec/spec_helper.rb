@@ -47,6 +47,23 @@ require 'spree/api/testing_support/helpers'
 require 'spree/api/testing_support/setup'
 require 'vcr'
 
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+options = {
+  js_errors: false,
+  timeout: 240,
+  phantomjs_logger: StringIO.new,
+  logger: nil,
+  phantomjs_options: ['--load-images=no', '--ignore-ssl-errors=yes']
+}
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, options)
+end
+Capybara.default_wait_time = 10
+Capybara.default_host = 'localhost:3000'
+
+
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   c.hook_into :faraday
@@ -76,4 +93,19 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.after(:each, type: :feature) do |example| 
+    missing_translations = page.body.scan(/translation missing: #{I18n.locale}\.(.*?)[\s<\"&]/)
+    if missing_translations.any?
+      #binding.pry
+      puts "Found missing translations: #{missing_translations.inspect}"
+      puts "In spec: #{example.location}"
+    end
+    if ENV['LOCAL']  && example.exception
+      page.save_screenshot("tmp/capybara/screenshots/#{example.metadata[:description]}.png", full: true)
+      save_and_open_page
+    end
+  end
+
+  config.fail_fast = ENV['FAIL_FAST'] == 'true' || false
 end

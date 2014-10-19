@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'celluloid'
 
-describe Spree::Conekta::PaymentsController do
+RSpec.describe Spree::Conekta::PaymentsController, :type => :controller do
 #  render_views
   routes { Spree::Core::Engine.routes }
 
@@ -51,10 +51,10 @@ describe Spree::Conekta::PaymentsController do
 
   end
 
-  describe :create do
+  describe 'create' do
     context 'The order is completed and a pending payment exist' do
       before do
-        Spree::Conekta::PaymentNotificationHandler.any_instance.stub delay: 1
+        allow_any_instance_of(Spree::Conekta::PaymentNotificationHandler).to receive(:delay).and_return(1)
         post :create, conekta_response
       end
 
@@ -66,8 +66,8 @@ describe Spree::Conekta::PaymentsController do
 
     context 'The order is completed and a pending payment exist but the charge is not paid' do
       before do
-        Spree::Conekta::PaymentNotificationHandler.any_instance.stub delay: 1
-        Spree::Conekta::PaymentNotificationHandler.any_instance.should_not_receive :perform_action
+        allow_any_instance_of(Spree::Conekta::PaymentNotificationHandler).to receive(:delay).and_return(1)
+        expect_any_instance_of(Spree::Conekta::PaymentNotificationHandler).to_not receive(:perform_action)
       end
 
       it 'It should do nothing if the charge notification is not paid' do

@@ -3,7 +3,7 @@ Dir[File.join(File.dirname(__FILE__), "../factories/**/*.rb")].each {|f| require
 
 Spree::Config[:currency] = 'MXN'
 
-describe "Conekta checkout" do
+RSpec.describe "Conekta checkout", type: :feature do
   let!(:country) { create(:country, states_required: true) }
   let!(:state) { create(:state, country: country) }
   let!(:shipping_method) { create(:shipping_method) }
@@ -15,11 +15,9 @@ describe "Conekta checkout" do
   let!(:order) { OrderWalkthrough.up_to(:delivery) }
 
   before do
-    puts "factory :price amount: #{price.amount} currency: #{price.currency}"
-
     user = create(:user)
 
-    order.stub :confirmation_required? => true
+    allow(order).to receive(:confirmation_required?).and_return(true)
 
     order.reload
     order.user = user
@@ -27,17 +25,19 @@ describe "Conekta checkout" do
     order.update!
 
 
-    order.stub total: 2000
+    allow(order).to receive(:total).and_return(2000)
 
     Spree::PaymentMethod.destroy_all
 
-    Spree::CheckoutController.any_instance.stub(current_order: order)
-    Spree::CheckoutController.any_instance.stub(try_spree_current_user: user)
-    Spree::CheckoutController.any_instance.stub(:skip_state_validation? => true)
+    allow_any_instance_of(Spree::CheckoutController).to receive(:current_order).and_return(order)
+    allow_any_instance_of(Spree::CheckoutController).to receive(:try_spree_current_user).and_return(user)
+    allow_any_instance_of(Spree::CheckoutController).to receive(:skip_state_validation?).and_return(true)
+
   end
 
   describe "the payment source is credit card", js: true do
     before do
+
       ENV['CONEKTA_PUBLIC_KEY'] = '1tv5yJp3xnVZ7eK67m4h'
     end
 
@@ -51,6 +51,7 @@ describe "Conekta checkout" do
       end
 
       before do
+  
         visit spree.checkout_state_path(:payment)
 
         fill_in "Card Number", with: "4242 4242 4242 4242"
@@ -67,7 +68,7 @@ describe "Conekta checkout" do
 
         sleep(2)
 
-        page.current_url.should include("/checkout/confirm")
+        expect(page.current_url).to include("/checkout/confirm")
 
         VCR.use_cassette('conekta_card') do
           click_button "Place Order"
@@ -75,15 +76,15 @@ describe "Conekta checkout" do
       end
 
       it "can process a valid payment" do
-        page.should have_content("Your order has been processed successfully")
+        expect(page).to have_content("Your order has been processed successfully")
       end
 
       it 'should complete the payment' do
-        order.payments.last.state.should eq('completed')
+        expect(order.payments.last.state).to eq('completed')
       end
 
       it 'should not show the conekta order receipt' do
-        page.current_url.should_not include("/conekta/payments")
+        expect(page.current_url).to_not include("/conekta/payments")
       end
     end
 
@@ -113,7 +114,7 @@ describe "Conekta checkout" do
 
         sleep(2)
 
-        page.current_url.should include("/checkout/confirm")
+        expect(page.current_url).to include("/checkout/confirm")
 
         VCR.use_cassette('conekta_invalid_card') do
           click_button "Place Order"
@@ -121,15 +122,15 @@ describe "Conekta checkout" do
       end
 
       it "should not process an invalid payment" do
-        page.should_not have_content("Your order has been processed successfully")
+        expect(page).to_not have_content("Your order has been processed successfully")
       end
 
       it 'should set the payment state as failed' do
-        order.payments.last.state.should eq('failed')
+        expect(order.payments.last.state).to eq('failed')
       end
 
       it 'should not show the conekta order receipt' do
-        page.current_url.should_not include("/conekta/payments")
+        expect(page.current_url).to_not include("/conekta/payments")
       end
     end
 
@@ -159,7 +160,7 @@ describe "Conekta checkout" do
 
         sleep(2)
 
-        page.current_url.should include("/checkout/confirm")
+        expect(page.current_url).to include("/checkout/confirm")
 
         VCR.use_cassette('conekta_card_with_errors') do
           click_button "Place Order"
@@ -167,15 +168,15 @@ describe "Conekta checkout" do
       end
 
       it "should not process an invalid payment" do
-        page.should_not have_content("Your order has been processed successfully")
+        expect(page).to_not have_content("Your order has been processed successfully")
       end
 
       it 'should set the payment state as failed' do
-        order.payments.last.state.should eq('failed')
+        expect(order.payments.last.state).to eq('failed')
       end
 
       it 'should not show the conekta order receipt' do
-        page.current_url.should_not include("/conekta/payments")
+        expect(page.current_url).to_not include("/conekta/payments")
       end
     end
 
@@ -205,7 +206,7 @@ describe "Conekta checkout" do
 
         sleep(2)
 
-        page.current_url.should include("/checkout/confirm")
+        expect(page.current_url).to include("/checkout/confirm")
 
         VCR.use_cassette('conekta_limit_exceeded_card') do
           click_button "Place Order"
@@ -213,20 +214,20 @@ describe "Conekta checkout" do
       end
 
       it "should not process an invalid payment" do
-        page.should_not have_content("Your order has been processed successfully")
+        expect(page).to_not have_content("Your order has been processed successfully")
       end
 
       it 'should set the payment state as failed' do
-        order.payments.last.state.should eq('failed')
+        expect(order.payments.last.state).to eq('failed')
       end
 
       it 'should not show the conekta order receipt' do
-        page.current_url.should_not include("/conekta/payments")
+        expect(page.current_url).to_not include("/conekta/payments")
       end
     end
   end
 
-  context "the payment source is cash" do
+  context "the payment source is cash", js: true do
     let!(:conekta_payment) do
       Spree::BillingIntegration::Conekta::Cash.create!(
         name: "conekta",
@@ -241,7 +242,7 @@ describe "Conekta checkout" do
       click_button "Save and Continue"
       sleep(2)
 
-      page.current_url.should include("/checkout/confirm")
+      expect(page.current_url).to include("/checkout/confirm")
 
       VCR.use_cassette('conekta_cash') do
         click_button "Place Order"
@@ -249,20 +250,20 @@ describe "Conekta checkout" do
     end
 
     it "can process a valid payment", js: true do
-      page.should have_content("Your order has been processed successfully")
-      page.should have_content("OXXO")
+      expect(page).to have_content("Your order has been processed successfully")
+      expect(page).to have_content("OXXO")
     end
 
     it 'should leave the payment as pending' do
-      order.payments.last.state.should eq('pending')
+      expect(order.payments.last.state).to eq('pending')
     end
 
     it 'should show the conekta order receipt with the oxxo barcode' do
-      page.current_url.should include("/conekta/payments")
+      expect(page.current_url).to include("/conekta/payments")
     end
   end
 
- context "the payment source is bank" do
+ context "the payment source is bank", js: true do
     let!(:conekta_payment) do
       Spree::BillingIntegration::Conekta::Bank.create!(
         name: "conekta",
@@ -277,7 +278,7 @@ describe "Conekta checkout" do
       click_button "Save and Continue"
       sleep(2)
 
-      page.current_url.should include("/checkout/confirm")
+      expect(page.current_url).to include("/checkout/confirm")
 
       VCR.use_cassette('conekta_bank') do
         click_button "Place Order"
@@ -285,16 +286,16 @@ describe "Conekta checkout" do
     end
 
     it "can process a valid payment", js: true do
-      page.should have_content("Your order has been processed successfully")
-      page.should have_content("Banorte")
+      expect(page).to have_content("Your order has been processed successfully")
+      expect(page).to have_content("Banorte")
     end
 
     it 'should leave the payment as pending' do
-      order.payments.last.state.should eq('pending')
+      expect(order.payments.last.state).to eq('pending')
     end
 
     it 'should show the conekta order receipt' do
-      page.current_url.should include("/conekta/payments")
+      expect(page.current_url).to include("/conekta/payments")
     end
   end
 end

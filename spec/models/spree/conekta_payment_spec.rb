@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::ConektaPayment do
+RSpec.describe Spree::ConektaPayment, type: :model do
   describe '#actions' do
     it { expect(subject.actions).to eql(['capture']) }
   end
@@ -13,7 +13,7 @@ describe Spree::ConektaPayment do
         allow(payment).to receive(:state) { 'checkout' }
       end
 
-      it { expect(subject.can_capture?(payment)).to be_true }
+      it { expect(subject.can_capture?(payment)).to eq(true) }
     end
 
     context 'when payment state is pending' do
@@ -21,7 +21,7 @@ describe Spree::ConektaPayment do
         allow(payment).to receive(:state) { 'pending' }
       end
 
-      it { expect(subject.can_capture?(payment)).to be_true }
+      it { expect(subject.can_capture?(payment)).to eq(true) }
     end
 
     context 'when payment state is different than checkout or pending' do
@@ -29,7 +29,7 @@ describe Spree::ConektaPayment do
         allow(payment).to receive(:state) { 'invalid' }
       end
 
-      it { expect(subject.can_capture?(payment)).to be_false }
+      it { expect(subject.can_capture?(payment)).to eq(false) }
     end
   end
 end

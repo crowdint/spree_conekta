@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe Spree::Conekta::Client do
+RSpec.describe Spree::Conekta::Client, type: :model do
   subject { double('client').extend Spree::Conekta::Client }
 
   describe :headers do
     let(:token){ 'abc12345678' }
     let(:auth_token){ Base64.encode64(token)}
 
-    before { subject.stub(:auth_token).and_return token }
+    before { allow(subject).to receive(:auth_token).and_return token }
 
     it "should return headers with auth token" do
       expect(subject.headers).to include 'Accept', 'Content-type'
@@ -24,7 +24,7 @@ describe Spree::Conekta::Client do
 
     before do
       subject.stub_chain(:connection, :post, :body).and_return(json)
-      subject.stub endpoint: 'charges'
+      allow(subject).to receive_messages(endpoint: 'charges')
     end
 
     it 'should return parsed body' do

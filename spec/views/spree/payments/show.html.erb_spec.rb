@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'spree/conekta/payments/show' do
+RSpec. describe 'spree/conekta/payments/show', type: :view do
   let(:order){ create(:order_with_totals, number: 'RT1234567', currency: 'MXN') }
   let(:conekta_pending_response) do
     OpenStruct.new params:  {
@@ -26,7 +26,7 @@ describe 'spree/conekta/payments/show' do
   end
 
   before do
-    Spree::Order.any_instance.stub(:last_payment_details).and_return(conekta_pending_response)
+    allow_any_instance_of(Spree::Order).to receive(:last_payment_details).and_return(conekta_pending_response)
 
     assign(:order, order)
     assign(:order_details, conekta_pending_response.params)
@@ -68,7 +68,7 @@ describe 'spree/conekta/payments/show' do
         }
       }
 
-      Spree::Order.any_instance.stub(:last_payment_source).and_return('card')
+      allow_any_instance_of(Spree::Order).to receive(:last_payment_source).and_return('card')
       render
     end
 
@@ -86,7 +86,7 @@ describe 'spree/conekta/payments/show' do
       }
 
 
-      Spree::Order.any_instance.stub(:last_payment_source).and_return('cash')
+      allow_any_instance_of(Spree::Order).to receive(:last_payment_source).and_return('cash')
       render
     end
 
@@ -103,7 +103,7 @@ describe 'spree/conekta/payments/show' do
         "reference"=>"0000064"
       }
 
-      Spree::Order.any_instance.stub(:last_payment_source).and_return('bank')
+      allow_any_instance_of(Spree::Order).to receive(:last_payment_source).and_return('bank')
       render
     end
 
