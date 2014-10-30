@@ -1,6 +1,6 @@
 # Spree Conekta
-[![Code Climate](https://codeclimate.com/github/crowdint/spree_conekta.png)](https://codeclimate.com/github/AgilTec/spree_conekta)
-[![Build Status](https://travis-ci.org/crowdint/spree_conekta.png?branch=conekta-apiv2)](https://travis-ci.org/AgilTec/spree_conekta)
+[![Code Climate](https://codeclimate.com/github/AgilTec/spree_conekta.png)](https://codeclimate.com/github/AgilTec/spree_conekta)
+[![Build Status](https://travis-ci.org/AgilTec/spree_conekta.png?branch=2.4.0.rc3)](https://travis-ci.org/AgilTec/spree_conekta)
 [![Gem Version](https://badge.fury.io/rb/spree_conekta.png)](http://badge.fury.io/rb/spree_conekta)
 
 Setup
@@ -45,16 +45,23 @@ rails g spree_conekta:install
 Conekta currently supports four different methods:
 
 ####Card
->Card method will let you pay using your credit or debit card. More info: [Conekta Card](https://www.conekta.io/docs/crear_cargo#tarjetas)
+>Card method will let you pay using your credit or debit card. More info: [Conekta Card](https://www.conekta.io/es/docs/tutoriales/pagos-con-tarjeta)
 
 ####Cash
->Cash method will generate a bar code with the order information so you'll be able to take it to your nearest OXXO store to pay it. More info: [Conekta Cash](https://www.conekta.io/docs/crear_cargo#oxxo)
+>Cash method will generate a bar code with the order information so you'll be able to take it to your nearest OXXO store to pay it. More info: [Conekta Cash](https://www.conekta.io/es/docs/tutoriales/pagos-en-efectivo)
 
 ####Bank
->Bank method will let you generate a deposit or transfer reference. More info: [Conekta Bank](https://www.conekta.io/docs/crear_cargo#bancos)
+>Bank method will let you generate a deposit or transfer reference. More info: [Conekta Bank](https://www.conekta.io/es/docs/tutoriales/pago-con-transferencia)
 
 ####Monthly Payment
->This method will let you pay using your credit card with a monthly payment schema. More info: [Conekta Monthly Payments](https://www.conekta.io/es/docs/tutoriales/meses-sin-intereses)
+>This method will let you pay using your credit card with a monthly payment schema. More info: [Conekta Monthly Payments](https://admin.conekta.io/es/docs/tutoriales/meses-sin-intereses)
+You can configurate the options for number of installements and default creating an initializer in your app and writing code as this example:
+```ruby
+  Spree::Conekta.configure do |config|
+    config.installment_options = [3] # [3, 6] , [3, 6, 12]
+    config.installment_default = 3 # 6 12
+  end
+```
 
 **Important Note:** If you want to support all source methods, you'll need to create a payment method for each one.
 

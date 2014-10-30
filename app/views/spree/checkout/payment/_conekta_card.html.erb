@@ -58,7 +58,7 @@
 <% if payment_method.with_installments? %>
   <p class="field">
     <%= label_tag "installments_number_#{payment_method.id}", Spree.t('conekta.installments_number') %>
-    <%= select_tag "#{param_prefix}[installments_number]", options_for_select([3, 6], 3), data: { conekta: 'monthly_installments' } %>
+    <%= select_tag "#{param_prefix}[installments_number]", options_for_select(Spree::Conekta.configuration.installment_options, Spree::Conekta.configuration.installment_default), data: { conekta: 'monthly_installments' } %>
   </p>
 <% end %>
 

@@ -9,6 +9,15 @@
     <%= render partial: @order.last_payment_source %>
   </div>
   <footer class='order-footer'>
-    <%= button_tag t('conekta.print_payment_form'), class: 'right', onclick: 'printDoc("#order-payment")' %>
+    <%= button_tag Spree.t('conekta.print_payment_form'), id: 'print-payment', class: 'icon-print'  %>
   </footer>
 </section>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#print-payment').click(function(){
+        window.print();
+    });
+
+  });
+</script>
