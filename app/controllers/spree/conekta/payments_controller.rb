@@ -1,5 +1,6 @@
 module Spree::Conekta
   class PaymentsController < Spree::StoreController
+    helper Spree::OrdersHelper
     ssl_required
     skip_before_filter :verify_authenticity_token, only: :create
 
