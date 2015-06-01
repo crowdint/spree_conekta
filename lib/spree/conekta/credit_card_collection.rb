@@ -16,8 +16,10 @@ module Spree
         @cards      = build_cards(get)
       end
 
-      def add(token)
-        @cards << Spree::Conekta::CreditCard.create(customer, token, auth_token)
+      def add(token) 
+          card = Spree::Conekta::CreditCard.create(customer, token, auth_token)
+          @cards << card
+          card
       end
 
       def endpoint
