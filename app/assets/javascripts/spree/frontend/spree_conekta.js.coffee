@@ -15,7 +15,7 @@ jQuery ->
     listenSubmit: ->
       @form.on 'submit', (e)=>
         e.preventDefault()
-        currentForm = @cleanForm()
+        currentForm = @form
         if @isConektaForm(currentForm)
           @processPayment(currentForm)
         else
@@ -50,8 +50,7 @@ jQuery ->
       $('select, input', form).is("[data-conekta='monthly_installments']")
 
     submitForm: ->
-      @form.off('submit')
-      @form.submit()
+      @form.off('submit').submit()
 
     successResponseHandler: (response)=>
       @saveConektaResponse(response)

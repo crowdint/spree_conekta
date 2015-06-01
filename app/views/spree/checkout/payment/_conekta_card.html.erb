@@ -34,13 +34,13 @@
   <%= select_month(Date.today,
                    { prefix: param_prefix, field_name: 'month', use_month_numbers: true },
                    class: 'required',
-                   id: "card_month",
+                   id: "card_month_#{param_prefix[15]}",
                    data: { conekta: 'card[exp_month]' } ) %>
 
   <%= select_year(Date.today,
                   { prefix: param_prefix, field_name: 'year', start_year: Date.today.year, end_year: Date.today.year + 15 },
                   class: 'required',
-                  id: "card_year",
+                  id: "card_year_#{param_prefix[15]}",
                   data: { conekta: 'card[exp_year]' }) %>
 </p>
 
@@ -61,9 +61,6 @@
     <%= select_tag "#{param_prefix}[installments_number]", options_for_select(Spree::Conekta.configuration.installment_options, Spree::Conekta.configuration.installment_default), data: { conekta: 'monthly_installments' } %>
   </p>
 <% end %>
-
-<%= hidden_field_tag "conekta_month", Date.today.month, data: { conekta: 'card[exp_month]' } %>
-<%= hidden_field_tag "conekta_year", Date.today.year, data: { conekta: 'card[exp_year]' } %>
 
 <%= hidden_field_tag "#{param_prefix}[conekta_response]", '' %>
 <%= hidden_field_tag "#{param_prefix}[gateway_payment_profile_id]", '', :id => "gateway_payment_profile_id" %>

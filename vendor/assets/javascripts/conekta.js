@@ -6,7 +6,7 @@
  * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
  * This is a reference implementation. You are free to copy, modify, or redistribute.
  */
-"object"!=typeof JSON&&(JSON={}),function(){"use strict";function f(a){return 10>a?"0"+a:a}function quote(a){return escapable.lastIndex=0,escapable.test(a)?'"'+a.replace(escapable,function(a){var b=meta[a];return"string"==typeof b?b:"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4)})+'"':'"'+a+'"'}function str(a,b){var c,d,e,f,g,h=gap,i=b[a];switch(i&&"object"==typeof i&&"function"==typeof i.toJSON&&(i=i.toJSON(a)),"function"==typeof rep&&(i=rep.call(b,a,i)),typeof i){case"string":return quote(i);case"number":return isFinite(i)?String(i):"null";case"boolean":case"null":return String(i);case"object":if(!i)return"null";if(gap+=indent,g=[],"[object Array]"===Object.prototype.toString.apply(i)){for(f=i.length,c=0;f>c;c+=1)g[c]=str(c,i)||"null";return e=0===g.length?"[]":gap?"[\n"+gap+g.join(",\n"+gap)+"\n"+h+"]":"["+g.join(",")+"]",gap=h,e}if(rep&&"object"==typeof rep)for(f=rep.length,c=0;f>c;c+=1)"string"==typeof rep[c]&&(d=rep[c],e=str(d,i),e&&g.push(quote(d)+(gap?": ":":")+e));else for(d in i)Object.prototype.hasOwnProperty.call(i,d)&&(e=str(d,i),e&&g.push(quote(d)+(gap?": ":":")+e));return e=0===g.length?"{}":gap?"{\n"+gap+g.join(",\n"+gap)+"\n"+h+"}":"{"+g.join(",")+"}",gap=h,e}}"function"!=typeof Date.prototype.toJSON&&(Date.prototype.toJSON=function(){return isFinite(this.valueOf())?this.getUTCFullYear()+"-"+f(this.getUTCMonth()+1)+"-"+f(this.getUTCDate())+"T"+f(this.getUTCHours())+":"+f(this.getUTCMinutes())+":"+f(this.getUTCSeconds())+"Z":null},String.prototype.toJSON=Number.prototype.toJSON=Boolean.prototype.toJSON=function(){return this.valueOf()});var cx=/[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,escapable=/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,gap,indent,meta={"\b":"\\b","	":"\\t","\n":"\\n","\f":"\\f","\r":"\\r",'"':'\\"',"\\":"\\\\"},rep;"function"!=typeof JSON.stringify&&(JSON.stringify=function(a,b,c){var d;if(gap="",indent="","number"==typeof c)for(d=0;c>d;d+=1)indent+=" ";else"string"==typeof c&&(indent=c);if(rep=b,b&&"function"!=typeof b&&("object"!=typeof b||"number"!=typeof b.length))throw new Error("JSON.stringify");return str("",{"":a})}),"function"!=typeof JSON.parse&&(JSON.parse=function(text,reviver){function walk(a,b){var c,d,e=a[b];if(e&&"object"==typeof e)for(c in e)Object.prototype.hasOwnProperty.call(e,c)&&(d=walk(e,c),void 0!==d?e[c]=d:delete e[c]);return reviver.call(a,b,e)}var j;if(text=String(text),cx.lastIndex=0,cx.test(text)&&(text=text.replace(cx,function(a){return"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4)})),/^[\],:{}\s]*$/.test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,"@").replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,"]").replace(/(?:^|:|,)(?:\s*\[)+/g,"")))return j=eval("("+text+")"),"function"==typeof reviver?walk({"":j},""):j;throw new SyntaxError("JSON.parse")})}();
+"object"!=typeof JSON&&(JSON={}),function(){"use strict";function f(a){return 10>a?"0"+a:a}function quote(a){return escapable.lastIndex=0,escapable.test(a)?'"'+a.replace(escapable,function(a){var b=meta[a];return"string"==typeof b?b:"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4)})+'"':'"'+a+'"'}function str(a,b){var c,d,e,f,g,h=gap,i=b[a];switch(i&&"object"==typeof i&&"function"==typeof i.toJSON&&(i=i.toJSON(a)),"function"==typeof rep&&(i=rep.call(b,a,i)),typeof i){case"string":return quote(i);case"number":return isFinite(i)?String(i):"null";case"boolean":case"null":return String(i);case"object":if(!i)return"null";if(gap+=indent,g=[],"[object Array]"===Object.prototype.toString.apply(i)){for(f=i.length,c=0;f>c;c+=1)g[c]=str(c,i)||"null";return e=0===g.length?"[]":gap?"[\n"+gap+g.join(",\n"+gap)+"\n"+h+"]":"["+g.join(",")+"]",gap=h,e}if(rep&&"object"==typeof rep)for(f=rep.length,c=0;f>c;c+=1)"string"==typeof rep[c]&&(d=rep[c],e=str(d,i),e&&g.push(quote(d)+(gap?": ":":")+e));else for(d in i)Object.prototype.hasOwnProperty.call(i,d)&&(e=str(d,i),e&&g.push(quote(d)+(gap?": ":":")+e));return e=0===g.length?"{}":gap?"{\n"+gap+g.join(",\n"+gap)+"\n"+h+"}":"{"+g.join(",")+"}",gap=h,e}}"function"!=typeof Date.prototype.toJSON&&(Date.prototype.toJSON=function(){return isFinite(this.valueOf())?this.getUTCFullYear()+"-"+f(this.getUTCMonth()+1)+"-"+f(this.getUTCDate())+"T"+f(this.getUTCHours())+":"+f(this.getUTCMinutes())+":"+f(this.getUTCSeconds())+"Z":null},String.prototype.toJSON=Number.prototype.toJSON=Boolean.prototype.toJSON=function(){return this.valueOf()});var cx=/[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,escapable=/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,gap,indent,meta={"\b":"\\b","  ":"\\t","\n":"\\n","\f":"\\f","\r":"\\r",'"':'\\"',"\\":"\\\\"},rep;"function"!=typeof JSON.stringify&&(JSON.stringify=function(a,b,c){var d;if(gap="",indent="","number"==typeof c)for(d=0;c>d;d+=1)indent+=" ";else"string"==typeof c&&(indent=c);if(rep=b,b&&"function"!=typeof b&&("object"!=typeof b||"number"!=typeof b.length))throw new Error("JSON.stringify");return str("",{"":a})}),"function"!=typeof JSON.parse&&(JSON.parse=function(text,reviver){function walk(a,b){var c,d,e=a[b];if(e&&"object"==typeof e)for(c in e)Object.prototype.hasOwnProperty.call(e,c)&&(d=walk(e,c),void 0!==d?e[c]=d:delete e[c]);return reviver.call(a,b,e)}var j;if(text=String(text),cx.lastIndex=0,cx.test(text)&&(text=text.replace(cx,function(a){return"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4)})),/^[\],:{}\s]*$/.test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,"@").replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,"]").replace(/(?:^|:|,)(?:\s*\[)+/g,"")))return j=eval("("+text+")"),"function"==typeof reviver?walk({"":j},""):j;throw new SyntaxError("JSON.parse")})}();
 /**
  * easyXDM
  * http://easyxdm.net/
@@ -31,68 +31,206 @@
  * THE SOFTWARE.
  */
 (function(N,d,p,K,k,H){var b=this;var n=Math.floor(Math.random()*10000);var q=Function.prototype;var Q=/^((http.?:)\/\/([^:\/\s]+)(:\d+)*)/;var R=/[\-\w]+\/\.\.\//;var F=/([^:])\/\//g;var I="";var o={};var M=N.easyXDM;var U="easyXDM_";var E;var y=false;var i;var h;function C(X,Z){var Y=typeof X[Z];return Y=="function"||(!!(Y=="object"&&X[Z]))||Y=="unknown"}function u(X,Y){return !!(typeof(X[Y])=="object"&&X[Y])}function r(X){return Object.prototype.toString.call(X)==="[object Array]"}function c(){var Z="Shockwave Flash",ad="application/x-shockwave-flash";if(!t(navigator.plugins)&&typeof navigator.plugins[Z]=="object"){var ab=navigator.plugins[Z].description;if(ab&&!t(navigator.mimeTypes)&&navigator.mimeTypes[ad]&&navigator.mimeTypes[ad].enabledPlugin){i=ab.match(/\d+/g)}}if(!i){var Y;try{Y=new ActiveXObject("ShockwaveFlash.ShockwaveFlash");i=Array.prototype.slice.call(Y.GetVariable("$version").match(/(\d+),(\d+),(\d+),(\d+)/),1);Y=null}catch(ac){}}if(!i){return false}var X=parseInt(i[0],10),aa=parseInt(i[1],10);h=X>9&&aa>0;return true}var v,x;if(C(N,"addEventListener")){v=function(Z,X,Y){Z.addEventListener(X,Y,false)};x=function(Z,X,Y){Z.removeEventListener(X,Y,false)}}else{if(C(N,"attachEvent")){v=function(X,Z,Y){X.attachEvent("on"+Z,Y)};x=function(X,Z,Y){X.detachEvent("on"+Z,Y)}}else{throw new Error("Browser not supported")}}var W=false,J=[],L;if("readyState" in d){L=d.readyState;W=L=="complete"||(~navigator.userAgent.indexOf("AppleWebKit/")&&(L=="loaded"||L=="interactive"))}else{W=!!d.body}function s(){if(W){return}W=true;for(var X=0;X<J.length;X++){J[X]()}J.length=0}if(!W){if(C(N,"addEventListener")){v(d,"DOMContentLoaded",s)}else{v(d,"readystatechange",function(){if(d.readyState=="complete"){s()}});if(d.documentElement.doScroll&&N===top){var g=function(){if(W){return}try{d.documentElement.doScroll("left")}catch(X){K(g,1);return}s()};g()}}v(N,"load",s)}function G(Y,X){if(W){Y.call(X);return}J.push(function(){Y.call(X)})}function m(){var Z=parent;if(I!==""){for(var X=0,Y=I.split(".");X<Y.length;X++){Z=Z[Y[X]]}}return Z.easyXDM}function e(X){N.easyXDM=M;I=X;if(I){U="easyXDM_"+I.replace(".","_")+"_"}return o}function z(X){return X.match(Q)[3]}function f(X){return X.match(Q)[4]||""}function j(Z){var X=Z.toLowerCase().match(Q);var aa=X[2],ab=X[3],Y=X[4]||"";if((aa=="http:"&&Y==":80")||(aa=="https:"&&Y==":443")){Y=""}return aa+"//"+ab+Y}function B(X){X=X.replace(F,"$1/");if(!X.match(/^(http||https):\/\//)){var Y=(X.substring(0,1)==="/")?"":p.pathname;if(Y.substring(Y.length-1)!=="/"){Y=Y.substring(0,Y.lastIndexOf("/")+1)}X=p.protocol+"//"+p.host+Y+X}while(R.test(X)){X=X.replace(R,"")}return X}function P(X,aa){var ac="",Z=X.indexOf("#");if(Z!==-1){ac=X.substring(Z);X=X.substring(0,Z)}var ab=[];for(var Y in aa){if(aa.hasOwnProperty(Y)){ab.push(Y+"="+H(aa[Y]))}}return X+(y?"#":(X.indexOf("?")==-1?"?":"&"))+ab.join("&")+ac}var S=(function(X){X=X.substring(1).split("&");var Z={},aa,Y=X.length;while(Y--){aa=X[Y].split("=");Z[aa[0]]=k(aa[1])}return Z}(/xdm_e=/.test(p.search)?p.search:p.hash));function t(X){return typeof X==="undefined"}var O=function(){var Y={};var Z={a:[1,2,3]},X='{"a":[1,2,3]}';if(typeof JSON!="undefined"&&typeof JSON.stringify==="function"&&JSON.stringify(Z).replace((/\s/g),"")===X){return JSON}if(Object.toJSON){if(Object.toJSON(Z).replace((/\s/g),"")===X){Y.stringify=Object.toJSON}}if(typeof String.prototype.evalJSON==="function"){Z=X.evalJSON();if(Z.a&&Z.a.length===3&&Z.a[2]===3){Y.parse=function(aa){return aa.evalJSON()}}}if(Y.stringify&&Y.parse){O=function(){return Y};return Y}return null};function T(X,Y,Z){var ab;for(var aa in Y){if(Y.hasOwnProperty(aa)){if(aa in X){ab=Y[aa];if(typeof ab==="object"){T(X[aa],ab,Z)}else{if(!Z){X[aa]=Y[aa]}}}else{X[aa]=Y[aa]}}}return X}function a(){var Y=d.body.appendChild(d.createElement("form")),X=Y.appendChild(d.createElement("input"));X.name=U+"TEST"+n;E=X!==Y.elements[X.name];d.body.removeChild(Y)}function A(Y){if(t(E)){a()}var ac;if(E){ac=d.createElement('<iframe name="'+Y.props.name+'"/>')}else{ac=d.createElement("IFRAME");ac.name=Y.props.name}ac.id=ac.name=Y.props.name;delete Y.props.name;if(typeof Y.container=="string"){Y.container=d.getElementById(Y.container)}if(!Y.container){T(ac.style,{position:"absolute",top:"-2000px",left:"0px"});Y.container=d.body}var ab=Y.props.src;Y.props.src="javascript:false";T(ac,Y.props);ac.border=ac.frameBorder=0;ac.allowTransparency=true;Y.container.appendChild(ac);if(Y.onLoad){v(ac,"load",Y.onLoad)}if(Y.usePost){var aa=Y.container.appendChild(d.createElement("form")),X;aa.target=ac.name;aa.action=ab;aa.method="POST";if(typeof(Y.usePost)==="object"){for(var Z in Y.usePost){if(Y.usePost.hasOwnProperty(Z)){if(E){X=d.createElement('<input name="'+Z+'"/>')}else{X=d.createElement("INPUT");X.name=Z}X.value=Y.usePost[Z];aa.appendChild(X)}}}aa.submit();aa.parentNode.removeChild(aa)}else{ac.src=ab}Y.props.src=ab;return ac}function V(aa,Z){if(typeof aa=="string"){aa=[aa]}var Y,X=aa.length;while(X--){Y=aa[X];Y=new RegExp(Y.substr(0,1)=="^"?Y:("^"+Y.replace(/(\*)/g,".$1").replace(/\?/g,".")+"$"));if(Y.test(Z)){return true}}return false}function l(Z){var ae=Z.protocol,Y;Z.isHost=Z.isHost||t(S.xdm_p);y=Z.hash||false;if(!Z.props){Z.props={}}if(!Z.isHost){Z.channel=S.xdm_c.replace(/["'<>\\]/g,"");Z.secret=S.xdm_s;Z.remote=S.xdm_e.replace(/["'<>\\]/g,"");ae=S.xdm_p;if(Z.acl&&!V(Z.acl,Z.remote)){throw new Error("Access denied for "+Z.remote)}}else{Z.remote=B(Z.remote);Z.channel=Z.channel||"default"+n++;Z.secret=Math.random().toString(16).substring(2);if(t(ae)){if(j(p.href)==j(Z.remote)){ae="4"}else{if(C(N,"postMessage")||C(d,"postMessage")){ae="1"}else{if(Z.swf&&C(N,"ActiveXObject")&&c()){ae="6"}else{if(navigator.product==="Gecko"&&"frameElement" in N&&navigator.userAgent.indexOf("WebKit")==-1){ae="5"}else{if(Z.remoteHelper){ae="2"}else{ae="0"}}}}}}}Z.protocol=ae;switch(ae){case"0":T(Z,{interval:100,delay:2000,useResize:true,useParent:false,usePolling:false},true);if(Z.isHost){if(!Z.local){var ac=p.protocol+"//"+p.host,X=d.body.getElementsByTagName("img"),ad;var aa=X.length;while(aa--){ad=X[aa];if(ad.src.substring(0,ac.length)===ac){Z.local=ad.src;break}}if(!Z.local){Z.local=N}}var ab={xdm_c:Z.channel,xdm_p:0};if(Z.local===N){Z.usePolling=true;Z.useParent=true;Z.local=p.protocol+"//"+p.host+p.pathname+p.search;ab.xdm_e=Z.local;ab.xdm_pa=1}else{ab.xdm_e=B(Z.local)}if(Z.container){Z.useResize=false;ab.xdm_po=1}Z.remote=P(Z.remote,ab)}else{T(Z,{channel:S.xdm_c,remote:S.xdm_e,useParent:!t(S.xdm_pa),usePolling:!t(S.xdm_po),useResize:Z.useParent?false:Z.useResize})}Y=[new o.stack.HashTransport(Z),new o.stack.ReliableBehavior({}),new o.stack.QueueBehavior({encode:true,maxLength:4000-Z.remote.length}),new o.stack.VerifyBehavior({initiate:Z.isHost})];break;case"1":Y=[new o.stack.PostMessageTransport(Z)];break;case"2":if(Z.isHost){Z.remoteHelper=B(Z.remoteHelper)}Y=[new o.stack.NameTransport(Z),new o.stack.QueueBehavior(),new o.stack.VerifyBehavior({initiate:Z.isHost})];break;case"3":Y=[new o.stack.NixTransport(Z)];break;case"4":Y=[new o.stack.SameOriginTransport(Z)];break;case"5":Y=[new o.stack.FrameElementTransport(Z)];break;case"6":if(!i){c()}Y=[new o.stack.FlashTransport(Z)];break}Y.push(new o.stack.QueueBehavior({lazy:Z.lazy,remove:true}));return Y}function D(aa){var ab,Z={incoming:function(ad,ac){this.up.incoming(ad,ac)},outgoing:function(ac,ad){this.down.outgoing(ac,ad)},callback:function(ac){this.up.callback(ac)},init:function(){this.down.init()},destroy:function(){this.down.destroy()}};for(var Y=0,X=aa.length;Y<X;Y++){ab=aa[Y];T(ab,Z,true);if(Y!==0){ab.down=aa[Y-1]}if(Y!==X-1){ab.up=aa[Y+1]}}return ab}function w(X){X.up.down=X.down;X.down.up=X.up;X.up=X.down=null}T(o,{version:"2.4.18.25",query:S,stack:{},apply:T,getJSONObject:O,whenReady:G,noConflict:e});o.DomHelper={on:v,un:x,requiresJSON:function(X){if(!u(N,"JSON")){d.write('<script type="text/javascript" src="'+X+'"><\/script>')}}};(function(){var X={};o.Fn={set:function(Y,Z){X[Y]=Z},get:function(Z,Y){var aa=X[Z];if(Y){delete X[Z]}return aa}}}());o.Socket=function(Y){var X=D(l(Y).concat([{incoming:function(ab,aa){Y.onMessage(ab,aa)},callback:function(aa){if(Y.onReady){Y.onReady(aa)}}}])),Z=j(Y.remote);this.origin=j(Y.remote);this.destroy=function(){X.destroy()};this.postMessage=function(aa){X.outgoing(aa,Z)};X.init()};o.Rpc=function(Z,Y){if(Y.local){for(var ab in Y.local){if(Y.local.hasOwnProperty(ab)){var aa=Y.local[ab];if(typeof aa==="function"){Y.local[ab]={method:aa}}}}}var X=D(l(Z).concat([new o.stack.RpcBehavior(this,Y),{callback:function(ac){if(Z.onReady){Z.onReady(ac)}}}]));this.origin=j(Z.remote);this.destroy=function(){X.destroy()};X.init()};o.stack.SameOriginTransport=function(Y){var Z,ab,aa,X;return(Z={outgoing:function(ad,ae,ac){aa(ad);if(ac){ac()}},destroy:function(){if(ab){ab.parentNode.removeChild(ab);ab=null}},onDOMReady:function(){X=j(Y.remote);if(Y.isHost){T(Y.props,{src:P(Y.remote,{xdm_e:p.protocol+"//"+p.host+p.pathname,xdm_c:Y.channel,xdm_p:4}),name:U+Y.channel+"_provider"});ab=A(Y);o.Fn.set(Y.channel,function(ac){aa=ac;K(function(){Z.up.callback(true)},0);return function(ad){Z.up.incoming(ad,X)}})}else{aa=m().Fn.get(Y.channel,true)(function(ac){Z.up.incoming(ac,X)});K(function(){Z.up.callback(true)},0)}},init:function(){G(Z.onDOMReady,Z)}})};o.stack.FlashTransport=function(aa){var ac,X,ab,ad,Y,ae;function af(ah,ag){K(function(){ac.up.incoming(ah,ad)},0)}function Z(ah){var ag=aa.swf+"?host="+aa.isHost;var aj="easyXDM_swf_"+Math.floor(Math.random()*10000);o.Fn.set("flash_loaded"+ah.replace(/[\-.]/g,"_"),function(){o.stack.FlashTransport[ah].swf=Y=ae.firstChild;var ak=o.stack.FlashTransport[ah].queue;for(var al=0;al<ak.length;al++){ak[al]()}ak.length=0});if(aa.swfContainer){ae=(typeof aa.swfContainer=="string")?d.getElementById(aa.swfContainer):aa.swfContainer}else{ae=d.createElement("div");T(ae.style,h&&aa.swfNoThrottle?{height:"20px",width:"20px",position:"fixed",right:0,top:0}:{height:"1px",width:"1px",position:"absolute",overflow:"hidden",right:0,top:0});d.body.appendChild(ae)}var ai="callback=flash_loaded"+H(ah.replace(/[\-.]/g,"_"))+"&proto="+b.location.protocol+"&domain="+H(z(b.location.href))+"&port="+H(f(b.location.href))+"&ns="+H(I);ae.innerHTML="<object height='20' width='20' type='application/x-shockwave-flash' id='"+aj+"' data='"+ag+"'><param name='allowScriptAccess' value='always'></param><param name='wmode' value='transparent'><param name='movie' value='"+ag+"'></param><param name='flashvars' value='"+ai+"'></param><embed type='application/x-shockwave-flash' FlashVars='"+ai+"' allowScriptAccess='always' wmode='transparent' src='"+ag+"' height='1' width='1'></embed></object>"}return(ac={outgoing:function(ah,ai,ag){Y.postMessage(aa.channel,ah.toString());if(ag){ag()}},destroy:function(){try{Y.destroyChannel(aa.channel)}catch(ag){}Y=null;if(X){X.parentNode.removeChild(X);X=null}},onDOMReady:function(){ad=aa.remote;o.Fn.set("flash_"+aa.channel+"_init",function(){K(function(){ac.up.callback(true)})});o.Fn.set("flash_"+aa.channel+"_onMessage",af);aa.swf=B(aa.swf);var ah=z(aa.swf);var ag=function(){o.stack.FlashTransport[ah].init=true;Y=o.stack.FlashTransport[ah].swf;Y.createChannel(aa.channel,aa.secret,j(aa.remote),aa.isHost);if(aa.isHost){if(h&&aa.swfNoThrottle){T(aa.props,{position:"fixed",right:0,top:0,height:"20px",width:"20px"})}T(aa.props,{src:P(aa.remote,{xdm_e:j(p.href),xdm_c:aa.channel,xdm_p:6,xdm_s:aa.secret}),name:U+aa.channel+"_provider"});X=A(aa)}};if(o.stack.FlashTransport[ah]&&o.stack.FlashTransport[ah].init){ag()}else{if(!o.stack.FlashTransport[ah]){o.stack.FlashTransport[ah]={queue:[ag]};Z(ah)}else{o.stack.FlashTransport[ah].queue.push(ag)}}},init:function(){G(ac.onDOMReady,ac)}})};o.stack.PostMessageTransport=function(aa){var ac,ad,Y,Z;function X(ae){if(ae.origin){return j(ae.origin)}if(ae.uri){return j(ae.uri)}if(ae.domain){return p.protocol+"//"+ae.domain}throw"Unable to retrieve the origin of the event"}function ab(af){var ae=X(af);if(ae==Z&&af.data.substring(0,aa.channel.length+1)==aa.channel+" "){ac.up.incoming(af.data.substring(aa.channel.length+1),ae)}}return(ac={outgoing:function(af,ag,ae){Y.postMessage(aa.channel+" "+af,ag||Z);if(ae){ae()}},destroy:function(){x(N,"message",ab);if(ad){Y=null;ad.parentNode.removeChild(ad);ad=null}},onDOMReady:function(){Z=j(aa.remote);if(aa.isHost){var ae=function(af){if(af.data==aa.channel+"-ready"){Y=("postMessage" in ad.contentWindow)?ad.contentWindow:ad.contentWindow.document;x(N,"message",ae);v(N,"message",ab);K(function(){ac.up.callback(true)},0)}};v(N,"message",ae);T(aa.props,{src:P(aa.remote,{xdm_e:j(p.href),xdm_c:aa.channel,xdm_p:1}),name:U+aa.channel+"_provider"});ad=A(aa)}else{v(N,"message",ab);Y=("postMessage" in N.parent)?N.parent:N.parent.document;Y.postMessage(aa.channel+"-ready",Z);K(function(){ac.up.callback(true)},0)}},init:function(){G(ac.onDOMReady,ac)}})};o.stack.FrameElementTransport=function(Y){var Z,ab,aa,X;return(Z={outgoing:function(ad,ae,ac){aa.call(this,ad);if(ac){ac()}},destroy:function(){if(ab){ab.parentNode.removeChild(ab);ab=null}},onDOMReady:function(){X=j(Y.remote);if(Y.isHost){T(Y.props,{src:P(Y.remote,{xdm_e:j(p.href),xdm_c:Y.channel,xdm_p:5}),name:U+Y.channel+"_provider"});ab=A(Y);ab.fn=function(ac){delete ab.fn;aa=ac;K(function(){Z.up.callback(true)},0);return function(ad){Z.up.incoming(ad,X)}}}else{if(d.referrer&&j(d.referrer)!=S.xdm_e){N.top.location=S.xdm_e}aa=N.frameElement.fn(function(ac){Z.up.incoming(ac,X)});Z.up.callback(true)}},init:function(){G(Z.onDOMReady,Z)}})};o.stack.NameTransport=function(ab){var ac;var ae,ai,aa,ag,ah,Y,X;function af(al){var ak=ab.remoteHelper+(ae?"#_3":"#_2")+ab.channel;ai.contentWindow.sendMessage(al,ak)}function ad(){if(ae){if(++ag===2||!ae){ac.up.callback(true)}}else{af("ready");ac.up.callback(true)}}function aj(ak){ac.up.incoming(ak,Y)}function Z(){if(ah){K(function(){ah(true)},0)}}return(ac={outgoing:function(al,am,ak){ah=ak;af(al)},destroy:function(){ai.parentNode.removeChild(ai);ai=null;if(ae){aa.parentNode.removeChild(aa);aa=null}},onDOMReady:function(){ae=ab.isHost;ag=0;Y=j(ab.remote);ab.local=B(ab.local);if(ae){o.Fn.set(ab.channel,function(al){if(ae&&al==="ready"){o.Fn.set(ab.channel,aj);ad()}});X=P(ab.remote,{xdm_e:ab.local,xdm_c:ab.channel,xdm_p:2});T(ab.props,{src:X+"#"+ab.channel,name:U+ab.channel+"_provider"});aa=A(ab)}else{ab.remoteHelper=ab.remote;o.Fn.set(ab.channel,aj)}var ak=function(){var al=ai||this;x(al,"load",ak);o.Fn.set(ab.channel+"_load",Z);(function am(){if(typeof al.contentWindow.sendMessage=="function"){ad()}else{K(am,50)}}())};ai=A({props:{src:ab.local+"#_4"+ab.channel},onLoad:ak})},init:function(){G(ac.onDOMReady,ac)}})};o.stack.HashTransport=function(Z){var ac;var ah=this,af,aa,X,ad,am,ab,al;var ag,Y;function ak(ao){if(!al){return}var an=Z.remote+"#"+(am++)+"_"+ao;((af||!ag)?al.contentWindow:al).location=an}function ae(an){ad=an;ac.up.incoming(ad.substring(ad.indexOf("_")+1),Y)}function aj(){if(!ab){return}var an=ab.location.href,ap="",ao=an.indexOf("#");if(ao!=-1){ap=an.substring(ao)}if(ap&&ap!=ad){ae(ap)}}function ai(){aa=setInterval(aj,X)}return(ac={outgoing:function(an,ao){ak(an)},destroy:function(){N.clearInterval(aa);if(af||!ag){al.parentNode.removeChild(al)}al=null},onDOMReady:function(){af=Z.isHost;X=Z.interval;ad="#"+Z.channel;am=0;ag=Z.useParent;Y=j(Z.remote);if(af){T(Z.props,{src:Z.remote,name:U+Z.channel+"_provider"});if(ag){Z.onLoad=function(){ab=N;ai();ac.up.callback(true)}}else{var ap=0,an=Z.delay/50;(function ao(){if(++ap>an){throw new Error("Unable to reference listenerwindow")}try{ab=al.contentWindow.frames[U+Z.channel+"_consumer"]}catch(aq){}if(ab){ai();ac.up.callback(true)}else{K(ao,50)}}())}al=A(Z)}else{ab=N;ai();if(ag){al=parent;ac.up.callback(true)}else{T(Z,{props:{src:Z.remote+"#"+Z.channel+new Date(),name:U+Z.channel+"_consumer"},onLoad:function(){ac.up.callback(true)}});al=A(Z)}}},init:function(){G(ac.onDOMReady,ac)}})};o.stack.ReliableBehavior=function(Y){var aa,ac;var ab=0,X=0,Z="";return(aa={incoming:function(af,ad){var ae=af.indexOf("_"),ag=af.substring(0,ae).split(",");af=af.substring(ae+1);if(ag[0]==ab){Z="";if(ac){ac(true)}}if(af.length>0){aa.down.outgoing(ag[1]+","+ab+"_"+Z,ad);if(X!=ag[1]){X=ag[1];aa.up.incoming(af,ad)}}},outgoing:function(af,ad,ae){Z=af;ac=ae;aa.down.outgoing(X+","+(++ab)+"_"+af,ad)}})};o.stack.QueueBehavior=function(Z){var ac,ad=[],ag=true,aa="",af,X=0,Y=false,ab=false;function ae(){if(Z.remove&&ad.length===0){w(ac);return}if(ag||ad.length===0||af){return}ag=true;var ah=ad.shift();ac.down.outgoing(ah.data,ah.origin,function(ai){ag=false;if(ah.callback){K(function(){ah.callback(ai)},0)}ae()})}return(ac={init:function(){if(t(Z)){Z={}}if(Z.maxLength){X=Z.maxLength;ab=true}if(Z.lazy){Y=true}else{ac.down.init()}},callback:function(ai){ag=false;var ah=ac.up;ae();ah.callback(ai)},incoming:function(ak,ai){if(ab){var aj=ak.indexOf("_"),ah=parseInt(ak.substring(0,aj),10);aa+=ak.substring(aj+1);if(ah===0){if(Z.encode){aa=k(aa)}ac.up.incoming(aa,ai);aa=""}}else{ac.up.incoming(ak,ai)}},outgoing:function(al,ai,ak){if(Z.encode){al=H(al)}var ah=[],aj;if(ab){while(al.length!==0){aj=al.substring(0,X);al=al.substring(aj.length);ah.push(aj)}while((aj=ah.shift())){ad.push({data:ah.length+"_"+aj,origin:ai,callback:ah.length===0?ak:null})}}else{ad.push({data:al,origin:ai,callback:ak})}if(Y){ac.down.init()}else{ae()}},destroy:function(){af=true;ac.down.destroy()}})};o.stack.VerifyBehavior=function(ab){var ac,aa,Y,Z=false;function X(){aa=Math.random().toString(16).substring(2);ac.down.outgoing(aa)}return(ac={incoming:function(af,ad){var ae=af.indexOf("_");if(ae===-1){if(af===aa){ac.up.callback(true)}else{if(!Y){Y=af;if(!ab.initiate){X()}ac.down.outgoing(af)}}}else{if(af.substring(0,ae)===Y){ac.up.incoming(af.substring(ae+1),ad)}}},outgoing:function(af,ad,ae){ac.down.outgoing(aa+"_"+af,ad,ae)},callback:function(ad){if(ab.initiate){X()}}})};o.stack.RpcBehavior=function(ad,Y){var aa,af=Y.serializer||O();var ae=0,ac={};function X(ag){ag.jsonrpc="2.0";aa.down.outgoing(af.stringify(ag))}function ab(ag,ai){var ah=Array.prototype.slice;return function(){var aj=arguments.length,al,ak={method:ai};if(aj>0&&typeof arguments[aj-1]==="function"){if(aj>1&&typeof arguments[aj-2]==="function"){al={success:arguments[aj-2],error:arguments[aj-1]};ak.params=ah.call(arguments,0,aj-2)}else{al={success:arguments[aj-1]};ak.params=ah.call(arguments,0,aj-1)}ac[""+(++ae)]=al;ak.id=ae}else{ak.params=ah.call(arguments,0)}if(ag.namedParams&&ak.params.length===1){ak.params=ak.params[0]}X(ak)}}function Z(an,am,ai,al){if(!ai){if(am){X({id:am,error:{code:-32601,message:"Procedure not found."}})}return}var ak,ah;if(am){ak=function(ao){ak=q;X({id:am,result:ao})};ah=function(ao,ap){ah=q;var aq={id:am,error:{code:-32099,message:ao}};if(ap){aq.error.data=ap}X(aq)}}else{ak=ah=q}if(!r(al)){al=[al]}try{var ag=ai.method.apply(ai.scope,al.concat([ak,ah]));if(!t(ag)){ak(ag)}}catch(aj){ah(aj.message)}}return(aa={incoming:function(ah,ag){var ai=af.parse(ah);if(ai.method){if(Y.handle){Y.handle(ai,X)}else{Z(ai.method,ai.id,Y.local[ai.method],ai.params)}}else{var aj=ac[ai.id];if(ai.error){if(aj.error){aj.error(ai.error)}}else{if(aj.success){aj.success(ai.result)}}delete ac[ai.id]}},init:function(){if(Y.remote){for(var ag in Y.remote){if(Y.remote.hasOwnProperty(ag)){ad[ag]=ab(Y.remote[ag],ag)}}}aa.down.init()},destroy:function(){for(var ag in Y.remote){if(Y.remote.hasOwnProperty(ag)&&ad.hasOwnProperty(ag)){delete ad[ag]}}aa.down.destroy()}})};b.easyXDM=o})(window,document,location,window.setTimeout,decodeURIComponent,encodeURIComponent);
-!function a(b,c,d){function e(g,h){if(!c[g]){if(!b[g]){var i="function"==typeof require&&require;if(!h&&i)return i(g,!0);if(f)return f(g,!0);throw new Error("Cannot find module '"+g+"'")}var j=c[g]={exports:{}};b[g][0].call(j.exports,function(a){var c=b[g][1][a];return e(c?c:a)},j,j.exports,a,b,c,d)}return c[g].exports}for(var f="function"==typeof require&&require,g=0;g<d.length;g++)e(d[g]);return e}({1:[function(a,b){function c(){return!0}function d(a,b,d,e){return a.global?c(b||x,d,e):void 0}function e(a){a.global&&0===ajax.active++&&d(a,null,"ajaxStart")}function f(a){a.global&&!--ajax.active&&d(a,null,"ajaxStop")}function g(a,b){var c=b.context;return b.beforeSend.call(c,a,b)===!1||d(b,c,"ajaxBeforeSend",[a,b])===!1?!1:(d(b,c,"ajaxSend",[a,b]),void 0)}function h(a,b,c){var e=c.context,f="success";c.success.call(e,a,f,b),d(c,e,"ajaxSuccess",[b,c,a]),j(f,b,c)}function i(a,b,c,e){var f=e.context;e.error.call(f,c,b,a),d(e,f,"ajaxError",[c,e,a]),j(b,c,e)}function j(a,b,c){var e=c.context;c.complete.call(e,b,a),d(c,e,"ajaxComplete",[b,c]),f(c)}function k(){}function l(a){return a&&(a==B?"html":a==A?"json":y.test(a)?"script":z.test(a)&&"xml")||"text"}function m(a,b){return(a+"&"+b).replace(/[&?]{1,2}/,"?")}function n(a){"object"===r(a.data)&&(a.data=p(a.data)),!a.data||a.type&&"GET"!=a.type.toUpperCase()||(a.url=m(a.url,a.data))}function o(a,b,c,d){var e="array"===r(b);for(var f in b){var g=b[f];d&&(f=c?d:d+"["+(e?"":f)+"]"),!d&&e?a.add(g.name,g.value):(c?"array"===r(g):"object"===r(g))?o(a,g,c,f):a.add(f,g)}}function p(a,b){var c=[];return c.add=function(a,b){this.push(D(a)+"="+D(b))},o(c,a,b),c.join("&").replace("%20","+")}function q(a){for(var b=Array.prototype.slice,c=b.call(arguments,1),d=c.length,e=0;d>e;e++){source=c[e];for(u in source)void 0!==source[u]&&(a[u]=source[u])}return a}var r;try{r=a("type-of")}catch(s){var t=a;r=t("type")}var u,v,w=0,x=window.document,y=/^(?:text|application)\/javascript/i,z=/^(?:text|application)\/xml/i,A="application/json",B="text/html",C=/^\s*$/;window.ajax=b.exports=function(a){var b=q({},a||{});for(u in ajax.settings)void 0===b[u]&&(b[u]=ajax.settings[u]);e(b),b.crossDomain||(b.crossDomain=/^([\w-]+:)?\/\/([^\/]+)/.test(b.url)&&RegExp.$2!=window.location.host);var c=b.dataType,d=/=\?/.test(b.url);if("jsonp"==c||d)return d||(b.url=m(b.url,"callback=?")),ajax.JSONP(b);b.url||(b.url=window.location.toString()),n(b);var f,j=b.accepts[c],o={},p=/^([\w-]+:)\/\//.test(b.url)?RegExp.$1:window.location.protocol,r=ajax.settings.xhr();b.crossDomain||(o["X-Requested-With"]="XMLHttpRequest"),j&&(o.Accept=j,j.indexOf(",")>-1&&(j=j.split(",",2)[0]),r.overrideMimeType&&r.overrideMimeType(j)),(b.contentType||b.data&&"GET"!=b.type.toUpperCase())&&(o["Content-Type"]=b.contentType||"application/x-www-form-urlencoded"),b.headers=q(o,b.headers||{}),r.onreadystatechange=function(){if(4==r.readyState){clearTimeout(f);var a,d=!1;if(r.status>=200&&r.status<300||304==r.status||0==r.status&&"file:"==p){c=c||l(r.getResponseHeader("content-type")),a=r.responseText;try{"script"==c?(1,eval)(a):"xml"==c?a=r.responseXML:"json"==c&&(a=C.test(a)?null:JSON.parse(a))}catch(e){d=e}d?i(d,"parsererror",r,b):h(a,r,b)}else i(null,"error",r,b)}};var s="async"in b?b.async:!0;r.open(b.type,b.url,s);for(v in b.headers)r.setRequestHeader(v,b.headers[v]);return g(r,b)===!1?(r.abort(),!1):(b.timeout>0&&(f=setTimeout(function(){r.onreadystatechange=k,r.abort(),i(null,"timeout",r,b)},b.timeout)),r.send(b.data?b.data:null),r)},ajax.active=0,ajax.JSONP=function(a){if(!("type"in a))return ajax(a);var b,c="jsonp"+ ++w,d=x.createElement("script"),e=function(){c in window&&(window[c]=k),j("abort",f,a)},f={abort:e},g=x.getElementsByTagName("head")[0]||x.documentElement;return a.error&&(d.onerror=function(){f.abort(),a.error()}),window[c]=function(d){clearTimeout(b),delete window[c],h(d,f,a)},n(a),d.src=a.url.replace(/=\?/,"="+c),g.insertBefore(d,g.firstChild),a.timeout>0&&(b=setTimeout(function(){f.abort(),j("timeout",f,a)},a.timeout)),f},ajax.settings={type:"GET",beforeSend:k,success:k,error:k,complete:k,context:null,global:!0,xhr:function(){return new window.XMLHttpRequest},accepts:{script:"text/javascript, application/javascript",json:A,xml:"application/xml, text/xml",html:B,text:"text/plain"},crossDomain:!1,timeout:0},ajax.get=function(a,b){return ajax({url:a,success:b})},ajax.post=function(a,b,c,d){return"function"===r(b)&&(d=d||c,c=b,b=null),ajax({type:"POST",url:a,data:b,success:c,dataType:d})},ajax.getJSON=function(a,b){return ajax({url:a,success:b,dataType:"json"})};var D=encodeURIComponent},{"type-of":2}],2:[function(a,b){var c=Object.prototype.toString;b.exports=function(a){switch(c.call(a)){case"[object Function]":return"function";case"[object Date]":return"date";case"[object RegExp]":return"regexp";case"[object Arguments]":return"arguments";case"[object Array]":return"array";case"[object String]":return"string"}return null===a?"null":void 0===a?"undefined":a&&1===a.nodeType?"element":a===Object(a)?"object":typeof a}},{}]},{},[1]);
-/*conekta.js v0.3.0 | 2013- Conekta | https://github.com/conekta/conekta.js/blob/master/LICENSE-MIT.txt
+!function a(b,c,d){function e(g,h){if(!c[g]){if(!b[g]){var i="function"==typeof require&&require;if(!h&&i)return i(g,!0);if(f)return f(g,!0);throw new Error("Cannot find module '"+g+"'")}var j=c[g]={exports:{}};b[g][0].call(j.exports,function(a){var c=b[g][1][a];return e(c?c:a)},j,j.exports,a,b,c,d)}return c[g].exports}for(var f="function"==typeof require&&require,g=0;g<d.length;g++)e(d[g]);return e}({1:[function(a,b){function c(){return!0}function d(a,b,d,e){return a.global?c(b||x,d,e):void 0}function e(a){a.global&&0===ajax.active++&&d(a,null,"ajaxStart")}function f(a){a.global&&!--ajax.active&&d(a,null,"ajaxStop")}function g(a,b){var c=b.context;return b.beforeSend.call(c,a,b)===!1||d(b,c,"ajaxBeforeSend",[a,b])===!1?!1:(d(b,c,"ajaxSend",[a,b]),void 0)}function h(a,b,c){var e=c.context,f="success";c.success.call(e,a,f,b),d(c,e,"ajaxSuccess",[b,c,a]),j(f,b,c)}function i(a,b,c,e){var f=e.context;e.error.call(f,c,b,a),d(e,f,"ajaxError",[c,e,a]),j(b,c,e)}function j(a,b,c){var e=c.context;c.complete.call(e,b,a),d(c,e,"ajaxComplete",[b,c]),f(c)}function k(){}function l(a){return a&&(a==B?"html":a==A?"json":y.test(a)?"script":z.test(a)&&"xml")||"text"}function m(a,b){return(a+"&"+b).replace(/[&?]{1,2}/,"?")}function n(a){"object"===r(a.data)&&(a.data=p(a.data)),!a.data||a.type&&"GET"!=a.type.toUpperCase()||(a.url=m(a.url,a.data))}function o(a,b,c,d){var e="array"===r(b);for(var f in b){var g=b[f];d&&(f=c?d:d+"["+(e?"":f)+"]"),!d&&e?a.add(g.name,g.value):(c?"array"===r(g):"object"===r(g))?o(a,g,c,f):a.add(f,g)}}function p(a,b){var c=[];return c.add=function(a,b){this.push(D(a)+"="+D(b))},o(c,a,b),c.join("&").replace("%20","+")}function q(a){for(var b=Array.prototype.slice,c=b.call(arguments,1),d=c.length,e=0;d>e;e++){source=c[e];for(u in source)void 0!==source[u]&&(a[u]=source[u])}return a}var r;try{r=a("type-of")}catch(s){var t=a;r=t("type")}var u,v,w=0,x=window.document,y=/^(?:text|application)\/javascript/i,z=/^(?:text|application)\/xml/i,A="application/json",B="text/html",C=/^\s*$/;window.ajax=b.exports=function(a){var b=q({},a||{});for(u in ajax.settings)void 0===b[u]&&(b[u]=ajax.settings[u]);e(b),b.crossDomain||(b.crossDomain=/^([\w-]+:)?\/\/([^\/]+)/.test(b.url)&&RegExp.$2!=window.location.host);var c=b.dataType,d=/=\?/.test(b.url);if("jsonp"==c||d)return d||(b.url=m(b.url,"callback=?")),ajax.JSONP(b);b.url||(b.url=window.location.toString()),n(b);var f,j=b.accepts[c],o={},p=/^([\w-]+:)\/\//.test(b.url)?RegExp.$1:window.location.protocol,r=ajax.settings.xhr();b.crossDomain||(o["X-Requested-With"]="XMLHttpRequest"),j&&(o.Accept=j,j.indexOf(",")>-1&&(j=j.split(",",2)[0]),r.overrideMimeType&&r.overrideMimeType(j)),(b.contentType||b.data&&"GET"!=b.type.toUpperCase())&&(o["Content-Type"]=b.contentType||"application/x-www-form-urlencoded"),b.headers=q(o,b.headers||{}),r.onreadystatechange=function(){if(4==r.readyState){clearTimeout(f);var a,d=!1;if(r.status>=200&&r.status<300||304==r.status||0==r.status&&"file:"==p){c=c||l(r.getResponseHeader("content-type")),a=r.responseText;try{"script"==c?(1,eval)(a):"xml"==c?a=r.responseXML:"json"==c&&(a=C.test(a)?null:JSON.parse(a))}catch(e){d=e}d?i(d,"parsererror",r,b):h(a,r,b)}else i(null,"error",r,b)}};var s="async"in b?b.async:!0;r.open(b.type,b.url,s);for(v in b.headers)r.setRequestHeader(v,b.headers[v]);return g(r,b)===!1?(r.abort(),!1):(b.timeout>0&&(f=setTimeout(function(){r.onreadystatechange=k,r.abort(),i(null,"timeout",r,b)},b.timeout)),r.send(b.data?b.data:null),r)},ajax.active=0,ajax.JSONP=function(a){if(!("type"in a))return ajax(a);var b="jsonp"+ ++w;a.jsonpCallback&&(b=a.jsonpCallback);var c,d=x.createElement("script"),e=function(){b in window&&(window[b]=k),j("abort",f,a)},f={abort:e},g=x.getElementsByTagName("head")[0]||x.documentElement;return a.error&&(d.onerror=function(){f.abort(),a.error()}),window[b]=function(d){clearTimeout(c);try{delete window[b]}catch(e){window[b]=void 0}h(d,f,a)},n(a),d.src=a.url.replace(/=\?/,"="+b),g.insertBefore(d,g.firstChild),a.timeout>0&&(c=setTimeout(function(){f.abort(),j("timeout",f,a)},a.timeout)),f},ajax.settings={type:"GET",beforeSend:k,success:k,error:k,complete:k,context:null,global:!0,xhr:function(){return new window.XMLHttpRequest},accepts:{script:"text/javascript, application/javascript",json:A,xml:"application/xml, text/xml",html:B,text:"text/plain"},crossDomain:!1,timeout:0},ajax.get=function(a,b){return ajax({url:a,success:b})},ajax.post=function(a,b,c,d){return"function"===r(b)&&(d=d||c,c=b,b=null),ajax({type:"POST",url:a,data:b,success:c,dataType:d})},ajax.getJSON=function(a,b){return ajax({url:a,success:b,dataType:"json"})};var D=encodeURIComponent},{"type-of":2}],2:[function(a,b){var c=Object.prototype.toString;b.exports=function(a){switch(c.call(a)){case"[object Function]":return"function";case"[object Date]":return"date";case"[object RegExp]":return"regexp";case"[object Arguments]":return"arguments";case"[object Array]":return"array";case"[object String]":return"string"}return null===a?"null":void 0===a?"undefined":a&&1===a.nodeType?"element":a===Object(a)?"object":typeof a}},{}]},{},[1]);
+/*conekta.js v1.0.0 | 2013- Conekta | https://github.com/conekta/conekta.js/blob/master/LICENSE-MIT.txt
 */
 
 (function() {
-  var Base64, base_url, fingerprint, i, publishable_key, session_id, useable_characters, _i;
+  var Base64, antifraud_config, base_url, fingerprint, getAntifraudConfig, getCartCallback, i, kount_merchant_id, localstorageGet, localstorageSet, originalGetCart, originalOnCartUpdated, originalOnItemAdded, publishable_key, random_index, random_value_array, send_beacon, session_id, useable_characters, _i, _j, _language, _ref;
 
   base_url = 'https://api.conekta.io/';
 
-  publishable_key = null;
-
   session_id = "";
 
-  useable_characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+  _language = 'es';
 
-  for (i = _i = 0; _i <= 30; i = ++_i) {
-    session_id += useable_characters.charAt(Math.floor(Math.random() * 36));
-  }
+  kount_merchant_id = '205000';
+
+  antifraud_config = {};
+
+  localstorageGet = function(key) {
+    if (typeof localStorage !== 'undefined' && typeof localStorage.getItem !== 'undefined') {
+      return localStorage.getItem(key);
+    } else {
+      return null;
+    }
+  };
+
+  localstorageSet = function(key, value) {
+    if (typeof localStorage !== 'undefined' && typeof localStorage.setItem !== 'undefined') {
+      return localStorage.setItem(key, value);
+    }
+  };
+
+  publishable_key = localstorageGet('_conekta_publishable_key');
 
   fingerprint = function() {
-    var add_swf, body, fingerprint_png_img, fingerprint_png_p, fingerprint_script;
-    if (typeof document !== 'undefined' && typeof document.body !== 'undefined' && document.body && (document.readyState === 'interactive' || document.readyState === 'complete')) {
-      body = document.getElementsByTagName('body')[0];
-      fingerprint_png_p = document.createElement('p');
-      fingerprint_png_p.setAttribute("style", "background:url(https://h.online-metrix.net/fp/clear.png?org_id=k8vif92e&session_id=banorteixe_conekta" + session_id + "&m=1) ! important; display:none ! important;");
-      body.appendChild(fingerprint_png_p);
-      fingerprint_png_img = document.createElement('img');
-      fingerprint_png_img.setAttribute('style', 'display:none ! important;');
-      fingerprint_png_img.src = "https://h.online-metrix.net/fp/clear.png?org_id=k8vif92e&session_id=banorteixe_conekta" + session_id + "&m=2";
-      body.appendChild(fingerprint_png_img);
-      add_swf = function() {
-        var fingerprint_swf_object, fingerprint_swf_param;
-        fingerprint_swf_object = document.createElement('object');
-        fingerprint_swf_object.type = 'application/x-shockwave-flash';
-        fingerprint_swf_object.data = "https://h.online-metrix.net/fp/fp.swf?org_id=k8vif92e&session_id=banorteixe_conekta" + session_id;
-        fingerprint_swf_object.width = '1';
-        fingerprint_swf_object.setAttribute('style', 'display:none ! important;');
-        body.appendChild(fingerprint_swf_object);
-        fingerprint_swf_param = document.createElement('param');
-        fingerprint_swf_param.name = 'movie';
-        fingerprint_swf_param.setAttribute('style', 'display:none ! important;');
-        fingerprint_swf_param.value = 'https://h.online-metrix.net/fp/fp.swf?org_id=k8vif92e&session_id=merchant' + session_id;
-        if (typeof fingerprint_swf_param.appendChild === 'function') {
-          fingerprint_swf_param.appendChild(document.createElement('div'));
+    var body, e, iframe, image;
+    if (typeof document !== 'undefined' && typeof document.body !== 'undefined' && document.body && (document.readyState === 'interactive' || document.readyState === 'complete') && 'undefined' !== typeof Conekta) {
+      if (!Conekta._helpers.finger_printed) {
+        Conekta._helpers.finger_printed = true;
+        body = document.getElementsByTagName('body')[0];
+        iframe = document.createElement('iframe');
+        iframe.setAttribute("height", "1");
+        iframe.setAttribute("scrolling", "no");
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("width", "1");
+        iframe.setAttribute("src", "" + base_url + "fraud_providers/kount/logo.htm?m=" + kount_merchant_id + "&s=" + session_id);
+        image = document.createElement('img');
+        image.setAttribute("height", "1");
+        image.setAttribute("width", "1");
+        image.setAttribute("src", "" + base_url + "fraud_providers/kount/logo.gif?m=" + kount_merchant_id + "&s=" + session_id);
+        try {
+          iframe.appendChild(image);
+        } catch (_error) {
+          e = _error;
         }
-        body.appendChild(fingerprint_swf_param);
-      };
-      if (navigator.userAgent.match(/MSIE [5-9]+/) && document.readyState !== 'complete') {
-        window.attachEvent("onload", add_swf);
-      } else {
-        add_swf();
+        body.appendChild(iframe);
       }
-      fingerprint_script = document.createElement('script');
-      fingerprint_script.type = 'text/javascript';
-      fingerprint_script.src = 'https://h.online-metrix.net/fp/check.js?org_id=k8vif92e&session_id=banorteixe_conekta' + session_id;
-      body.appendChild(fingerprint_script);
     } else {
       setTimeout(fingerprint, 150);
     }
   };
 
-  fingerprint();
+  send_beacon = function() {
+    var ls, _user_id;
+    if (typeof document !== 'undefined' && typeof document.body !== 'undefined' && document.body && (document.readyState === 'interactive' || document.readyState === 'complete') && 'undefined' !== typeof Conekta) {
+      if (!Conekta._helpers.beacon_sent) {
+        if (antifraud_config['riskified']) {
+          ls = function() {
+            var s, store_domain, url, x;
+            store_domain = antifraud_config['riskified']['domain'];
+            session_id = session_id;
+            url = ('https:' === document.location.protocol ? 'https://' : 'http://') + 'beacon.riskified.com?shop=' + store_domain + '&sid=' + session_id;
+            s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = url;
+            x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+          };
+          ls();
+        }
+        if (antifraud_config['siftscience']) {
+          _user_id = session_id;
+          window._sift = window._sift || [];
+          _sift.push(["_setAccount", antifraud_config['siftscience']['beacon_key']]);
+          _sift.push(["_setSessionId", session_id]);
+          _sift.push(["_trackPageview"]);
+          ls = function() {
+            var e, s;
+            e = document.createElement("script");
+            e.type = "text/javascript";
+            e.async = true;
+            e.src = ('https:' === document.location.protocol ? 'https://' : 'http://') + 'cdn.siftscience.com/s.js';
+            s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(e, s);
+          };
+          ls();
+        }
+      }
+    } else {
+      setTimeout(send_beacon, 150);
+    }
+  };
+
+  if (localstorageGet('_conekta_session_id') && localstorageGet('_conekta_session_id_timestamp') && ((new Date).getTime() - 600000) < parseInt(localstorageGet('_conekta_session_id_timestamp'))) {
+    session_id = localStorage.getItem('_conekta_session_id');
+    fingerprint();
+  } else if (typeof Shopify !== 'undefined' && typeof Shopify.getCart !== 'undefined') {
+    getCartCallback = function(cart) {
+      session_id = cart['token'];
+      if (session_id !== null && session_id !== '') {
+        fingerprint();
+        send_beacon();
+        localstorageSet('_conekta_session_id', session_id);
+        localstorageSet('_conekta_session_id_timestamp', (new Date).getTime().toString());
+      }
+    };
+    Shopify.getCart(function(cart) {
+      getCartCallback(cart);
+    });
+    originalGetCart = Shopify.getCart;
+    Shopify.getCart = function(callback) {
+      var tapped_callback;
+      tapped_callback = function(cart) {
+        getCartCallback(cart);
+        callback(cart);
+      };
+      originalGetCart(tapped_callback);
+    };
+    originalOnItemAdded = Shopify.onItemAdded;
+    Shopify.onItemAdded = function(callback) {
+      var tapped_callback;
+      tapped_callback = function(item) {
+        Shopify.getCart(function(cart) {
+          getCartCallback(cart);
+        });
+        callback(item);
+      };
+      originalOnItemAdded(tapped_callback);
+    };
+    originalOnCartUpdated = Shopify.onCartUpdated;
+    Shopify.onCartUpdated = function(callback) {
+      var tapped_callback;
+      tapped_callback = function(cart) {
+        getCartCallback(cart);
+        callback(cart);
+      };
+      originalOnCartUpdated(tapped_callback);
+    };
+    if (typeof jQuery !== 'undefined') {
+      jQuery(document).ajaxSuccess(function(event, request, options, data) {
+        if (options['url'] === 'cart/add.js') {
+          Shopify.getCart(function(cart) {
+            getCartCallback(cart);
+          });
+        }
+      });
+    }
+  } else {
+    useable_characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+    if (typeof crypto !== 'undefined' && typeof crypto.getRandomValues !== 'undefined') {
+      random_value_array = new Uint32Array(32);
+      crypto.getRandomValues(random_value_array);
+      for (i = _i = 0, _ref = random_value_array.length - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
+        session_id += useable_characters.charAt(random_value_array[i] % 36);
+      }
+    } else {
+      for (i = _j = 0; _j <= 30; i = ++_j) {
+        random_index = Math.floor(Math.random() * 36);
+        session_id += useable_characters.charAt(random_index);
+      }
+    }
+    localstorageSet('_conekta_session_id', session_id);
+    localstorageSet('_conekta_session_id_timestamp', (new Date).getTime().toString());
+    fingerprint();
+  }
+
+  getAntifraudConfig = function() {
+    var error_callback, success_callback, unparsed_antifraud_config, url;
+    unparsed_antifraud_config = localstorageGet('conekta_antifraud_config');
+    if (unparsed_antifraud_config && unparsed_antifraud_config.match(/^\{/)) {
+      return antifraud_config = JSON.parse(unparsed_antifraud_config);
+    } else {
+      success_callback = function(config) {
+        antifraud_config = config;
+        localstorageSet('conekta_antifraud_config', antifraud_config);
+        return send_beacon();
+      };
+      error_callback = function() {};
+      url = "https://d3fxnri0mz3rya.cloudfront.net/antifraud/" + document.domain + ".js";
+      return ajax({
+        url: url,
+        dataType: 'jsonp',
+        jsonpCallback: 'conekta_antifraud_config_jsonp',
+        success: success_callback,
+        error: error_callback
+      });
+    }
+  };
+
+  getAntifraudConfig();
 
   Base64 = {
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
@@ -204,163 +342,190 @@
     }
   };
 
-  window.Conekta = {
-    setPublishableKey: function(key) {
-      var e, s;
-      if (typeof key === 'string' && key.match(/^[a-zA-Z0-9_]*$/) && key.length >= 20 && key.length < 30) {
-        publishable_key = key;
-      } else {
-        Conekta._helpers.log('Unusable public key: ' + key);
-      }
-    },
-    getPublishableKey: function() {
-      return publishable_key;
-    },
-    _helpers: {
-      parseForm: function(charge_form) {
-        var all_inputs, attribute, attribute_name, attributes, charge, input, inputs, key, last_attribute, line_items, node, parent_node, selects, textareas, val, _j, _k, _l, _len, _len1, _m, _n, _ref, _ref1, _ref2;
-        charge = {};
-        if (typeof charge_form === 'object') {
-          if (typeof jQuery !== 'undefined' && (charge_form instanceof jQuery || 'jquery' in Object(charge_form))) {
-            charge_form = charge_form.get()[0];
+  if (!window.Conekta) {
+    window.Conekta = {
+      setLanguage: function(language) {
+        return _language = language;
+      },
+      getLanguage: function() {
+        return _language;
+      },
+      setPublishableKey: function(key) {
+        if (typeof key === 'string' && key.match(/^[a-zA-Z0-9_]*$/) && key.length >= 20 && key.length < 30) {
+          publishable_key = key;
+          localstorageSet('_conekta_publishable_key', publishable_key);
+        } else {
+          Conekta._helpers.log('Unusable public key: ' + key);
+        }
+      },
+      getPublishableKey: function() {
+        return publishable_key;
+      },
+      _helpers: {
+        finger_printed: false,
+        beacon_sent: false,
+        objectKeys: function(obj) {
+          var keys, p;
+          keys = [];
+          for (p in obj) {
+            if (Object.prototype.hasOwnProperty.call(obj, p)) {
+              keys.push(p);
+            }
           }
-          if (charge_form.nodeType) {
-            textareas = charge_form.getElementsByTagName('textarea');
-            inputs = charge_form.getElementsByTagName('input');
-            selects = charge_form.getElementsByTagName('select');
-            all_inputs = new Array(textareas.length + inputs.length + selects.length);
-            for (i = _j = 0, _ref = textareas.length - 1; _j <= _ref; i = _j += 1) {
-              all_inputs[i] = textareas[i];
-            }
-            for (i = _k = 0, _ref1 = inputs.length - 1; _k <= _ref1; i = _k += 1) {
-              all_inputs[i + textareas.length] = inputs[i];
-            }
-            for (i = _l = 0, _ref2 = selects.length - 1; _l <= _ref2; i = _l += 1) {
-              all_inputs[i + textareas.length + inputs.length] = selects[i];
-            }
-            for (_m = 0, _len = all_inputs.length; _m < _len; _m++) {
-              input = all_inputs[_m];
-              if (input) {
-                attribute_name = input.getAttribute('data-conekta');
-                if (attribute_name) {
-                  if (input.tagName === 'SELECT') {
-                    val = input.value;
-                  } else {
-                    val = input.getAttribute('value') || input.innerHTML || input.value;
-                  }
-                  attributes = attribute_name.replace(/\]/g, '').replace(/\-/g, '_').split(/\[/);
-                  parent_node = null;
-                  node = charge;
-                  last_attribute = null;
-                  for (_n = 0, _len1 = attributes.length; _n < _len1; _n++) {
-                    attribute = attributes[_n];
-                    if (!node[attribute]) {
-                      node[attribute] = {};
-                    }
-                    parent_node = node;
-                    last_attribute = attribute;
-                    node = node[attribute];
-                  }
-                  parent_node[last_attribute] = val;
-                }
+          return keys;
+        },
+        parseForm: function(charge_form) {
+          var all_inputs, attribute, attribute_name, attributes, charge, input, inputs, key, last_attribute, line_items, node, parent_node, selects, textareas, val, _k, _l, _len, _len1, _m, _n, _o, _ref1, _ref2, _ref3;
+          charge = {};
+          if (typeof charge_form === 'object') {
+            if (typeof jQuery !== 'undefined' && (charge_form instanceof jQuery || 'jquery' in Object(charge_form))) {
+              charge_form = charge_form.get()[0];
+              if (typeof charge_form !== 'object') {
+                return {};
               }
             }
-          } else {
-            charge = charge_form;
-          }
-          if (charge.details && charge.details.line_items && Object.prototype.toString.call(charge.details.line_items) !== '[object Array]' && typeof charge.details.line_items === 'object') {
-            line_items = [];
-            for (key in charge.details.line_items) {
-              line_items.push(charge.details.line_items[key]);
+            if (charge_form.nodeType) {
+              textareas = charge_form.getElementsByTagName('textarea');
+              inputs = charge_form.getElementsByTagName('input');
+              selects = charge_form.getElementsByTagName('select');
+              all_inputs = new Array(textareas.length + inputs.length + selects.length);
+              for (i = _k = 0, _ref1 = textareas.length - 1; _k <= _ref1; i = _k += 1) {
+                all_inputs[i] = textareas[i];
+              }
+              for (i = _l = 0, _ref2 = inputs.length - 1; _l <= _ref2; i = _l += 1) {
+                all_inputs[i + textareas.length] = inputs[i];
+              }
+              for (i = _m = 0, _ref3 = selects.length - 1; _m <= _ref3; i = _m += 1) {
+                all_inputs[i + textareas.length + inputs.length] = selects[i];
+              }
+              for (_n = 0, _len = all_inputs.length; _n < _len; _n++) {
+                input = all_inputs[_n];
+                if (input) {
+                  attribute_name = input.getAttribute('data-conekta');
+                  if (attribute_name) {
+                    if (input.tagName === 'SELECT') {
+                      val = input.value;
+                    } else {
+                      val = input.value || input.getAttribute('value') || input.innerHTML;
+                    }
+                    attributes = attribute_name.replace(/\]/g, '').replace(/\-/g, '_').split(/\[/);
+                    parent_node = null;
+                    node = charge;
+                    last_attribute = null;
+                    for (_o = 0, _len1 = attributes.length; _o < _len1; _o++) {
+                      attribute = attributes[_o];
+                      if (!node[attribute]) {
+                        node[attribute] = {};
+                      }
+                      parent_node = node;
+                      last_attribute = attribute;
+                      node = node[attribute];
+                    }
+                    parent_node[last_attribute] = val;
+                  }
+                }
+              }
+            } else {
+              charge = charge_form;
             }
-            charge.details.line_items = line_items;
+            if (charge.details && charge.details.line_items && Object.prototype.toString.call(charge.details.line_items) !== '[object Array]' && typeof charge.details.line_items === 'object') {
+              line_items = [];
+              for (key in charge.details.line_items) {
+                line_items.push(charge.details.line_items[key]);
+              }
+              charge.details.line_items = line_items;
+            }
           }
-        }
-        return charge;
-      },
-      getSessionId: function() {
-        return session_id;
-      },
-      xDomainPost: function(params) {
-        var error_callback, rpc, success_callback;
-        success_callback = function(data, textStatus, jqXHR) {
-          if (!data || (data.object === 'error')) {
-            return params.error(data || {
+          return charge;
+        },
+        getSessionId: function() {
+          return session_id;
+        },
+        xDomainPost: function(params) {
+          var error_callback, rpc, success_callback;
+          success_callback = function(data, textStatus, jqXHR) {
+            if (!data || (data.object === 'error') || !data.id) {
+              return params.error(data || {
+                object: 'error',
+                type: 'api_error',
+                message: "Something went wrong on Conekta's end",
+                message_to_purchaser: "Your code could not be processed, please try again later"
+              });
+            } else {
+              return params.success(data);
+            }
+          };
+          error_callback = function() {
+            return params.error({
               object: 'error',
               type: 'api_error',
-              message: "Something went wrong on Conekta's end"
+              message: 'Something went wrong, possibly a connectivity issue',
+              message_to_purchaser: "Your code could not be processed, please try again later"
             });
-          } else {
-            return params.success(data);
-          }
-        };
-        error_callback = function() {
-          return params.error({
-            object: 'error',
-            type: 'api_error',
-            message: 'Something went wrong, possibly a connectivity issue'
-          });
-        };
-        if (document.location.protocol === 'file:') {
-          params.url = (params.jsonp_url || params.url) + '/create.js';
-          params.data['_Version'] = "0.3.0";
-          params.data['_RaiseHtmlError'] = false;
-          params.data['auth_token'] = Conekta.getPublishableKey();
-          params.data['conekta_client_user_agent'] = '{"agent":"Conekta JavascriptBindings/0.3.0"}';
-          return ajax({
-            url: base_url + params.url,
-            dataType: 'jsonp',
-            data: params.data,
-            success: success_callback,
-            error: error_callback
-          });
-        } else {
-          if (typeof (new XMLHttpRequest()).withCredentials !== 'undefined') {
+          };
+          if (document.location.protocol === 'file:') {
+            params.url = (params.jsonp_url || params.url) + '/create.js';
+            params.data['_Version'] = "0.3.0";
+            params.data['_RaiseHtmlError'] = false;
+            params.data['auth_token'] = Conekta.getPublishableKey();
+            params.data['conekta_client_user_agent'] = '{"agent":"Conekta JavascriptBindings/0.3.0"}';
             return ajax({
               url: base_url + params.url,
-              type: 'POST',
-              dataType: 'json',
-              data: JSON.stringify(params.data),
-              contentType: 'application/json',
-              headers: {
-                'RaiseHtmlError': false,
-                'Accept': 'application/vnd.conekta-v0.3.0+json',
-                'Conekta-Client-User-Agent': '{"agent":"Conekta JavascriptBindings/0.3.0"}',
-                'Authorization': 'Basic ' + Base64.encode(Conekta.getPublishableKey() + ':')
-              },
+              dataType: 'jsonp',
+              data: params.data,
               success: success_callback,
               error: error_callback
             });
           } else {
-            rpc = new easyXDM.Rpc({
-              swf: "https://conektaapi.s3.amazonaws.com/v0.3.0/flash/easyxdm.swf",
-              remote: base_url + "easyxdm_cors_proxy.html"
-            }, {
-              remote: {
-                request: {}
-              }
-            });
-            return rpc.request({
-              url: base_url + params.url,
-              method: 'POST',
-              headers: {
-                'RaiseHtmlError': false,
-                'Accept': 'application/vnd.conekta-v0.3.0+json',
-                'Conekta-Client-User-Agent': '{"agent":"Conekta JavascriptBindings/0.3.0"}',
-                'Authorization': 'Basic ' + Base64.encode(Conekta.getPublishableKey() + ':')
-              },
-              data: JSON.stringify(params.data)
-            }, success_callback, error_callback);
+            if (typeof (new XMLHttpRequest()).withCredentials !== 'undefined') {
+              return ajax({
+                url: base_url + params.url,
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(params.data),
+                contentType: 'application/json',
+                headers: {
+                  'RaiseHtmlError': false,
+                  'Accept': 'application/vnd.conekta-v0.3.0+json',
+                  'Accept-Language': Conekta.getLanguage(),
+                  'Conekta-Client-User-Agent': '{"agent":"Conekta JavascriptBindings/0.3.0"}',
+                  'Authorization': 'Basic ' + Base64.encode(Conekta.getPublishableKey() + ':')
+                },
+                success: success_callback,
+                error: error_callback
+              });
+            } else {
+              rpc = new easyXDM.Rpc({
+                swf: "https://conektaapi.s3.amazonaws.com/v0.3.2/flash/easyxdm.swf",
+                remote: base_url + "easyxdm_cors_proxy.html"
+              }, {
+                remote: {
+                  request: {}
+                }
+              });
+              return rpc.request({
+                url: base_url + params.url,
+                method: 'POST',
+                headers: {
+                  'RaiseHtmlError': false,
+                  'Accept': 'application/vnd.conekta-v0.3.0+json',
+                  'Accept-Language': Conekta.getLanguage(),
+                  'Conekta-Client-User-Agent': '{"agent":"Conekta JavascriptBindings/0.3.0"}',
+                  'Authorization': 'Basic ' + Base64.encode(Conekta.getPublishableKey() + ':')
+                },
+                data: JSON.stringify(params.data)
+              }, success_callback, error_callback);
+            }
+          }
+        },
+        log: function(data) {
+          if (typeof console !== 'undefined' && console.log) {
+            return console.log(data);
           }
         }
-      },
-      log: function(data) {
-        if (typeof console !== 'undefined' && console.log) {
-          return console.log(data);
-        }
       }
-    }
-  };
+    };
+  }
 
 }).call(this);
 
@@ -376,23 +541,33 @@
       failure_callback = Conekta._helpers.log;
     }
     charge = Conekta._helpers.parseForm(charge_form);
-    charge.session_id = Conekta._helpers.getSessionId();
-    if (charge.card && charge.card.address && !(charge.card.address.street1 || charge.card.address.street2 || charge.card.address.street3 || charge.card.address.city || charge.card.address.state || charge.card.address.country || charge.card.address.zip)) {
-      delete charge.card.address;
-    }
     if (typeof charge === 'object') {
-      return Conekta._helpers.xDomainPost({
-        jsonp_url: 'charges/create',
-        url: 'charges',
-        data: charge,
-        success: success_callback,
-        error: failure_callback
-      });
+      if (Conekta._helpers.objectKeys(charge).length > 0) {
+        charge.session_id = Conekta._helpers.getSessionId();
+        if (charge.card && charge.card.address && !(charge.card.address.street1 || charge.card.address.street2 || charge.card.address.street3 || charge.card.address.city || charge.card.address.state || charge.card.address.country || charge.card.address.zip)) {
+          delete charge.card.address;
+        }
+        return Conekta._helpers.xDomainPost({
+          jsonp_url: 'charges/create',
+          url: 'charges',
+          data: charge,
+          success: success_callback,
+          error: failure_callback
+        });
+      } else {
+        return failure_callback({
+          'object': 'error',
+          'type': 'invalid_request_error',
+          'message': "Supplied parameter 'charge' is usable object but has no values (e.g. amount, description) associated with it",
+          'message_to_purchaser': "The card could not be processed, please try again later"
+        });
+      }
     } else {
       return failure_callback({
         'object': 'error',
         'type': 'invalid_request_error',
-        'message': "Supplied parameter 'charge' is not a javascript object"
+        'message': "Supplied parameter 'charge' is not a javascript object",
+        'message_to_purchaser': "The card could not be processed, please try again later"
       });
     }
   };
@@ -556,7 +731,7 @@
     month = parseMonth(exp_month);
     year = parseYear(exp_year);
     if ((typeof month === 'number' && month > 0 && month < 13) && (typeof year === 'number' && year > 2013 && year < 2035)) {
-      return Date.parse(month + '/' + new Date(year, month, 0).getDate() + '/' + year) > Date.now();
+      return (new Date(year, month, new Date(year, month, 0).getDate())) > (new Date());
     } else {
       return false;
     }
@@ -603,31 +778,42 @@
       failure_callback = Conekta._helpers.log;
     }
     token = Conekta._helpers.parseForm(token_form);
-    if (token.card) {
-      token.card.device_fingerprint = Conekta._helpers.getSessionId();
-    } else {
-      failure_callback({
-        'object': 'error',
-        'type': 'invalid_request_error',
-        'message': "The form or hash has no attributes 'card'.  If you are using a form, please ensure that you have have an input or text area with the data-conekta attribute 'card[number]'.  For an example form see: https://github.com/conekta/conekta.js/blob/master/examples/credit_card.html"
-      });
-    }
-    if (token.card && token.card.address && !(token.card.address.street1 || token.card.address.street2 || token.card.address.street3 || token.card.address.city || token.card.address.state || token.card.address.country || token.card.address.zip)) {
-      delete token.card.address;
-    }
     if (typeof token === 'object') {
-      return Conekta._helpers.xDomainPost({
-        jsonp_url: 'tokens/create',
-        url: 'tokens',
-        data: token,
-        success: success_callback,
-        error: failure_callback
-      });
+      if (Conekta._helpers.objectKeys(token).length > 0) {
+        if (token.card) {
+          token.card.device_fingerprint = Conekta._helpers.getSessionId();
+        } else {
+          failure_callback({
+            'object': 'error',
+            'type': 'invalid_request_error',
+            'message': "The form or hash has no attributes 'card'.  If you are using a form, please ensure that you have have an input or text area with the data-conekta attribute 'card[number]'.  For an example form see: https://github.com/conekta/conekta.js/blob/master/examples/credit_card.html",
+            'message_to_purchaser': "The card could not be processed, please try again later"
+          });
+        }
+        if (token.card && token.card.address && !(token.card.address.street1 || token.card.address.street2 || token.card.address.street3 || token.card.address.city || token.card.address.state || token.card.address.country || token.card.address.zip)) {
+          delete token.card.address;
+        }
+        return Conekta._helpers.xDomainPost({
+          jsonp_url: 'tokens/create',
+          url: 'tokens',
+          data: token,
+          success: success_callback,
+          error: failure_callback
+        });
+      } else {
+        return failure_callback({
+          'object': 'error',
+          'type': 'invalid_request_error',
+          'message': "supplied parameter 'token' is usable object but has no values (e.g. amount, description) associated with it",
+          'message_to_purchaser': "The card could not be processed, please try again later"
+        });
+      }
     } else {
       return failure_callback({
         'object': 'error',
         'type': 'invalid_request_error',
-        'message': "Supplied parameter 'token' is not a javascript object or a form"
+        'message': "Supplied parameter 'token' is not a javascript object or a form",
+        'message_to_purchaser': "The card could not be processed, please try again later"
       });
     }
   };
