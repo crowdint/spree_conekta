@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Spree::BillingIntegration::Conekta::Bank, type: :model do
+RSpec.describe Spree::BillingIntegration::ConektaGateway::Bank, type: :model do
   describe '#provider_class' do
     specify { expect(subject.provider_class).to eq Spree::Conekta::Provider }
   end

@@ -16,7 +16,7 @@ module Spree
     private
 
     def conekta_payment?(payment_method)
-        [Spree::BillingIntegration::Conekta::Bank, Spree::BillingIntegration::Conekta::Cash].include? payment_method.class
+        [Spree::BillingIntegration::ConektaGateway::Bank, Spree::BillingIntegration::ConektaGateway::Cash].include? payment_method.class
     end
 
     def permit_installments_number

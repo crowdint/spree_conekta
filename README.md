@@ -30,13 +30,13 @@ rails g spree_conekta:install
 
 3. In the provider box,choose one of the following options depending on your needs:
 
-        Spree::BillingIntegration::Conekta::Card
+        Spree::BillingIntegration::ConektaGateway::Card
 
-        Spree::BillingIntegration::Conekta::Cash
+        Spree::BillingIntegration::ConektaGateway::Cash
 
-        Spree::BillingIntegration::Conekta::Bank
+        Spree::BillingIntegration::ConektaGateway::Bank
 
-        Spree::BillingIntegration::Conekta::MonthlyPayment
+        Spree::BillingIntegration::ConektaGateway::MonthlyPayment
 
 4. On the auth token field, add your Conekta public key:
 

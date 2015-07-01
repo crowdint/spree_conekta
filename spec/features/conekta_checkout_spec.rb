@@ -43,7 +43,7 @@ RSpec.describe "Conekta checkout", type: :feature do
 
     context 'With a valid card' do
       let!(:conekta_payment) do
-        Spree::BillingIntegration::Conekta::Card.create!(
+        Spree::BillingIntegration::ConektaGateway::Card.create!(
             name: "conekta",
             environment: "test",
             preferred_auth_token: '1tv5yJp3xnVZ7eK67m4h'
@@ -90,7 +90,7 @@ RSpec.describe "Conekta checkout", type: :feature do
 
     context 'With an invalid card' do
       let!(:conekta_payment) do
-        Spree::BillingIntegration::Conekta::Card.create!(
+        Spree::BillingIntegration::ConektaGateway::Card.create!(
             name: "conekta",
             environment: "test",
             preferred_auth_token: '1tv5yJp3xnVZ7eK67m4h'
@@ -136,7 +136,7 @@ RSpec.describe "Conekta checkout", type: :feature do
 
     context 'With a card with errors' do
       let!(:conekta_payment) do
-        Spree::BillingIntegration::Conekta::Card.create!(
+        Spree::BillingIntegration::ConektaGateway::Card.create!(
             name: "conekta",
             environment: "test",
             preferred_auth_token: '1tv5yJp3xnVZ7eK67m4h'
@@ -182,7 +182,7 @@ RSpec.describe "Conekta checkout", type: :feature do
 
     context 'With a card with limit exceeded' do
       let!(:conekta_payment) do
-        Spree::BillingIntegration::Conekta::Card.create!(
+        Spree::BillingIntegration::ConektaGateway::Card.create!(
             name: "conekta",
             environment: "test",
             preferred_auth_token: '1tv5yJp3xnVZ7eK67m4h'
@@ -229,7 +229,7 @@ RSpec.describe "Conekta checkout", type: :feature do
 
   context "the payment source is cash", js: true do
     let!(:conekta_payment) do
-      Spree::BillingIntegration::Conekta::Cash.create!(
+      Spree::BillingIntegration::ConektaGateway::Cash.create!(
         name: "conekta",
         environment: "test",
         preferred_auth_token: '1tv5yJp3xnVZ7eK67m4h'
@@ -265,7 +265,7 @@ RSpec.describe "Conekta checkout", type: :feature do
 
  context "the payment source is bank", js: true do
     let!(:conekta_payment) do
-      Spree::BillingIntegration::Conekta::Bank.create!(
+      Spree::BillingIntegration::ConektaGateway::Bank.create!(
         name: "conekta",
         environment: "test",
         preferred_auth_token: '1tv5yJp3xnVZ7eK67m4h'
