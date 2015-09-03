@@ -13,7 +13,7 @@ module Spree::Conekta::PaymentSource
     end
 
     def installments_number(source)
-      [6,12].include?(source.installments_number) ? source.installments_number : nil
+      [3,6,9,12].include?(source.installments_number) ? source.installments_number : nil
     end
 
     module_function :request, :installments_number

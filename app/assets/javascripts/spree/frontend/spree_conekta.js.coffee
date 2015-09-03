@@ -28,10 +28,11 @@ jQuery ->
       window.Conekta.token.create(form, @successResponseHandler, @errorResponseHandler)
 
     processPayment: (form)->
-      if @withInstallments(form)
-        @processWithInstallments(form)
-      else
-        @generateToken(form)
+      @generateToken(form)
+      // if @withInstallments(form)
+        // @processWithInstallments(form)
+      // else
+        // @generateToken(form)
 
     processWithInstallments: (form)->
       $.extend(@gatewayOptions, window.Conekta._helpers.parseForm(form))
