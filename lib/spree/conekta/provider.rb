@@ -73,10 +73,7 @@ module Spree::Conekta
         'phone'           => gateway_params[:billing_address][:phone],
         'billing_address' => billing_address(gateway_params),
         'line_items'      => line_items(gateway_params),
-        'shipment'        => {
-          'price'   => gateway_params[:shipping],
-          'address' => shipping_address(gateway_params)
-        }
+        'shipment'        => shipment(gateway_params)
       }
     end
 
@@ -107,6 +104,20 @@ module Spree::Conekta
       order = Spree::Order.find_by_number(gateway_params[:order_id].split('-').first)
       order.line_items.map(&:to_conekta)
     end
+
+    def shipment(gateway_params)
+      order = Spree::Order.find_by_number(gateway_params[:order_id].split('-').first)
+      shipment = order.shipments[0]
+      carrier = (shipment.present? ? shipment.shipping_method.name : "other")
+      traking_id = (shipment.present? ? shipment.tracking : nil)
+      {
+        'price'   => gateway_params[:shipping],
+        'address' => shipping_address(gateway_params),
+        'service'     => "other",
+        'carrier'     => carrier,
+        'traking_id'  => traking_id
+      }
+    end
     
     def build_common_to_cash(amount, gateway_params)
       amount_exchanged = Spree::Conekta::Exchange.new(amount, gateway_params[:currency]).amount_exchanged
@@ -114,7 +125,8 @@ module Spree::Conekta
         'amount' => amount_exchanged,
         'reference_id' => gateway_params[:order_id],
         'currency' => "MXN",
-        'description' => gateway_params[:order_id]
+        'description' => gateway_params[:order_id],
+        'details' => details(gateway_params)
       }
     end
   end
