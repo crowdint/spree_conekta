@@ -1,7 +1,7 @@
 module Spree::Conekta
   class Exchange
     
-    EXCHANCE_SERVICES = 'http://rate-exchange.appspot.com/'
+    EXCHANCE_SERVICES = 'https://currency-api.appspot.com/api/'
     
     def initialize(amount, currency_from)
       @amount = (amount.to_i)
@@ -16,7 +16,7 @@ module Spree::Conekta
     private
     
     def get_exchange_rate
-      response = JSON.parse(connection.get("currency?from=#{@currency_from}&to=MXN").body)
+      response = JSON.parse(connection.get("#{@currency_from}/MXN.json?amount=#{@amount}").body)
       @exchange_rate = response['rate'].nil? ? 0 : response['rate'].to_f
     end
     
