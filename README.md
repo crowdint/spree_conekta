@@ -9,7 +9,7 @@ Setup
 Add this extension to your Gemfile:
 
 ```ruby
-gem 'spree_conekta', github: 'AgilTec/spree_conekta', branch: '2.4.0.rc3'
+gem 'spree_conekta', github: 'conekta/spree_conekta', branch: '3-0-stable'
 ```
 
 Then run:
