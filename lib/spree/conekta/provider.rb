@@ -115,7 +115,7 @@ module Spree::Conekta
         'address' => shipping_address(gateway_params),
         'service'     => "other",
         'carrier'     => carrier,
-        'traking_id'  => traking_id
+        'tracking_id'  => traking_id
       }
     end
     
