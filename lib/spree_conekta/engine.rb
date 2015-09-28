@@ -31,6 +31,10 @@ module SpreeConekta
       app.config.spree.payment_methods << Spree::BillingIntegration::ConektaGateway::MonthlyPayment
     end
 
+    initializer 'spree_conekta.assets.precompile' do |app|
+      app.config.assets.precompile += %w( spree/backend/print.css )
+    end
+
     config.to_prepare &method(:activate).to_proc
   end
 end
