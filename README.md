@@ -21,7 +21,7 @@ rails g spree_conekta:install
 
 ##Setup Conekta Payments
 
-1. You need to go to [Conekta](https://www.conekta.io/), create an account and retrieve your public api key.
+1. You need to go to [Conekta](https://www.conekta.io/), create an account and retrieve your private and public api keys.
 
 2. On the spree application admin side go to:
 ```
@@ -38,7 +38,8 @@ rails g spree_conekta:install
 
         Spree::BillingIntegration::ConektaGateway::MonthlyPayment
 
-4. On the auth token field, add your Conekta public key:
+4. On the auth token field, add your Conekta private key.
+5. On the public auth token field, add your Conekta public private key.
 
 ###Source Methods
 
