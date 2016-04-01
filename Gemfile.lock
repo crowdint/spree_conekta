@@ -28,7 +28,7 @@ PATH
       coffee-rails
       faraday
       faraday_middleware
-      oj
+      oj (~> 2.14.0)
       spree (~> 3.0.0.rc2)
       typhoeus
 
@@ -200,7 +200,7 @@ GEM
     multipart-post (2.0.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
-    oj (2.15.0)
+    oj (2.14.6)
     paperclip (4.2.4)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -422,4 +422,4 @@ DEPENDENCIES
   vcr
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,models,db,lib}/**/*'] + %w(MIT-LICENSE Rakefile README.md)
 
 
-  s.add_dependency 'oj'
+  s.add_dependency 'oj', '~> 2.14.0'
   s.add_dependency 'faraday'
   s.add_dependency 'typhoeus'
   s.add_dependency 'faraday_middleware'
