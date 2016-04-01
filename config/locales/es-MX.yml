@@ -13,6 +13,11 @@ es-MX:
       service_number: Número de servicio
       reference: Referencia
       payment_message: 'Presente este número de referencia en cualquier sucursal: <strong> Banorte </strong>'
+    spei:
+      payment_title: SPEI
+      clabe: CLABE
+      reference: Referencia
+      payment_message: Usa esta CLABE para hacer una transferencia SPEI.
     title: Información de pago
     next_step: Siguiente paso
     order_number: 'Número de orden: %{number}'

@@ -16,6 +16,11 @@ en:
       service_number: Service Number
       reference: Reference
       payment_message: Give this reference number at any Banorte bank.
+    spei:
+      payment_title: SPEI
+      clabe: CLABE
+      reference: Reference
+      payment_message: Use this CLABE to make a SPEI transfer.
     order_number: 'Order Number: %{number}'
     total: 'Total:'
     installments_number: 'Installments Number'
