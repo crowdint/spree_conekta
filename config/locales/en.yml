@@ -3,7 +3,7 @@ en:
     additional_steps_warning: Additional steps to complete your payment
     card:
       processing_order: Processing order please wait
-    cash:
+    oxxo:
       bar_code: Barcode
       next_step: Next step
       payment_message: Print this form and take it to the nearest OXXO to make your payment.
@@ -11,7 +11,7 @@ en:
       print_payment_form: Print payment form
       title: Payment information
       total: Total
-    bank:
+    banorte:
       payment_title: Banorte deposit
       service_number: Service Number
       reference: Reference

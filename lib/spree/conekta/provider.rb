@@ -10,7 +10,7 @@ module Spree::Conekta
         'card' => Spree::Conekta::PaymentSource::Card,
         'banorte' => Spree::Conekta::PaymentSource::Bank,
         'spei' => Spree::Conekta::PaymentSource::Bank,
-        'cash' => Spree::Conekta::PaymentSource::Cash
+        'oxxo' => Spree::Conekta::PaymentSource::Cash
     }
 
     def initialize(options = {})
