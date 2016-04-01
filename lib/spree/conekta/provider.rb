@@ -8,7 +8,8 @@ module Spree::Conekta
 
     PAYMENT_SOURCES = {
         'card' => Spree::Conekta::PaymentSource::Card,
-        'bank' => Spree::Conekta::PaymentSource::Bank,
+        'banorte' => Spree::Conekta::PaymentSource::Bank,
+        'spei' => Spree::Conekta::PaymentSource::Bank,
         'cash' => Spree::Conekta::PaymentSource::Cash
     }
 
@@ -20,7 +21,7 @@ module Spree::Conekta
 
     def authorize(amount, method_params, gateway_options = {})
       common = build_common(amount, gateway_options)
-      commit common, method_params, gateway_options
+      commit common, method_params, gateway_options.merge({type: @options[:source_method]})
     end
 
     alias_method :purchase, :authorize
