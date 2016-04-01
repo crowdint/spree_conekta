@@ -4,7 +4,7 @@ module Spree::Conekta
 
     def initialize(response, source_method)
       @success = !(response.eql?('null') || response.include?('type')) if response
-      @message = @success ? 'Ok' : response['message']
+      @message = @success ? 'Ok' : response['message_to_purchaser']
       @params = response
       @status = response['status']
       @source_method = source_method
