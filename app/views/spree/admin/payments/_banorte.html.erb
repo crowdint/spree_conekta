@@ -1,0 +1,32 @@
+<%- @order_details = @order.last_payment_details.params %>
+
+<table class='print' id='conekta_banorte'>
+  <thead>
+    <tr>
+      <th class='title' colspan='2'> <%= t('conekta.order_number', number: @order.number) %> </th>
+    </tr>
+    <tr>
+      <th> <%= t('conekta.banorte.service_number') %> </th>
+      <th> <%= t('conekta.banorte.reference') %> </th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan='2'> <%= raw t('conekta.banorte.payment_message') %> </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td class='align-center'> <%= @order_details['banorte']['service_number'] %> </td>
+      <td class='align-center'> <%= @order_details['banorte']['reference'] %> </td>
+    </tr>
+    <tr>
+      <td class='align-right'> <%= t('conekta.total') %> </td>
+      <td class='align-center'><%= money(@order.total) %></td>
+    </tr>
+  </tbody>
+</table>
+
+<a id='pbutton' href='#' class='icon-print' onclick='printDoc("#conekta_banorte")'>
+  <%= t('conekta.cash.print_payment_form') %>
+</a>

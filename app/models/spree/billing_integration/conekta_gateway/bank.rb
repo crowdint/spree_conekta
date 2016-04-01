@@ -1,7 +1,7 @@
 module Spree
   class BillingIntegration::ConektaGateway::Bank < Gateway
     preference :auth_token, :string
-    preference :source_method, :string, default: 'bank'
+    preference :source_method, :string, default: 'banorte'
 
     unless Rails::VERSION::MAJOR == 4
       attr_accessible :preferred_auth_token, :preferred_source_method, :gateway_response

@@ -1,0 +1,28 @@
+<h1><%= t('conekta.spei.payment_title') %></h1>
+
+<table id='conekta_spei' class='payment-information'>
+  <thead>
+    <tr>
+      <th colspan='2'> <%= t('conekta.order_number', number: @order.number) %> </th>
+    </tr>
+    <tr>
+      <th> <%= t('conekta.spei.clabe') %> </th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan='2'> <%= raw t('conekta.spei.payment_message') %> </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td class='align-center'> <%= @order_details['payment_method']['receiving_account_number'] %> </td>
+    </tr>
+    <tr>
+      <td class='align-right' colspan='2'>
+        <b><%= t('conekta.total') %></b>
+        <%= @order.display_total.to_html %>
+      </td>
+    </tr>
+  </tbody>
+</table>

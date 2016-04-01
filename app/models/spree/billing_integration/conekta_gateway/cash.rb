@@ -1,7 +1,7 @@
 module Spree
   class BillingIntegration::ConektaGateway::Cash < Gateway
     preference :auth_token, :string
-    preference :source_method, :string, default: 'cash'
+    preference :source_method, :string, default: 'oxxo'
 
     unless Rails::VERSION::MAJOR == 4
       attr_accessible :preferred_auth_token, :preferred_source_method, :gateway_response
