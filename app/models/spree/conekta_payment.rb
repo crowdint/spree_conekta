@@ -7,7 +7,7 @@ class Spree::ConektaPayment < ActiveRecord::Base
   end
 
   def actions
-    %w{capture}
+    %w{capture cancel void}
   end
 
   def can_capture?(payment)

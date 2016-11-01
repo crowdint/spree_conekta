@@ -31,5 +31,9 @@ module Spree
     def method_type
       'conekta_card'
     end
+
+    def cancel(response_code)
+      provider.void(response_code)
+    end
   end
 end
