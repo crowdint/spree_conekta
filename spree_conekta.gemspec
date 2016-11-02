@@ -7,8 +7,8 @@ require 'spree_conekta/version'
 Gem::Specification.new do |s|
   s.name        = 'spree_conekta'
   s.version     = SpreeConekta::VERSION
-  s.authors     = ['Jonathan Garay', 'Fernando Barajas', 'Manuel Vidaurre']
-  s.email       = %w(jonathan.garay@crowdint.com fernando.barajas@crowdint.com manuel.vidaurre@agiltec.com.mx)
+  s.authors     = ['Jonathan Garay', 'Fernando Barajas']
+  s.email       = %w(jonathan.garay@crowdint.com fernando.barajas@crowdint.com )
   s.homepage    = 'http://github.com/crowdint/spree_conekta'
   s.summary     = 'Spree Engine for Conekta Mexican Payment gateway'
   s.description = 'Spree Engine for Conekta Mexican Payment gateway'

@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 # gem 'spree', github: 'spree/spree', branch: 'master'
-gem 'spree', github: 'spree/spree', branch: '3-0-stable'
+gem 'spree', github: 'spree/spree', branch: 'master'
 gem 'sass-rails', '~> 4.0.3'
 
 # Spree Internationalization https://github.com/spree/spree_i18n
